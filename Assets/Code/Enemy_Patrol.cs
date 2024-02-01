@@ -39,6 +39,7 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody2D>();
 
         if (waypoints.Length == 0)

@@ -7,6 +7,11 @@ public class Hide : MonoBehaviour
     public GameManager gameManager;
     private bool isPlayerInSpot = false;
 
+
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     // Called when another collider enters the trigger zone
     private void OnTriggerEnter2D(Collider2D other)
     {

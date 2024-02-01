@@ -29,6 +29,7 @@ public class Player_Movement : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
         groundCheck = transform.Find("GroundCheck");
