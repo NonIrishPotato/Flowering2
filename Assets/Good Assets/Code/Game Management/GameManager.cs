@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public int amountOfBerrys = 0;
+    public int amountOfBerrysCollected;
 
 
 
@@ -32,6 +33,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("Death");
             // Add any additional actions for when the player dies
         }
+        if (amountOfBerrysCollected == 4)
+        {
+            Debug.Log("Win");
+        }
+
     }
 
     private void Awake()
