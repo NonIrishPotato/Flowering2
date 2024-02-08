@@ -5,6 +5,7 @@ using UnityEngine;
 public class CureDispenser : MonoBehaviour
 {
     public GameManager gameManager;
+    public static GameObject Instance;
     private bool isPlayerInSpot = false;
     // Start is called before the first frame update
     void Start()
