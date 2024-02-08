@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4847017723451509600}
   - component: {fileID: 7090753754350558822}
   - component: {fileID: 3533179286911140286}
-  - component: {fileID: 6387844580862821082}
-  m_Layer: 7
+  - component: {fileID: 1823351798640619290}
+  m_Layer: 9
   m_Name: HidingSpot
-  m_TagString: Untagged
+  m_TagString: Hide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.63574004}
   m_EdgeRadius: 0
---- !u!114 &6387844580862821082
+--- !u!114 &1823351798640619290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2604088558937841015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7802ea56113dd48822bc08d5e1b2b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c9dee1dac366074a92ce69c3566df74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4974743993872120032}
   - component: {fileID: 3484759306774375868}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

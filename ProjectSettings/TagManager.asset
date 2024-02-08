@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Undefined
+  - Obstacle
   - Enemy
   - Ground
-  - Obstacle
+  - Hide
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - Obstacle
   - Ground
+  - Obstacle
   - Enemy
-  - 
+  - Hide
   - 
   - 
   - 

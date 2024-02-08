@@ -6,9 +6,11 @@ public class CureBerryBush : MonoBehaviour
 {
     public GameManager gameManager;
     public static GameObject Instance;
+    public int whichBerryBush = 0;
     public bool berryTaken = false;
 
     private bool isPlayerInSpot = false;
+    private BerryController berryController;
     public GameObject berry;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,6 +35,12 @@ public class CureBerryBush : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        berryController = FindObjectOfType<BerryController>();
+
+        if (berryController == null)
+        {
+            Debug.LogError("BerryController not found in the scene!");
+        }
         gameManager = GameManager.Instance;
     }
 
@@ -44,12 +52,19 @@ public class CureBerryBush : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BerryState berryState = berryController.berryStates[whichBerryBush];
+        if(berryState.isPicked)
+        {
+            berry.SetActive(false);
+            berryTaken = true;
+        }
+
         if (isPlayerInSpot && Input.GetKeyDown(KeyCode.LeftShift))
         {
             if (!berryTaken)
             {
                 // Perform actions for picking the berry
-                berryTaken = true;
+                berryController.PickBerry(whichBerryBush);
                 gameManager.amountOfBerrys += 1;
                 berry.SetActive(false);
                 Debug.Log("Berry picked! Total Berries: " + gameManager.amountOfBerrys);
@@ -57,7 +72,9 @@ public class CureBerryBush : MonoBehaviour
             }
             else
             {
+                
                 Debug.Log("No berry to pick!");
+                
             }
         }
     }
