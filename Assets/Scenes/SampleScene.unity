@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 136869417}
   m_Layer: 6
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,9 +321,9 @@ GameObject:
   - component: {fileID: 180515957}
   - component: {fileID: 180515956}
   - component: {fileID: 180515955}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
