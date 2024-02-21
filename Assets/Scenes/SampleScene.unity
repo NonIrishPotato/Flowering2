@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CureBerry (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3299676380618343662, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
+      propertyPath: whichBerryBush
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3374508408862344348, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7902993
@@ -952,6 +956,10 @@ PrefabInstance:
     - target: {fileID: 1310761968037746518, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_Name
       value: CureBerry (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299676380618343662, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
+      propertyPath: whichBerryBush
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3374508408862344348, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_LocalPosition.x

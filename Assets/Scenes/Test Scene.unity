@@ -464,6 +464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CureBerry (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3299676380618343662, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
+      propertyPath: whichBerryBush
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3374508408862344348, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.06
@@ -766,6 +770,10 @@ PrefabInstance:
     - target: {fileID: 1310761968037746518, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_Name
       value: CureBerry (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299676380618343662, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
+      propertyPath: whichBerryBush
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3374508408862344348, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1284,6 +1292,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1795420511}
+    - target: {fileID: 3299676380618343662, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
+      propertyPath: whichBerryBush
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3374508408862344348, guid: ba75ee684b92d7e4ea336f3c9813dc52, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.87

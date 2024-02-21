@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private BerryController berryController;
+
     public static GameManager Instance;
     public bool IsPlayerHiding = false;
     public bool IsPlayerCrouching = false;
@@ -18,13 +20,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // If you have any initialization code, you can put it here
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(amountOfBerrys);
+        
         if (currentHealth <= 0)
         {
             Debug.Log("Death");
