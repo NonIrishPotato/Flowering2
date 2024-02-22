@@ -89,13 +89,13 @@ public class InventorySystem : MonoBehaviour
                     placed = true;
                     Items[z] = 1;
                     InventorySlots[z].sprite = testBerry;
-                    
+                    gameManager.tempBerrysForMySanity -= 1;
+                    Debug.Log(gameManager.tempBerrysForMySanity);
                     break;
                 }
                 if (Items[z] == 1)
                 {
                     amountOfBerrysFound += 1;
-                    gameManager.tempBerrysForMySanity -= 1;
                     if (amountOfBerrysFound >= gameManager.amountOfBerrys)
                     {
                         break;

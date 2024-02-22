@@ -53,34 +53,24 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
             }
         }
 
-        Debug.Log("Dropped " + currentSlot + " " + targetSlotIndex + " " + currentSlotIndex);
+        Debug.Log("Picked up at " + currentSlot + " " + targetSlotIndex + " " + currentSlotIndex + " placed at " + targetSlot);
 
 
 
-        if (currentSlotIndex < targetSlotIndex)
+
+        if (inventorySystem.Items[currentSlotIndex] != inventorySystem.Items[targetSlotIndex])
         {
-            // Swap items between slots
-            int tempItem = inventorySystem.Items[currentSlotIndex];
-            inventorySystem.Items[currentSlotIndex] = inventorySystem.Items[targetSlotIndex];
-            inventorySystem.Items[targetSlotIndex] = tempItem;
+            int tempCurrent = inventorySystem.Items[currentSlotIndex];
+            int tempTarget = inventorySystem.Items[targetSlotIndex];
+            inventorySystem.Items[currentSlotIndex] = tempTarget;
+            inventorySystem.Items[targetSlotIndex] = tempCurrent;
 
-            // Swap sprites between slots
-            Sprite tempSprite = inventorySystem.InventorySlots[currentSlotIndex].sprite;
-            inventorySystem.InventorySlots[currentSlotIndex].sprite = inventorySystem.InventorySlots[targetSlotIndex].sprite;
-            inventorySystem.InventorySlots[targetSlotIndex].sprite = tempSprite;
+            Sprite tempCurrentSprite = inventorySystem.InventorySlots[currentSlotIndex].sprite;
+            Sprite tempTargetSprite = inventorySystem.InventorySlots[targetSlotIndex].sprite;
+            inventorySystem.InventorySlots[currentSlotIndex].sprite = tempTargetSprite;
+            inventorySystem.InventorySlots[targetSlotIndex].sprite = tempCurrentSprite;
         }
-        if (currentSlotIndex >= targetSlotIndex)
-        {
-            // Swap items between slots
-            int tempItem = inventorySystem.Items[targetSlotIndex];
-            inventorySystem.Items[targetSlotIndex] = inventorySystem.Items[currentSlotIndex];
-            inventorySystem.Items[currentSlotIndex] = tempItem;
 
-            // Swap sprites between slots
-            Sprite tempSprite = inventorySystem.InventorySlots[targetSlotIndex].sprite;
-            inventorySystem.InventorySlots[targetSlotIndex].sprite = inventorySystem.InventorySlots[currentSlotIndex].sprite;
-            inventorySystem.InventorySlots[currentSlotIndex].sprite = tempSprite;
-        }
 
         currentSlotIndex = 0;
         targetSlotIndex = 0;
