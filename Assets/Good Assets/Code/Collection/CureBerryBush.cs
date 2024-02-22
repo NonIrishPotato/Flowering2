@@ -66,6 +66,7 @@ public class CureBerryBush : MonoBehaviour
                 // Perform actions for picking the berry
                 berryController.PickBerry(whichBerryBush);
                 gameManager.amountOfBerrys += 1;
+                gameManager.tempBerrysForMySanity += 1;
                 berry.SetActive(false);
                 Debug.Log("Berry picked! Total Berries: " + gameManager.amountOfBerrys);
                 // Add any additional actions for when the player picks the berry

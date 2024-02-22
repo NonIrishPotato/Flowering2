@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public int amountOfBerrys = 0;
+    public int tempBerrysForMySanity = 0;
     public int amountOfBerrysCollected;
 
 

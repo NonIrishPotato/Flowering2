@@ -59,6 +59,7 @@ public class InventorySystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Checks Inventory Slots and fill items appropriately
         UpdateInventorySlots();
 
@@ -77,7 +78,7 @@ public class InventorySystem : MonoBehaviour
 
     public void countBerrys()
     {
-        for (int i = 0; i < gameManager.amountOfBerrys; i++)
+        for (int i = 0; i < gameManager.tempBerrysForMySanity; i++)
         {
             bool placed = false;
             int amountOfBerrysFound = 0;
@@ -88,11 +89,13 @@ public class InventorySystem : MonoBehaviour
                     placed = true;
                     Items[z] = 1;
                     InventorySlots[z].sprite = testBerry;
+                    
                     break;
                 }
                 if (Items[z] == 1)
                 {
                     amountOfBerrysFound += 1;
+                    gameManager.tempBerrysForMySanity -= 1;
                     if (amountOfBerrysFound >= gameManager.amountOfBerrys)
                     {
                         break;
@@ -101,46 +104,6 @@ public class InventorySystem : MonoBehaviour
 
             }
         }
-    }
-
-    public void OnBeginDrag(PointerEventData eventData, GameObject draggedObject)
-    {
-        // Get the dragged item and its index
-        draggedItem = eventData.pointerDrag.GetComponent<Image>();
-        Debug.Log("Dragged" + draggedItem);
-        for (int i = 0; i < InventorySlots.Length; i++)
-        {
-            if (InventorySlots[i] == draggedItem)
-            {
-                draggedItemIndex = i;
-                break;
-            }
-        }
-    }
-
-    public void OnDrop(PointerEventData eventData, GameObject targetObject)
-    {
-        // Get the target slot and its index
-        targetSlot = eventData.pointerDrag.GetComponent<Image>();
-        Debug.Log("Dropped" + targetSlot);
-        for (int i = 0; i < InventorySlots.Length; i++)
-        {
-            if (InventorySlots[i] == targetSlot)
-            {
-                targetSlotIndex = i;
-                break;
-            }
-        }
-
-        // Swap items between slots
-        int tempItem = Items[draggedItemIndex];
-        Items[draggedItemIndex] = Items[targetSlotIndex];
-        Items[targetSlotIndex] = tempItem;
-
-        // Swap sprites between slots
-        Sprite tempSprite = InventorySlots[draggedItemIndex].sprite;
-        InventorySlots[draggedItemIndex].sprite = InventorySlots[targetSlotIndex].sprite;
-        InventorySlots[targetSlotIndex].sprite = tempSprite;
     }
 
     private void UpdateInventorySlots()
