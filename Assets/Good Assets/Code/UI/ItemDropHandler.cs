@@ -7,19 +7,30 @@ using UnityEngine.UI;
 public class ItemDropHandler : MonoBehaviour, IDropHandler
 {
     public InventorySystem inventorySystem; // Reference to the InventorySystem
+    public Transform newParent;
+    public Transform oldParent;
 
     private Image targetSlot;
     private Image currentSlot;
     private int currentSlotIndex;
     private int targetSlotIndex;
 
+
     public void OnDrop(PointerEventData eventData)
     {
         // Get the target slot and its index
+
+        currentSlot = eventData.pointerDrag.GetComponent<Image>();
+
+
         GameObject targetObject = eventData.pointerCurrentRaycast.gameObject;
+
 
         // Ensure the target object has an Image component
         targetSlot = targetObject.GetComponent<Image>();
+
+
+        Debug.Log(targetSlot);
         if (targetSlot != null)
         {
             Debug.Log("Dropped on image: " + targetSlot.name);
@@ -38,8 +49,6 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
                 break;
             }
         }
-
-        currentSlot = eventData.pointerDrag.GetComponent<Image>();
         
 
 
@@ -52,6 +61,8 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
                 break;
             }
         }
+
+
 
         Debug.Log("Picked up at " + currentSlot + " " + targetSlotIndex + " " + currentSlotIndex + " placed at " + targetSlot);
 
@@ -69,6 +80,16 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
             Sprite tempTargetSprite = inventorySystem.InventorySlots[targetSlotIndex].sprite;
             inventorySystem.InventorySlots[currentSlotIndex].sprite = tempTargetSprite;
             inventorySystem.InventorySlots[targetSlotIndex].sprite = tempCurrentSprite;
+        }
+
+        if (oldParent != null)
+        {
+            // Change the parent of this GameObject to the new parent
+            currentSlot.transform.SetParent(oldParent, true); // Set the second parameter to true if you want to maintain the local position, rotation, and scale
+        }
+        else
+        {
+            Debug.LogWarning("No new parent assigned!");
         }
 
 
