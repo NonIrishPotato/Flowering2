@@ -25,6 +25,7 @@ public class Enemy_Patrol : MonoBehaviour
     private float timeSinceLastDetection = 0f;
 
     private Transform player;
+    public Rigidbody2D playerRb;
     private bool canHitPlayer = true;
 
     private enum EnemyState
@@ -60,15 +61,11 @@ public class Enemy_Patrol : MonoBehaviour
         if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
         {
             wasPlayerDetected = true;
+            
             currentState = EnemyState.Chasing;
             timeSinceLastDetection = Time.time;
         }
         else if (wasPlayerDetected && Time.time - timeSinceLastDetection > timeBeforeReturningToPatrol && canHitPlayer == true)
-        {
-            wasPlayerDetected = false;
-            currentState = EnemyState.Patrolling;
-        }
-        else if (gameManager.IsPlayerHiding == true)
         {
             wasPlayerDetected = false;
             currentState = EnemyState.Patrolling;
@@ -145,6 +142,7 @@ public class Enemy_Patrol : MonoBehaviour
         FlipDirection(moveDirection.x);
 
         CheckForObstacles(moveDirection.x);
+        Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
     }
 
     private void Recover()

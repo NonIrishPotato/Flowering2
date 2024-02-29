@@ -14,7 +14,6 @@ public class InventorySystem : MonoBehaviour
      * ...
      */
     private GameManager gameManager;
-    public static GameObject Instance;
     public Image[] InventorySlots; //All image place holders for inventory
     public Image[] KeyItemSlots; //All image place holders for Key Items
     public Image[] CraftingSlots;//All image place holders for Crafting Slots
@@ -34,6 +33,7 @@ public class InventorySystem : MonoBehaviour
     private int targetSlotIndex;
 
     private RectTransform draggedItemTransform;
+
 
     // Start is called before the first frame update
     void Start()
