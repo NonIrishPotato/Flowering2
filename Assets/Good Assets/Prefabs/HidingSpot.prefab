@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4847017723451509600}
   - component: {fileID: 7090753754350558822}
   - component: {fileID: 3533179286911140286}
-  - component: {fileID: 1823351798640619290}
+  - component: {fileID: 2520910313550360088}
   m_Layer: 9
   m_Name: HidingSpot
   m_TagString: Hide
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.63574004}
   m_EdgeRadius: 0
---- !u!114 &1823351798640619290
+--- !u!114 &2520910313550360088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

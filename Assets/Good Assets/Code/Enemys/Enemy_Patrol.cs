@@ -68,6 +68,11 @@ public class Enemy_Patrol : MonoBehaviour
             wasPlayerDetected = false;
             currentState = EnemyState.Patrolling;
         }
+        else if (gameManager.IsPlayerHiding == true)
+        {
+            wasPlayerDetected = false;
+            currentState = EnemyState.Patrolling;
+        }
         else if (!canHitPlayer)
         {
             currentState = EnemyState.Recover;
@@ -181,7 +186,7 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && canHitPlayer)
+        if (collision.gameObject.CompareTag("Player") && canHitPlayer && gameManager.IsPlayerHiding == false)
         {
             Debug.Log("Hit Player");
             gameManager.currentHealth -= 1;

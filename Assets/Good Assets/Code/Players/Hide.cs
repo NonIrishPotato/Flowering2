@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Hide : MonoBehaviour
 {
-    public GameManager gameManager;
-    private bool isPlayerInSpot = false;
+    public Rigidbody2D rb;
+    public GameManager manager;
+
+    private static bool isPlayerinSpot = false; // Static variable to track hiding state globally
 
 
     private void Start()
     {
-        gameManager = GameManager.Instance;
+        manager = GameManager.Instance;
     }
     // Called when another collider enters the trigger zone
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +20,7 @@ public class Hide : MonoBehaviour
         // Check if the entering collider is the player
         if (other.CompareTag("Player"))
         {
-            isPlayerInSpot = true;
+            isPlayerinSpot = true; // Update hiding state globally
         }
     }
 
@@ -28,25 +30,34 @@ public class Hide : MonoBehaviour
         // Check if the exiting collider is the player
         if (other.CompareTag("Player"))
         {
-            isPlayerInSpot = false;
+            isPlayerinSpot = false; // Update hiding state globally
         }
     }
 
-    // Update is called once per frame
+    // Check if the player is hiding
+    public static bool IsPlayerinSpot()
+    {
+        return isPlayerinSpot;
+    }
+
     void Update()
     {
-        // Check if the player is holding down the Left Shift key while in the hiding spot
-        if (isPlayerInSpot && Input.GetKey(KeyCode.LeftShift))
+        // Check if the player is holding down the Left Shift key while in a hiding spot
+        if (IsPlayerinSpot() && Input.GetKey(KeyCode.LeftShift))
         {
             // Perform actions for hiding
-            gameManager.IsPlayerHiding = true;
+            manager.IsPlayerHiding = true;
+            Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
             // Add any additional actions for when the player is hiding
         }
         else
         {
             // Perform actions for not hiding
-            gameManager.IsPlayerHiding = false;
+            manager.IsPlayerHiding = false;
+            Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+
             // Add any additional actions for when the player is not hiding
         }
     }
+    //Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true)
 }
