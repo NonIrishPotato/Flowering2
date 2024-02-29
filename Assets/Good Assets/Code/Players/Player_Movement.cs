@@ -146,6 +146,7 @@ public class Player_Movement : MonoBehaviour
         {
             rb.gravityScale = 1f;
         }
+       
     }
 
     private void CheckForDamage()
