@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Ground
   - Hide
+  - InventorySlot
+  - HidingSpot
   layers:
   - Default
   - TransparentFX
