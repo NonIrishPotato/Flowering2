@@ -49,7 +49,7 @@ public class Dialogue : MonoBehaviour
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSeconds(textSpeed); // Input decimals to increase speed. Whole numbers will increase the wait time between each character.
         }
     }
 
