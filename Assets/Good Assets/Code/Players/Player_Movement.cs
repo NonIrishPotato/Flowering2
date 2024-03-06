@@ -131,7 +131,7 @@ public class Player_Movement : MonoBehaviour
     private void Jump()
     {
         //commented out grounded check just for the demo of sprint 2, need to fly around
-        if (/*isGrounded && */Input.GetButtonDown("Jump"))
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
