@@ -1,0 +1,71 @@
+{
+	"identifier": "Leading_To_Exit",
+	"uniqueIdentifer": "2d285350-b0a0-11ee-bc75-710c7234c902",
+	"x": 160,
+	"y": -160,
+	"width": 160,
+	"height": 160,
+	"bgColor": "#474B67",
+	"neighbourLevels": [
+		{
+			"levelIid": "a2a50ff0-66b0-11ec-9cd7-c721746049b9",
+			"dir": "s"
+		},
+		{
+			"levelIid": "2f668380-b0a0-11ee-bc75-a9d93e348b24",
+			"dir": "e"
+		},
+		{
+			"levelIid": "2dbaf660-b0a0-11ee-bc75-d19762f8f715",
+			"dir": "s"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"IntGrid_layer.png"
+	],
+	"entities": {
+		"Moving_Platform": [
+			{
+				"id": "Moving_Platform",
+				"iid": "1145d7f0-b0a0-11ee-bc75-511cb41ad88b",
+				"layer": "Entities",
+				"x": 64,
+				"y": 72,
+				"width": 16,
+				"height": 16,
+				"color": 12635100,
+				"customFields": {
+					"Point": {
+						"cx": 8,
+						"cy": 4
+					}
+				}
+			}
+		],
+		"Stalagtite": [
+			{
+				"id": "Stalagtite",
+				"iid": "5dae2060-b0a0-11ee-bc75-510b1f02a5db",
+				"layer": "Entities",
+				"x": 48,
+				"y": 16,
+				"width": 16,
+				"height": 16,
+				"color": 4073265,
+				"customFields" : {}
+			},
+			{
+				"id": "Stalagtite",
+				"iid": "779a7aa0-b0a0-11ee-bc75-898f2d742faf",
+				"layer": "Entities",
+				"x": 96,
+				"y": 16,
+				"width": 16,
+				"height": 16,
+				"color": 4073265,
+				"customFields" : {}
+			}
+		]
+	}
+}
