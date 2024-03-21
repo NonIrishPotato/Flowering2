@@ -119,6 +119,7 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+
     private void UpdateInventorySlots()
     {
 
@@ -184,35 +185,27 @@ public class InventorySystem : MonoBehaviour
         
 
             //Getting the Crafting items in the boxes
-            if (CraftingSlots[0] == 0)
-            {
+
                 CraftingSlots[0] = Items[22];
-            }
+
             //Debug.Log("Slot 1 = " + CraftingSlots[0]);
-            if (CraftingSlots[1] == 0)
-            {
+
                 CraftingSlots[1] = Items[23];
-            }
             //Debug.Log("Slot 2 = " + CraftingSlots[1]);
-            if (CraftingSlots[2] == 0)
-            {
+
                 CraftingSlots[2] = Items[24];
-            }
+
             //Debug.Log("Slot 3 = " + CraftingSlots[2]);
-            if (CraftingSlots[3] == 0)
-            {
+  
                 CraftingSlots[3] = Items[25];
-            }
+       
             // Debug.Log("Slot 4 = " + CraftingSlots[3]);
-            if (CraftingSlots[4] == 0)
-            {
+  
                 CraftingSlots[4] = Items[26];
-            }
+      
             //Debug.Log("Slot 5 = " + CraftingSlots[4]);
-            if (CraftingSlots[5] == 0)
-            {
+
                 CraftingSlots[5] = Items[27];
-            };
             //Debug.Log("Slot 6 = " + CraftingSlots[5]);
        
 
@@ -243,10 +236,14 @@ public class InventorySystem : MonoBehaviour
         }
 
 
-
+        //Crafting Recipies (Opt to change)
         if (amountOfTestBerrys == 2)
         {
             CrafterItemPlaceholderType = 2;
+        }
+        else
+        {
+            CrafterItemPlaceholderType = 0;
         }
 
 
@@ -270,5 +267,39 @@ public class InventorySystem : MonoBehaviour
         }
 
         amountOfTestBerrys = 0;
+    }
+
+    public void CraftButtonPress()
+    {
+        if(CrafterItemPlaceholderType != 0)
+        {
+            CraftingSlots[0] = 0;
+            CraftingSlots[1] = 0;
+            CraftingSlots[2] = 0;
+            CraftingSlots[3] = 0;
+            CraftingSlots[4] = 0;
+            CraftingSlots[5] = 0;
+            Items[22] = 0;
+            Items[23] = 0;
+            Items[24] = 0;
+            Items[25] = 0;
+            Items[26] = 0;
+            Items[27] = 0;
+
+            if (CrafterItemPlaceholderType == 2)
+            {
+                CrafterItemPlaceholderType = 0;
+                for(int i = 0; i < InventorySlots.Length - 6; i++)
+                {
+                    if (Items[i] == 0)
+                    {
+                        Items[i] = 2;
+                        break;
+                    }
+                }
+            }
+        }
+
+
     }
 }
