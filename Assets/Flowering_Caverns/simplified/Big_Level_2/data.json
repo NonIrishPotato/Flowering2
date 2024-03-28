@@ -1,0 +1,120 @@
+{
+	"identifier": "Big_Level_2",
+	"uniqueIdentifer": "4ae54cd0-b0a0-11ee-9c2a-6d60fd5387c6",
+	"x": 32,
+	"y": 320,
+	"width": 320,
+	"height": 240,
+	"bgColor": "#474B67",
+	"neighbourLevels": [
+		{
+			"levelIid": "c3eb9410-b0a0-11ee-9c2a-8fba56975479",
+			"dir": "e"
+		},
+		{
+			"levelIid": "91445350-b0a0-11ee-9c2a-6b32226478b9",
+			"dir": "w"
+		},
+		{
+			"levelIid": "2b5e41b0-b0a0-11ee-bc75-fbbe87cddc63",
+			"dir": "n"
+		},
+		{
+			"levelIid": "2ac1b390-b0a0-11ee-bc75-db4f33362e93",
+			"dir": "n"
+		},
+		{
+			"levelIid": "29c68ab0-b0a0-11ee-bc75-d99113b4000a",
+			"dir": "n"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"IntGrid_layer.png"
+	],
+	"entities": {
+		"Enemy": [
+			{
+				"id": "Enemy",
+				"iid": "1515dbf0-b0a0-11ee-9c2a-8d0cf999b3a6",
+				"layer": "Entities",
+				"x": 104,
+				"y": 200,
+				"width": 16,
+				"height": 16,
+				"color": 7552569,
+				"customFields" : {}
+			},
+			{
+				"id": "Enemy",
+				"iid": "15d75730-b0a0-11ee-9c2a-69459d1e991d",
+				"layer": "Entities",
+				"x": 216,
+				"y": 184,
+				"width": 16,
+				"height": 16,
+				"color": 7552569,
+				"customFields" : {}
+			},
+			{
+				"id": "Enemy",
+				"iid": "1743df80-b0a0-11ee-9c2a-8d15348b118e",
+				"layer": "Entities",
+				"x": 72,
+				"y": 104,
+				"width": 16,
+				"height": 16,
+				"color": 7552569,
+				"customFields" : {}
+			},
+			{
+				"id": "Enemy",
+				"iid": "410a4cf0-b0a0-11ee-9c2a-75d1eb62b3e1",
+				"layer": "Entities",
+				"x": 168,
+				"y": 56,
+				"width": 16,
+				"height": 16,
+				"color": 7552569,
+				"customFields" : {}
+			}
+		],
+		"Stalagtite": [
+			{
+				"id": "Stalagtite",
+				"iid": "1cea19e0-b0a0-11ee-9c2a-3b6bbf770832",
+				"layer": "Entities",
+				"x": 128,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 4073265,
+				"customFields" : {}
+			}
+		],
+		"Entity2": [
+			{
+				"id": "Entity2",
+				"iid": "1feea750-b0a0-11ee-9c2a-6bf03125b896",
+				"layer": "Entities",
+				"x": 200,
+				"y": 88,
+				"width": 16,
+				"height": 16,
+				"color": 14120515,
+				"customFields" : {}
+			},
+			{
+				"id": "Entity2",
+				"iid": "3f713660-b0a0-11ee-9c2a-5bd7b4b391c3",
+				"layer": "Entities",
+				"x": 88,
+				"y": 40,
+				"width": 16,
+				"height": 16,
+				"color": 14120515,
+				"customFields" : {}
+			}
+		]
+	}
+}
