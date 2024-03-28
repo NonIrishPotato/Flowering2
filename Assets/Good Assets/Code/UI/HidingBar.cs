@@ -15,7 +15,7 @@ public class HidingBar : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         breath.value = 1f;
-        breath.gameObject.SetActive(false);
+        //breath.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
