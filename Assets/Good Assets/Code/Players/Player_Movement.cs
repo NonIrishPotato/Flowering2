@@ -6,6 +6,7 @@ public class Player_Movement : MonoBehaviour
 {
     public GameManager gameManager;
     public float moveSpeed = 5f;
+    public float walkSpeed = 3f;
     public float crouchSpeed = 2f;
     public float sprintSpeed = 8f;
     public float sprintDuration = 3f;
@@ -59,7 +60,7 @@ public class Player_Movement : MonoBehaviour
         {
             Sprint();
         }
-        else
+        else if (!isCrouching)
         {
             StopSprinting();
         }
@@ -92,7 +93,7 @@ public class Player_Movement : MonoBehaviour
         gameManager.IsPlayerWalking = true;
 
         isCrouching = false;
-        moveSpeed = isCrouching ? crouchSpeed : 5f;
+        moveSpeed = walkSpeed;
     }
 
     private void Sprint()
@@ -118,7 +119,7 @@ public class Player_Movement : MonoBehaviour
         gameManager.IsPlayerSprinting = false;
 
         isSprinting = false;
-        moveSpeed = isCrouching ? crouchSpeed : 5f;
+        moveSpeed = walkSpeed;
     }
 
     private void MoveCharacter()
@@ -130,6 +131,7 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
+        //commented out grounded check just for the demo of sprint 2, need to fly around
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -160,6 +162,7 @@ public class Player_Movement : MonoBehaviour
     IEnumerator SprintCooldown()
     {
         yield return new WaitForSeconds(sprintCooldown);
+        sprintTimer = 0;
         canSprint = true;
     }
 

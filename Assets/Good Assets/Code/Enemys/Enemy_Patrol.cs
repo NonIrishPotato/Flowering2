@@ -5,11 +5,17 @@ public class Enemy_Patrol : MonoBehaviour
 {
     public GameManager gameManager;
     public float moveSpeed = 3f;
+    public float PatrolSpeed = 3f;
+    public float ChaseSpeed = 5f;
     public Transform[] waypoints;
     public float waypointRadius = 1f;
     public float waypointWaitTime = 1f;
 
-    public float playerDetectionRadius = 8f;
+    public float playerCrouchDetectionRadius = 1f;
+    public float playerWalkDetectionRadius = 2f;
+    public float playerRunDetectionRadius = 4f;
+
+    private float playerDetectionRadius = 0f;
     public LayerMask playerLayer;
 
     public float jumpForce = 5f;
@@ -32,7 +38,8 @@ public class Enemy_Patrol : MonoBehaviour
     {
         Patrolling,
         Chasing,
-        Recover
+        Recover,
+        Distracted
 
     }
 
@@ -78,11 +85,11 @@ public class Enemy_Patrol : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Patrolling:
-                moveSpeed = 3;
+                moveSpeed = PatrolSpeed;
                 Patrol();
                 break;
             case EnemyState.Chasing:
-                moveSpeed = 5;
+                moveSpeed = ChaseSpeed;
                 ChasePlayer();
                 break;
             case EnemyState.Recover:
@@ -93,15 +100,15 @@ public class Enemy_Patrol : MonoBehaviour
 
         if (gameManager.IsPlayerCrouching)
         {
-            playerDetectionRadius = 0.5f;
+            playerDetectionRadius = playerCrouchDetectionRadius;
         }
         else if (gameManager.IsPlayerWalking)
         {
-            playerDetectionRadius = 3f;
+            playerDetectionRadius = playerWalkDetectionRadius;
         }
         else if (gameManager.IsPlayerSprinting)
         {
-            playerDetectionRadius = 6f;
+            playerDetectionRadius = playerRunDetectionRadius;
         }
     }
 
