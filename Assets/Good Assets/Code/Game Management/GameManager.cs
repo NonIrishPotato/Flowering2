@@ -11,12 +11,20 @@ public class GameManager : MonoBehaviour
     public bool IsPlayerCrouching = false;
     public bool IsPlayerWalking = true;
     public bool IsPlayerSprinting = false;
+
+    public bool smallHazardHit = false;
+    public bool mediumHazardHit = false;
+    public bool largeHazardHit = false;
+
     public int currentHealth;
     public int maxHealth;
     public int amountOfBerrys = 0;
     public int tempBerrysForMySanity = 0;
     public int amountOfBerrysCollected;
 
+
+    public bool canHide = true;
+    public float InfectionBar = 0;
 
 
     // Start is called before the first frame update

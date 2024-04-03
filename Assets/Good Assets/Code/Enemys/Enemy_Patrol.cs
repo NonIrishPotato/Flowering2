@@ -15,6 +15,10 @@ public class Enemy_Patrol : MonoBehaviour
     public float playerWalkDetectionRadius = 2f;
     public float playerRunDetectionRadius = 4f;
 
+    public float smallHazardRadius = 4f;
+    public float meduimHazardRadius = 6f;
+    public float largeHazardRadius = 8f;
+
     private float playerDetectionRadius = 0f;
     public LayerMask playerLayer;
 
@@ -38,7 +42,8 @@ public class Enemy_Patrol : MonoBehaviour
     {
         Patrolling,
         Chasing,
-        Recover
+        Recover,
+        Distracted
 
     }
 
@@ -108,6 +113,22 @@ public class Enemy_Patrol : MonoBehaviour
         else if (gameManager.IsPlayerSprinting)
         {
             playerDetectionRadius = playerRunDetectionRadius;
+        }
+
+        if(gameManager.smallHazardHit)
+        {
+            playerDetectionRadius = smallHazardRadius;
+            Debug.Log("SmallHazardHit " + playerDetectionRadius);
+        }
+        else if(gameManager.mediumHazardHit)
+        {
+            playerDetectionRadius = meduimHazardRadius;
+            Debug.Log("MediumHazardHit " + playerDetectionRadius);
+        }
+        else if(gameManager.largeHazardHit)
+        {
+            playerDetectionRadius = largeHazardRadius;
+            Debug.Log("LargeHazardHit " + playerDetectionRadius);
         }
     }
 
