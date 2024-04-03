@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     public bool IsPlayerCrouching = false;
     public bool IsPlayerWalking = true;
     public bool IsPlayerSprinting = false;
+
+    public bool smallHazardHit = false;
+    public bool mediumHazardHit = false;
+    public bool largeHazardHit = false;
+
     public int currentHealth;
     public int maxHealth;
     public int amountOfBerrys = 0;
