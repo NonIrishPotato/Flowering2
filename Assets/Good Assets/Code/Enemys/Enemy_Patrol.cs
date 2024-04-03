@@ -38,7 +38,8 @@ public class Enemy_Patrol : MonoBehaviour
     {
         Patrolling,
         Chasing,
-        Recover
+        Recover,
+        Distracted
 
     }
 

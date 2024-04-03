@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
 
     public bool canHide = true;
-
+    public float InfectionBar = 0;
 
 
     // Start is called before the first frame update
