@@ -6973,13 +6973,13 @@ MonoBehaviour:
   emptySlot: {fileID: 21300000, guid: 182f04cc4b9960f4099bef495ebb896f, type: 3}
   testBerry: {fileID: 21300000, guid: 9d18ce4dbd32df446a87ef91b0bab2e4, type: 3}
   testBerry2: {fileID: 21300000, guid: 78af58fbc43b5a34ab01912ebc145532, type: 3}
-  CureBerry: {fileID: 0}
-  Necterblooms: {fileID: 0}
-  BloatedFungus: {fileID: 0}
-  MoltedCicadaSkins: {fileID: 0}
-  Rock: {fileID: 0}
-  SmokeBomb: {fileID: 0}
-  HealingHoney: {fileID: 0}
+  CureBerry: {fileID: 21300000, guid: 78af58fbc43b5a34ab01912ebc145532, type: 3}
+  Necterblooms: {fileID: 21300000, guid: 975a1df995708744e8c00cbfd2687c3e, type: 3}
+  BloatedFungus: {fileID: 21300000, guid: 09715500c1e40fb49972d020e061e8ee, type: 3}
+  MoltedCicadaSkins: {fileID: 21300000, guid: a4345bda2c8b1804eb0d5b2b437a36e6, type: 3}
+  Rock: {fileID: 21300000, guid: 872e7df832a194943a1e6d8196e81bde, type: 3}
+  SmokeBomb: {fileID: 21300000, guid: 3f4edefb63255ac4c9c9dc3b27d0ecf4, type: 3}
+  HealingHoney: {fileID: 21300000, guid: 241dfc1dfd80ebc4cbe94eb9536cc73e, type: 3}
   SelectedItemSlots:
   - {fileID: 761184572076473210}
   - {fileID: 5107258241948209295}

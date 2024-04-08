@@ -19,8 +19,18 @@ public class GameManager : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public int amountOfBerrys = 0;
+
     public int tempBerrysForMySanity = 0;
+    public int cureBerrys = 0;
+    public int necterblooms = 0;
+    public int bloatedFungus = 0;
+    public int moltedCicadaSkins = 0;
+    public int rocks = 0;
+    public int smokeBombs = 0;
+    public int healingHoney = 0;
+
     public int amountOfBerrysCollected;
+
 
 
     public bool canHide = true;
