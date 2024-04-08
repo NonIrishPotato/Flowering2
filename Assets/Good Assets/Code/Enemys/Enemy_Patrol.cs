@@ -4,6 +4,9 @@ using UnityEngine;
 public class Enemy_Patrol : MonoBehaviour
 {
     public GameManager gameManager;
+
+    public bool outOfBounds = false;
+
     public float moveSpeed = 3f;
     public float PatrolSpeed = 3f;
     public float ChaseSpeed = 5f;
@@ -69,7 +72,11 @@ public class Enemy_Patrol : MonoBehaviour
 
         bool isPlayerNearby = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
 
-        if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
+        if (outOfBounds)
+        {
+            currentState = EnemyState.Patrolling;
+        }
+        else if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
         {
             wasPlayerDetected = true;
             
@@ -130,6 +137,8 @@ public class Enemy_Patrol : MonoBehaviour
             playerDetectionRadius = largeHazardRadius;
             Debug.Log("LargeHazardHit " + playerDetectionRadius);
         }
+
+       
     }
 
     private void Patrol()
