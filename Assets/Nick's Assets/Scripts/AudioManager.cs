@@ -7,8 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public Sound[] musicSounds, sfxSounds, sfxSoundsTheSequal;
+    public AudioSource musicSource, sfxSource, sfxSourceTheSequal;
 
     public bool isPlaying;
 
@@ -43,6 +43,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfxSounds, x => x.name == name);
+        Sound s2 = Array.Find(sfxSoundsTheSequal, x => x.name == name);
 
         if (s == null)
         {
@@ -56,6 +57,22 @@ public class AudioManager : MonoBehaviour
         } 
     }
 
+    public void PlaySFXtheSequal(string name)
+    {
+        Sound s2 = Array.Find(sfxSoundsTheSequal, x => x.name == name);
+
+
+        if (s2 == null)
+        {
+            isPlaying = false;
+        }
+        else
+        {
+            sfxSourceTheSequal.PlayOneShot(s2.clip);
+            isPlaying = true;
+        }
+    }
+
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
@@ -64,6 +81,7 @@ public class AudioManager : MonoBehaviour
     public void ToggleSFX()
     {
         sfxSource.mute = !sfxSource.mute;
+        sfxSourceTheSequal.mute = !sfxSourceTheSequal.mute;
     }
 
     public void MusicVolume(float volume)
@@ -74,5 +92,6 @@ public class AudioManager : MonoBehaviour
     public void SFXVolume(float volume)
     {
         sfxSource.volume = volume;
+        sfxSourceTheSequal.volume = volume;
     }
 }

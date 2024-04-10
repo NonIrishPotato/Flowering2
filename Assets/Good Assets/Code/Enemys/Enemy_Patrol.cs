@@ -126,6 +126,7 @@ public class Enemy_Patrol : MonoBehaviour
             Vector2 targetPosition = waypoints[currentWaypointIndex].position;
             Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
             float distance = Vector2.Distance(transform.position, targetPosition);
+            //AudioManager.Instance.PlaySFX("Enemy Idle Sound");
 
             if (distance > waypointRadius)
             {
@@ -149,6 +150,7 @@ public class Enemy_Patrol : MonoBehaviour
 
         CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+        //AudioManager.Instance.PlaySFX("Enemy Scream");
     }
 
     private void Recover()
