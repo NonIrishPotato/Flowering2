@@ -23,7 +23,7 @@ public static class FadeAudioSource
         yield break;
     }
 
-    public static IEnumerator FadeOutAudio(AudioSource audioSource, float FadeTime)
+    /*public static IEnumerator FadeOutAudio(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;
 
@@ -36,5 +36,5 @@ public static class FadeAudioSource
 
         audioSource.Stop();
         audioSource.volume = startVolume;
-    }
+    }*/
 }

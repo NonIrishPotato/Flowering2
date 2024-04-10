@@ -31,7 +31,6 @@ public class Player_Movement : MonoBehaviour
     private bool isJumping = false;
 
     public float duration = 3f;
-    private float targetVolume = 1f;
 
     private void Start()
     {
@@ -165,18 +164,12 @@ public class Player_Movement : MonoBehaviour
         {
             isJumping = true;
             AudioManager.Instance.PlaySFXtheSequal("Jump");
-            /*StartCoroutine(FadeAudioSource.StartFade(true, AudioManager.Instance.sfxSourceTheSequal, duration, targetVolume));
-            if(targetVolume == 1f && isJumping)
-            {
-                AudioManager.Instance.sfxSourceTheSequal.volume = 1f;
-            }*/
-            //StartCoroutine(FadeAudioSource.StartFade(AudioSource audioSource, float duration, float targetVolume));
         }
+
         else if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
             AudioManager.Instance.sfxSourceTheSequal.Stop();
-            //AudioManager.Instance.sfxSourceTheSequal.volume = 0f;
         }
     }
 

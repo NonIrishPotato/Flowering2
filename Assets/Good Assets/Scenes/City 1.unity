@@ -3756,6 +3756,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e097175b932ce82499448b906fe5a4d2, type: 3}
   - name: Enemy Scream
     clip: {fileID: 8300000, guid: b09639833ab4d8146a8fc53292d7a521, type: 3}
+  - name: Enemy Attack
+    clip: {fileID: 8300000, guid: 4348690cb64206d4f9125f93c4648659, type: 3}
   sfxSoundsTheSequal:
   - name: Jump
     clip: {fileID: 8300000, guid: 0b8c56b78fd472e419d1c8fb4cafc5fa, type: 3}
@@ -3763,6 +3765,7 @@ MonoBehaviour:
   sfxSource: {fileID: 764894660}
   sfxSourceTheSequal: {fileID: 2070731580}
   isPlaying: 0
+  iHateMyself: 0
 --- !u!4 &519548949
 Transform:
   m_ObjectHideFlags: 0
