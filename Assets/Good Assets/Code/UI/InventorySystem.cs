@@ -93,11 +93,17 @@ public class InventorySystem : MonoBehaviour
 
     public void countBerrys()
     {
+        int amountOfBloatedFungusFound = 0;
+        int amountOfMoltedCicadaSkinsFound = 0;
+        int amountOfRocksFound = 0;
+        int amountOfSmokeBombsFound = 0;
+        int amountOfHealingHoneyFound = 0;
         for (int i = 0; i < gameManager.tempBerrysForMySanity; i++)
         {
             bool placed = false;
             int amountOfBerrysFound = 0;
-            for (int z = 0; z < Items.Length; z++)
+            
+            for (int z = 0; z < Items.Length -10; z++)
             {
                 if (Items[z] == 0 && placed == false)
                 {
@@ -105,16 +111,53 @@ public class InventorySystem : MonoBehaviour
                     Items[z] = 1;
                     InventorySlots[z].sprite = testBerry;
                     gameManager.tempBerrysForMySanity -= 1;
-                    Debug.Log(gameManager.tempBerrysForMySanity);
-                    break;
                 }
                 if (Items[z] == 1)
                 {
                     amountOfBerrysFound += 1;
-                    if (amountOfBerrysFound >= gameManager.amountOfBerrys)
-                    {
-                        break;
-                    }
+
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.cureBerrys; i++)
+        {
+            bool placed = false;
+            int amountOfCureBerrysFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 3;
+                    InventorySlots[z].sprite = CureBerry;
+                    gameManager.cureBerrys -= 1;
+                }
+                if (Items[z] == 3)
+                {
+                    amountOfCureBerrysFound += 1;
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.necterblooms; i++)
+        {
+            bool placed = false;
+            int amountOfNecterbloomsFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 4;
+                    InventorySlots[z].sprite = Necterblooms;
+                    gameManager.necterblooms -= 1;
+                }
+                if (Items[z] == 4)
+                {
+                    amountOfNecterbloomsFound += 1;
                 }
 
             }
@@ -139,6 +182,34 @@ public class InventorySystem : MonoBehaviour
             {
                 InventorySlots[i].sprite = testBerry2;
             }
+            else if (Items[i] == 3)
+            {
+                InventorySlots[i].sprite = CureBerry;
+            }
+            else if (Items[i] == 4)
+            {
+                InventorySlots[i].sprite = Necterblooms;
+            }
+            else if (Items[i] == 5)
+            {
+                InventorySlots[i].sprite = BloatedFungus;
+            }
+            else if (Items[i] == 6)
+            {
+                InventorySlots[i].sprite = MoltedCicadaSkins;
+            }
+            else if (Items[i] == 7)
+            {
+                InventorySlots[i].sprite = Rock;
+            }
+            else if (Items[i] == 8)
+            {
+                InventorySlots[i].sprite = SmokeBomb;
+            }
+            else if (Items[i] == 9)
+            {
+                InventorySlots[i].sprite = HealingHoney;
+            }
         }
 
         //For Crafting
@@ -156,6 +227,34 @@ public class InventorySystem : MonoBehaviour
             {
                 InventorySlots[i].sprite = testBerry2;
             }
+            else if (Items[i] == 3)
+            {
+                InventorySlots[i].sprite = CureBerry;
+            }
+            else if (Items[i] == 4)
+            {
+                InventorySlots[i].sprite = Necterblooms;
+            }
+            else if (Items[i] == 5)
+            {
+                InventorySlots[i].sprite = BloatedFungus;
+            }
+            else if (Items[i] == 6)
+            {
+                InventorySlots[i].sprite = MoltedCicadaSkins;
+            }
+            else if (Items[i] == 7)
+            {
+                InventorySlots[i].sprite = Rock;
+            }
+            else if (Items[i] == 8)
+            {
+                InventorySlots[i].sprite = SmokeBomb;
+            }
+            else if (Items[i] == 9)
+            {
+                InventorySlots[i].sprite = HealingHoney;
+            }
         }
 
         //For Tool Slots
@@ -172,6 +271,34 @@ public class InventorySystem : MonoBehaviour
             else if (Items[i] == 2)
             {
                 InventorySlots[i].sprite = testBerry2;
+            }
+            else if (Items[i] == 3)
+            {
+                InventorySlots[i].sprite = CureBerry;
+            }
+            else if (Items[i] == 4)
+            {
+                InventorySlots[i].sprite = Necterblooms;
+            }
+            else if (Items[i] == 5)
+            {
+                InventorySlots[i].sprite = BloatedFungus;
+            }
+            else if (Items[i] == 6)
+            {
+                InventorySlots[i].sprite = MoltedCicadaSkins;
+            }
+            else if (Items[i] == 7)
+            {
+                InventorySlots[i].sprite = Rock;
+            }
+            else if (Items[i] == 8)
+            {
+                InventorySlots[i].sprite = SmokeBomb;
+            }
+            else if (Items[i] == 9)
+            {
+                InventorySlots[i].sprite = HealingHoney;
             }
         }
 
@@ -240,7 +367,7 @@ public class InventorySystem : MonoBehaviour
      
        
 
-
+        //checks the amount of items
         if (CraftingSlots[0] == 1)
         {
             amountOfTestBerrys += 1;
