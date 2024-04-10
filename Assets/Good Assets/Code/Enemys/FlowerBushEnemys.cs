@@ -6,26 +6,20 @@ public class FlowerBushEnemys : MonoBehaviour
 {
     public GameManager gameManager;
     public static GameObject Instance;
-    public float damageInterval = 2f; // Time interval between each damage tick
-    private float lastDamageTime; // Time when the last damage was dealt
+    public float infectionSpeed = 1f;
 
     void Start()
     {
         gameManager = GameManager.Instance;
     }
-        void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         // Check if the colliding object is the player
         if (other.CompareTag("Player"))
         {
-            // Check if enough time has passed since the last damage
-            if (Time.time - lastDamageTime > damageInterval)
+            if(gameManager.InfectionBar <= 1)
             {
-                // Deal damage to the player
-                gameManager.currentHealth--;
-                // Update the last damage time
-                lastDamageTime = Time.time;
-                Debug.Log("Player Health is: " + gameManager.currentHealth);
+                gameManager.InfectionBar += Time.deltaTime * infectionSpeed;
             }
         }
     }
