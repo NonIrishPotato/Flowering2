@@ -6976,10 +6976,11 @@ MonoBehaviour:
   CureBerry: {fileID: 21300000, guid: 78af58fbc43b5a34ab01912ebc145532, type: 3}
   Necterblooms: {fileID: 21300000, guid: 975a1df995708744e8c00cbfd2687c3e, type: 3}
   BloatedFungus: {fileID: 21300000, guid: 09715500c1e40fb49972d020e061e8ee, type: 3}
-  MoltedCicadaSkins: {fileID: 21300000, guid: a4345bda2c8b1804eb0d5b2b437a36e6, type: 3}
+  RootClipings: {fileID: 21300000, guid: a4345bda2c8b1804eb0d5b2b437a36e6, type: 3}
   Rock: {fileID: 21300000, guid: 872e7df832a194943a1e6d8196e81bde, type: 3}
   SmokeBomb: {fileID: 21300000, guid: 3f4edefb63255ac4c9c9dc3b27d0ecf4, type: 3}
   HealingHoney: {fileID: 21300000, guid: 241dfc1dfd80ebc4cbe94eb9536cc73e, type: 3}
+  Preventative: {fileID: 21300000, guid: 78af58fbc43b5a34ab01912ebc145532, type: 3}
   SelectedItemSlots:
   - {fileID: 761184572076473210}
   - {fileID: 5107258241948209295}

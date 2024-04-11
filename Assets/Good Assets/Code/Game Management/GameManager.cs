@@ -24,10 +24,11 @@ public class GameManager : MonoBehaviour
     public int cureBerrys = 0;
     public int necterblooms = 0;
     public int bloatedFungus = 0;
-    public int moltedCicadaSkins = 0;
+    public int rootClippings = 0;
     public int rocks = 0;
     public int smokeBombs = 0;
     public int healingHoney = 0;
+    public int preventative = 0;
 
     public int amountOfBerrysCollected;
 

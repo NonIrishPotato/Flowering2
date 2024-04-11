@@ -13,10 +13,11 @@ public class InventorySystem : MonoBehaviour
      * 3 = Cure Berries
      * 4 = Necterblooms
      * 5 - Bloated fungus
-     * 6 = Molted Cicada Skins
+     * 6 = Root Clippings
      * 7 = Rock
      * 8 = Smoke Bomb
      * 9 = Healing Honey
+     * 10 = Preventative
      * ...
      */
     private GameManager gameManager;
@@ -36,10 +37,11 @@ public class InventorySystem : MonoBehaviour
     public Sprite CureBerry;
     public Sprite Necterblooms;
     public Sprite BloatedFungus;
-    public Sprite MoltedCicadaSkins;
+    public Sprite RootClipings;
     public Sprite Rock;
     public Sprite SmokeBomb;
     public Sprite HealingHoney;
+    public Sprite Preventative;
 
     public Image[] SelectedItemSlots;
 
@@ -49,7 +51,9 @@ public class InventorySystem : MonoBehaviour
     private int targetSlotIndex;
 
 
-    private int amountOfTestBerrys = 0;
+    private int amountOfBloatedFungus = 0;
+    private int amountOfNectarBlooms = 0;
+    private int amountOfRootClippings = 0;
 
     private RectTransform draggedItemTransform;
 
@@ -93,33 +97,7 @@ public class InventorySystem : MonoBehaviour
 
     public void countBerrys()
     {
-        int amountOfBloatedFungusFound = 0;
-        int amountOfMoltedCicadaSkinsFound = 0;
-        int amountOfRocksFound = 0;
-        int amountOfSmokeBombsFound = 0;
-        int amountOfHealingHoneyFound = 0;
-        for (int i = 0; i < gameManager.tempBerrysForMySanity; i++)
-        {
-            bool placed = false;
-            int amountOfBerrysFound = 0;
-            
-            for (int z = 0; z < Items.Length -10; z++)
-            {
-                if (Items[z] == 0 && placed == false)
-                {
-                    placed = true;
-                    Items[z] = 1;
-                    InventorySlots[z].sprite = testBerry;
-                    gameManager.tempBerrysForMySanity -= 1;
-                }
-                if (Items[z] == 1)
-                {
-                    amountOfBerrysFound += 1;
-
-                }
-
-            }
-        }
+        
         for (int i = 0; i < gameManager.cureBerrys; i++)
         {
             bool placed = false;
@@ -162,6 +140,132 @@ public class InventorySystem : MonoBehaviour
 
             }
         }
+        for (int i = 0; i < gameManager.bloatedFungus; i++)
+        {
+            bool placed = false;
+            int amountOfBloatedFungusFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 5;
+                    InventorySlots[z].sprite = BloatedFungus;
+                    gameManager.bloatedFungus -= 1;
+                }
+                if (Items[z] == 5)
+                {
+                    amountOfBloatedFungusFound += 1;
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.rootClippings; i++)
+        {
+            bool placed = false;
+            int amountOfRootClippings = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 6;
+                    InventorySlots[z].sprite = RootClipings;
+                    gameManager.rootClippings -= 1;
+                }
+                if (Items[z] == 6)
+                {
+                    amountOfRootClippings += 1;
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.rocks; i++)
+        {
+            bool placed = false;
+            int amountOfRocksFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 7;
+                    InventorySlots[z].sprite = Rock;
+                    gameManager.rocks -= 1;
+                }
+                if (Items[z] == 7)
+                {
+                    amountOfRocksFound += 1;
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.smokeBombs; i++)
+        {
+            bool placed = false;
+            int amountOfSmokeBombsFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 8;
+                    InventorySlots[z].sprite = SmokeBomb;
+                    gameManager.smokeBombs -= 1;
+                }
+                if (Items[z] == 8)
+                {
+                    amountOfSmokeBombsFound += 1;
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.healingHoney; i++)
+        {
+            bool placed = false;
+            int amountOfHealingHoneyFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 9;
+                    InventorySlots[z].sprite = HealingHoney;
+                    gameManager.healingHoney -= 1;
+                }
+                if (Items[z] == 9)
+                {
+                    amountOfHealingHoneyFound += 1;
+                }
+
+            }
+        }
+        for (int i = 0; i < gameManager.preventative; i++)
+        {
+            bool placed = false;
+            int amountOfPreventativeFound = 0;
+
+            for (int z = 0; z < Items.Length - 10; z++)
+            {
+                if (Items[z] == 0 && placed == false)
+                {
+                    placed = true;
+                    Items[z] = 10;
+                    InventorySlots[z].sprite = Preventative;
+                    gameManager.preventative -= 1;
+                }
+                if (Items[z] == 10)
+                {
+                    amountOfPreventativeFound += 1;
+                }
+
+            }
+        }
     }
 
 
@@ -196,7 +300,7 @@ public class InventorySystem : MonoBehaviour
             }
             else if (Items[i] == 6)
             {
-                InventorySlots[i].sprite = MoltedCicadaSkins;
+                InventorySlots[i].sprite = RootClipings;
             }
             else if (Items[i] == 7)
             {
@@ -209,6 +313,10 @@ public class InventorySystem : MonoBehaviour
             else if (Items[i] == 9)
             {
                 InventorySlots[i].sprite = HealingHoney;
+            }
+            else if (Items[i] == 10)
+            {
+                InventorySlots[i].sprite = Preventative;
             }
         }
 
@@ -241,7 +349,7 @@ public class InventorySystem : MonoBehaviour
             }
             else if (Items[i] == 6)
             {
-                InventorySlots[i].sprite = MoltedCicadaSkins;
+                InventorySlots[i].sprite = RootClipings;
             }
             else if (Items[i] == 7)
             {
@@ -254,6 +362,10 @@ public class InventorySystem : MonoBehaviour
             else if (Items[i] == 9)
             {
                 InventorySlots[i].sprite = HealingHoney;
+            }
+            else if (Items[i] == 10)
+            {
+                InventorySlots[i].sprite = Preventative;
             }
         }
 
@@ -286,7 +398,7 @@ public class InventorySystem : MonoBehaviour
             }
             else if (Items[i] == 6)
             {
-                InventorySlots[i].sprite = MoltedCicadaSkins;
+                InventorySlots[i].sprite = RootClipings;
             }
             else if (Items[i] == 7)
             {
@@ -299,6 +411,10 @@ public class InventorySystem : MonoBehaviour
             else if (Items[i] == 9)
             {
                 InventorySlots[i].sprite = HealingHoney;
+            }
+            else if (Items[i] == 10)
+            {
+                InventorySlots[i].sprite = Preventative;
             }
         }
 
@@ -365,39 +481,100 @@ public class InventorySystem : MonoBehaviour
         //Debug.Log("Slot 6 = " + CraftingSlots[5]);
 
      
-       
+      
 
-        //checks the amount of items
-        if (CraftingSlots[0] == 1)
+        //Counts NectarBlooms
+        if (CraftingSlots[0] == 4)
         {
-            amountOfTestBerrys += 1;
+            amountOfNectarBlooms += 1;
         }
-        if (CraftingSlots[1] == 1)
+        if (CraftingSlots[1] == 4)
         {
-            amountOfTestBerrys += 1;
+            amountOfNectarBlooms += 1;
         }
-        if (CraftingSlots[2] == 1)
+        if (CraftingSlots[2] == 4)
         {
-            amountOfTestBerrys += 1;
+            amountOfNectarBlooms += 1;
         }
-        if (CraftingSlots[3] == 1)
+        if (CraftingSlots[3] == 4)
         {
-            amountOfTestBerrys += 1;
+            amountOfNectarBlooms += 1;
         }
-        if (CraftingSlots[4] == 1)
+        if (CraftingSlots[4] == 4)
         {
-            amountOfTestBerrys += 1;
+            amountOfNectarBlooms += 1;
         }
-        if (CraftingSlots[5] == 1)
+        if (CraftingSlots[5] == 4)
         {
-            amountOfTestBerrys += 1;
+            amountOfNectarBlooms += 1;
+        }
+
+        //Counts Bloated Fungus
+        if (CraftingSlots[0] == 5)
+        {
+            amountOfBloatedFungus += 1;
+        }
+        if (CraftingSlots[1] == 5)
+        {
+            amountOfBloatedFungus += 1;
+        }
+        if (CraftingSlots[2] == 5)
+        {
+            amountOfBloatedFungus += 1;
+        }
+        if (CraftingSlots[3] == 5)
+        {
+            amountOfBloatedFungus += 1;
+        }
+        if (CraftingSlots[4] == 5)
+        {
+            amountOfBloatedFungus += 1;
+        }
+        if (CraftingSlots[5] == 5)
+        {
+            amountOfBloatedFungus += 1;
+        }
+
+        //Counts Root Clippings
+        if (CraftingSlots[0] == 6)
+        {
+            amountOfRootClippings += 1;
+        }
+        if (CraftingSlots[1] == 6)
+        {
+            amountOfRootClippings += 1;
+        }
+        if (CraftingSlots[2] == 6)
+        {
+            amountOfRootClippings += 1;
+        }
+        if (CraftingSlots[3] == 6)
+        {
+            amountOfRootClippings += 1;
+        }
+        if (CraftingSlots[4] == 6)
+        {
+            amountOfRootClippings += 1;
+        }
+        if (CraftingSlots[5] == 6)
+        {
+            amountOfRootClippings += 1;
         }
 
 
         //Crafting Recipies (Opt to change)
-        if (amountOfTestBerrys == 2)
+
+        if(amountOfBloatedFungus == 2)
         {
-            CrafterItemPlaceholderType = 2;
+            CrafterItemPlaceholderType = 8;
+        }
+        else if (amountOfNectarBlooms == 2)
+        {
+            CrafterItemPlaceholderType = 9;
+        }
+        else if (amountOfNectarBlooms == 1 && amountOfRootClippings == 1)
+        {
+            CrafterItemPlaceholderType = 10;
         }
         else
         {
@@ -423,8 +600,14 @@ public class InventorySystem : MonoBehaviour
         {
             CraftedItemPlaceHolder.sprite = HealingHoney;
         }
+        if (CrafterItemPlaceholderType == 10)
+        {
+            CraftedItemPlaceHolder.sprite = Preventative;
+        }
 
-        amountOfTestBerrys = 0;
+        amountOfNectarBlooms = 0;
+        amountOfBloatedFungus = 0;
+        amountOfRootClippings = 0;
     }
 
     public void CraftButtonPress()
@@ -445,6 +628,10 @@ public class InventorySystem : MonoBehaviour
             Items[27] = 0;
 
             //Different crafting recipy results
+
+            //Smoke Bomb made from 2 Bloated fungus
+            // Preventative (Made from 1 nectarbloom and a root clipping
+            //Healing Honey (Made with 2 nectarblooms)
             if (CrafterItemPlaceholderType == 2)
             {
                 CrafterItemPlaceholderType = 0;
@@ -457,6 +644,46 @@ public class InventorySystem : MonoBehaviour
                     }
                 }
             }
+
+            if (CrafterItemPlaceholderType == 8)
+            {
+                CrafterItemPlaceholderType = 0;
+                for (int i = 0; i < InventorySlots.Length - 10; i++) //-10 to accounnt for tool and crafting slots. Don't want to check those.
+                {
+                    if (Items[i] == 0)
+                    {
+                        Items[i] = 8;
+                        break;
+                    }
+                }
+            }
+
+            if (CrafterItemPlaceholderType == 9)
+            {
+                CrafterItemPlaceholderType = 0;
+                for (int i = 0; i < InventorySlots.Length - 10; i++) //-10 to accounnt for tool and crafting slots. Don't want to check those.
+                {
+                    if (Items[i] == 0)
+                    {
+                        Items[i] = 9;
+                        break;
+                    }
+                }
+            }
+
+            if (CrafterItemPlaceholderType == 10)
+            {
+                CrafterItemPlaceholderType = 0;
+                for (int i = 0; i < InventorySlots.Length - 10; i++) //-10 to accounnt for tool and crafting slots. Don't want to check those.
+                {
+                    if (Items[i] == 0)
+                    {
+                        Items[i] = 10;
+                        break;
+                    }
+                }
+            }
+
         }
 
 
