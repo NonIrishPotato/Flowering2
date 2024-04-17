@@ -431,7 +431,7 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private void UpdateToolSlots()
+    public void UpdateToolSlots()
     {
         for (int i = 0; i < ToolSlots.Length; i++)
         {

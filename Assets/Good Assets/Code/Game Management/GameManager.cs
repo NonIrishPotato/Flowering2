@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public bool canHide = true;
     public float InfectionBar = 0;
 
+    public bool smokeBombActive = false;
 
     // Start is called before the first frame update
     void Start()

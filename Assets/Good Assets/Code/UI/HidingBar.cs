@@ -22,7 +22,7 @@ public class HidingBar : MonoBehaviour
     void Update()
     {
         
-        if (gameManager.IsPlayerHiding == true)
+        if (gameManager.IsPlayerHiding == true && gameManager.smokeBombActive == false)
         {
             breath.gameObject.SetActive(true);
         }
@@ -32,7 +32,7 @@ public class HidingBar : MonoBehaviour
 
 
 
-        if (gameManager.IsPlayerHiding == true && breath.value >= 0)
+        if (gameManager.IsPlayerHiding == true && breath.value >= 0 && gameManager.smokeBombActive == false)
         {
             breath.gameObject.SetActive(true);
             breath.value -= drainspeed;
