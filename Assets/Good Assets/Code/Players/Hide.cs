@@ -43,7 +43,7 @@ public class Hide : MonoBehaviour
     void Update()
     {
         // Check if the player is holding down the Left Shift key while in a hiding spot
-        if (IsPlayerinSpot() && Input.GetKey(KeyCode.LeftShift))
+        if (IsPlayerinSpot() && Input.GetKey(KeyCode.LeftShift) && manager.canHide == true)
         {
             // Perform actions for hiding
             manager.IsPlayerHiding = true;
