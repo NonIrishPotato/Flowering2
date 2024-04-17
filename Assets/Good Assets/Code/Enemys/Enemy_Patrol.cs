@@ -167,7 +167,7 @@ public class Enemy_Patrol : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
 
-            CheckForObstacles(moveDirection.x);
+            //CheckForObstacles(moveDirection.x);
         }
     }
 
@@ -177,7 +177,7 @@ public class Enemy_Patrol : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
         FlipDirection(moveDirection.x);
 
-        CheckForObstacles(moveDirection.x);
+        //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
     }
 
@@ -202,12 +202,9 @@ public class Enemy_Patrol : MonoBehaviour
         }
     }
 
-    private void CheckForObstacles(float directionX)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Vector2 raycastOrigin = transform.position + new Vector3((isFacingRight ? 1 : -1) * obstacleDetectionDistance, 0, 0);
-        RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.down, 1f, LayerMask.GetMask("Obstacle"));
-
-        if (hit.collider != null)
+        if (other.CompareTag("Ground"))
         {
             Jump();
         }
@@ -216,6 +213,7 @@ public class Enemy_Patrol : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        Debug.Log("Jumping with force: " + jumpForce);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
