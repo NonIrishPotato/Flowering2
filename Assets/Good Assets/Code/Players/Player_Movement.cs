@@ -28,6 +28,11 @@ public class Player_Movement : MonoBehaviour
     private bool canSprint = true;
     private bool canTakeDamage = true;
 
+    private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
+    private bool isJumping = false;
+
+    public float duration = 3f;
+
     private void Start()
     {
         gameManager = GameManager.Instance;
@@ -38,6 +43,8 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
+        if (!PauseMenuScript.isPaused) //Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
+        {
         // Check if the character is grounded
         isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
@@ -76,6 +83,9 @@ public class Player_Movement : MonoBehaviour
 
         // Check for damage
         CheckForDamage();
+        }
+
+
     }
 
     private void Crouch()
@@ -127,6 +137,20 @@ public class Player_Movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         Vector2 moveDirection = new Vector2(horizontalInput, 0);
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
+
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) //Used key codes since for now, I can't place Input.GetAxis since it's a float and not a bool for an "if" statement
+        {
+            localIsWalking = true; 
+        }
+        else
+        {
+            localIsWalking = false;
+        }
+
+        if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
+        {
+            AudioManager.Instance.PlaySFX("Walk");
+        }
     }
 
     private void Jump()
@@ -135,6 +159,18 @@ public class Player_Movement : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (!isJumping && Input.GetButtonDown("Jump"))
+        {
+            isJumping = true;
+            AudioManager.Instance.PlaySFXtheSequal("Jump");
+        }
+
+        else if (Input.GetButtonUp("Jump") || isGrounded)
+        {
+            isJumping = false;
+            AudioManager.Instance.sfxSourceTheSequal.Stop();
         }
     }
 

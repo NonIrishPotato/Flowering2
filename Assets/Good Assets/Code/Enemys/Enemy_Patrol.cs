@@ -41,6 +41,8 @@ public class Enemy_Patrol : MonoBehaviour
     public Rigidbody2D playerRb;
     private bool canHitPlayer = true;
 
+    public AudioSource enemyIdleSound;
+
     private enum EnemyState
     {
         Patrolling,
@@ -159,6 +161,7 @@ public class Enemy_Patrol : MonoBehaviour
             Vector2 targetPosition = waypoints[currentWaypointIndex].position;
             Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
             float distance = Vector2.Distance(transform.position, targetPosition);
+            enemyIdleSound.Play();
 
             if (distance > waypointRadius)
             {
@@ -182,6 +185,8 @@ public class Enemy_Patrol : MonoBehaviour
 
         //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+        AudioManager.Instance.PlaySFX("Enemy Scream");
+
     }
 
     private void Recover()
@@ -228,6 +233,7 @@ public class Enemy_Patrol : MonoBehaviour
             Debug.Log(gameManager.currentHealth);
             canHitPlayer = false;
             moveSpeed = 0;
+            AudioManager.Instance.PlaySFX("Enemy Attack");
             StartCoroutine(PauseChase());
         }
     }
