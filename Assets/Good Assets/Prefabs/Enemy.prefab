@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2901814227289214158}
   - component: {fileID: 6385230099667632230}
   - component: {fileID: 1386306358482941895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  outOfBounds: 0
   moveSpeed: 3
   PatrolSpeed: 3
   ChaseSpeed: 5
@@ -182,6 +183,9 @@ MonoBehaviour:
   playerCrouchDetectionRadius: 1
   playerWalkDetectionRadius: 2
   playerRunDetectionRadius: 4
+  smallHazardRadius: 4
+  meduimHazardRadius: 6
+  largeHazardRadius: 8
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -200,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7135807044134332331}
   - component: {fileID: 1926108008279305090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Idle Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}

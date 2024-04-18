@@ -56,6 +56,7 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void Start()
     {
+        playerRb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         rb = GetComponent<Rigidbody2D>();
         Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
         gameManager = GameManager.Instance;

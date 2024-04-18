@@ -1942,6 +1942,11 @@ MonoBehaviour:
   - {fileID: 8919829007949505422}
   - {fileID: 6631963774537671601}
   - {fileID: 7355419145221245829}
+  inventorySystem: {fileID: 652620512783855467}
+  gameManager: {fileID: 0}
+  SmokeBombTimer: 5
+  particlePrefab: {fileID: 7389926618843315900, guid: 20c51dcdade681d4c86fe97820bcf3b2, type: 3}
+  rb: {fileID: 0}
 --- !u!1 &2423918076348123404
 GameObject:
   m_ObjectHideFlags: 0

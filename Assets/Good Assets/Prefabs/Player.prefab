@@ -258,11 +258,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   moveSpeed: 5
+  walkSpeed: 5
   crouchSpeed: 2
-  sprintSpeed: 8
+  sprintSpeed: 10
   sprintDuration: 3
   sprintCooldown: 5
   jumpForce: 5
   slowfallGravity: 0.2
   damageForce: 10
   damageCooldown: 2
+  duration: 3

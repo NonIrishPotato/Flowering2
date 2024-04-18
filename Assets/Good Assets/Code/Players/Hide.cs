@@ -12,6 +12,7 @@ public class Hide : MonoBehaviour
 
     private void Start()
     {
+        rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         manager = GameManager.Instance;
     }
     // Called when another collider enters the trigger zone
