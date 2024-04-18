@@ -54,6 +54,8 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
         gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody2D>();
 
@@ -109,7 +111,8 @@ public class Enemy_Patrol : MonoBehaviour
                 break;
         }
 
-        if (gameManager.IsPlayerCrouching)
+
+        if (gameManager.IsPlayerCrouching || gameManager.smokeBombActive)
         {
             playerDetectionRadius = playerCrouchDetectionRadius;
         }

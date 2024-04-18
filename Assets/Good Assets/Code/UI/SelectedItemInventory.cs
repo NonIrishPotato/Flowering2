@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class SelectedItemInventory : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class SelectedItemInventory : MonoBehaviour
     public GameManager gameManager;
     public int SmokeBombTimer = 5;
     private int currentIndex = 0;
+    public GameObject particlePrefab;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         gameManager = GameManager.Instance;
     }
 
@@ -58,7 +62,8 @@ public class SelectedItemInventory : MonoBehaviour
             if (inventorySystem.Items[currentIndex + 28] == 8)
             {
                 inventorySystem.Items[currentIndex + 28] = 0;
-                StartCoroutine(smokeBomb());
+                GameObject partical = Instantiate(particlePrefab, rb.position, Quaternion.identity);
+                StartCoroutine(smokeBomb(partical));
                 //Smoke Bomb here
             }
             if (inventorySystem.Items[currentIndex + 28] == 9 && gameManager.currentHealth != gameManager.maxHealth)
@@ -78,18 +83,18 @@ public class SelectedItemInventory : MonoBehaviour
                 {
                     gameManager.InfectionBar -= .5f;
                 }
-
                 //Preventative Here
             }
             
         }
         inventorySystem.UpdateToolSlots();
 
-        IEnumerator smokeBomb()
+        IEnumerator smokeBomb(GameObject partical)
         {
             gameManager.smokeBombActive = true;
             yield return new WaitForSeconds(SmokeBombTimer);
             gameManager.smokeBombActive = false;
+            Destroy(partical, 1f);
         }
 
     }

@@ -50,11 +50,6 @@ public class Hide : MonoBehaviour
             Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
             // Add any additional actions for when the player is hiding
         }
-        else if (manager.smokeBombActive == true)
-        {
-            manager.IsPlayerHiding = true;
-            Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
-        }
         else
         {
             // Perform actions for not hiding
