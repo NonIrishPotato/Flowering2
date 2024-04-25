@@ -35,6 +35,7 @@ public class Enemy_Patrol : MonoBehaviour
     private bool canHitPlayer = true;
 
     public AudioSource enemyIdleSound;
+    bool isSoundPlaying;
 
     private enum EnemyState
     {
@@ -152,8 +153,13 @@ public class Enemy_Patrol : MonoBehaviour
 
         CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
-        AudioManager.Instance.PlaySFX("Enemy Scream");
-
+        isSoundPlaying = true;
+        if(isSoundPlaying)
+        {
+            AudioManager.Instance.PlaySFX("Enemy Scream");
+            isSoundPlaying = false;
+            Debug.Log(isSoundPlaying);
+        }
     }
 
     private void Recover()
