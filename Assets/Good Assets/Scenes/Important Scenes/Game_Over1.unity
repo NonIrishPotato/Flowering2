@@ -1279,10 +1279,10 @@ GameObject:
   - component: {fileID: 2010826690}
   - component: {fileID: 2010826689}
   - component: {fileID: 2010826688}
-<<<<<<<< HEAD:Assets/Nick's Assets/Scenes/Game_Over1.unity
-  - component: {fileID: 2010826692}
+<<<<<<<< HEAD:Assets/Good Assets/Scenes/Important Scenes/Game_Over.unity
 ========
->>>>>>>> origin/Jaden-Painter:Assets/Good Assets/Scenes/Important Scenes/Game_Over.unity
+  - component: {fileID: 2010826692}
+>>>>>>>> origin/Copy2-of-main-Nick's-Branch:Assets/Nick's Assets/Scenes/Game_Over1.unity
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
