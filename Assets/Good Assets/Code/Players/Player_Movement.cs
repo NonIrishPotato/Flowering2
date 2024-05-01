@@ -33,6 +33,22 @@ public class Player_Movement : MonoBehaviour
 
     public float duration = 3f;
 
+    //Animation States
+    public Animator animator;
+    bool _isFacingLeft;
+    bool _isFacingRight;
+    string _currentState;
+    const string PLAYER_IDLE_FR = "Player_Idle_FR";
+    const string Id_FL = "Id_FL";
+    const string WALK_FR = "WalK_FR";
+    const string WALK_LR = "WalK_FL";
+    const string Jump_FR = "Jump_FR 0";
+    const string Jump_FL = "Jump_FL";
+    const string Mid_Air_Glide_FR = "Mid_Air_Glide_FR 0";
+    const string Mid_Air_Glide_FL = "Mid_Air_Glide_FL 0";
+    const string PLAYER_LANDED_FR = "Player_Landed_FR";
+    const string PLAYER_LANDED_LR = "Player_Landed_FL";
+
     private void Start()
     {
         gameManager = GameManager.Instance;
@@ -45,6 +61,8 @@ public class Player_Movement : MonoBehaviour
     {
         if (!PauseMenuScript.isPaused) //Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
         {
+            //animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+
         // Check if the character is grounded
         isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
@@ -83,9 +101,10 @@ public class Player_Movement : MonoBehaviour
 
         // Check for damage
         CheckForDamage();
+
+        //Idle State
+        IdleState();
         }
-
-
     }
 
     private void Crouch()
@@ -121,6 +140,8 @@ public class Player_Movement : MonoBehaviour
             StopSprinting();
             StartCoroutine(SprintCooldown());
         }
+
+        //animator.SetBool("isSprinting", true);
     }
 
     private void StopSprinting()
@@ -138,13 +159,38 @@ public class Player_Movement : MonoBehaviour
         Vector2 moveDirection = new Vector2(horizontalInput, 0);
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) //Used key codes since for now, I can't place Input.GetAxis since it's a float and not a bool for an "if" statement
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
         {
-            localIsWalking = true; 
+            localIsWalking = true;
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             localIsWalking = false;
+        }
+
+        if (Input.GetKey(KeyCode.D)) //For the Right Side
+        {
+            _isFacingRight = true;
+            _isFacingLeft = false;
+            if (!IsAnimationPlaying(animator, Jump_FR))
+            {
+                if (isGrounded && localIsWalking && !_isFacingLeft)
+                {
+                    ChangeAnimationState(WALK_FR);
+                }
+            }
+        }
+        else if (Input.GetKey(KeyCode.A)) //For the Left Side
+        {
+            _isFacingRight = false;
+            _isFacingLeft = true;
+            if (!IsAnimationPlaying(animator, Jump_FR))
+            {
+                if (isGrounded && localIsWalking && !_isFacingRight)
+                {
+                    ChangeAnimationState(WALK_LR);
+                }
+            }
         }
 
         if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
@@ -164,13 +210,49 @@ public class Player_Movement : MonoBehaviour
         if (!isJumping && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-            AudioManager.Instance.PlaySFXtheSequal("Jump");
+            if(_isFacingRight)
+            {
+                ChangeAnimationState(Jump_FR);
+                StartCoroutine(AnimationTransistion());
+            }
+            if (_isFacingLeft)
+            {
+                ChangeAnimationState(Jump_FL);
+                StartCoroutine(AnimationTransistion());
+            }
         }
 
         else if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
             AudioManager.Instance.sfxSourceTheSequal.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.D) && !isGrounded)
+        {
+            ChangeAnimationState(Mid_Air_Glide_FR);
+        }
+        if (Input.GetKeyDown(KeyCode.A) && !isGrounded)
+        {
+            ChangeAnimationState(Mid_Air_Glide_FL);
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            AudioManager.Instance.PlaySFXtheSequal("Jump");
+        }
+    }
+
+    IEnumerator AnimationTransistion()
+    {
+        yield return new WaitForSeconds(.4f);
+        if (_isFacingRight)
+        {
+            ChangeAnimationState(Mid_Air_Glide_FR);
+        }
+        if(_isFacingLeft)
+        {
+            ChangeAnimationState(Mid_Air_Glide_FL);
         }
     }
 
@@ -227,6 +309,51 @@ public class Player_Movement : MonoBehaviour
         Vector2 launchDirection = (transform.position + myCollider.transform.position).normalized;
         rb.AddForce(launchDirection * damageForce, ForceMode2D.Impulse);
 
+        AudioManager.Instance.PlaySFX("Player is Hurt");
+
         StartCoroutine(DamageCooldown());
+    }
+
+    // Change animation state
+    void ChangeAnimationState(string newState)
+    {
+        if(newState == _currentState)
+        {
+            return;
+        }
+
+        animator.Play(newState);
+
+        _currentState = newState;
+    }
+
+    // Check if a specific animation is playing
+    // Parameter named "0" is the animation layer
+    bool IsAnimationPlaying(Animator animator, string stateName)
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void IdleState()
+    {
+        if (!IsAnimationPlaying(animator, Jump_FR))
+        {
+            if (isGrounded && !localIsWalking && _isFacingRight)
+            {
+                ChangeAnimationState(PLAYER_IDLE_FR);
+            }
+            if (isGrounded && !localIsWalking && _isFacingLeft)
+            {
+                ChangeAnimationState(Id_FL);
+            }
+        }
     }
 }

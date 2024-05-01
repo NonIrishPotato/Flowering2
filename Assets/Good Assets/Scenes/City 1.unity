@@ -1226,6 +1226,11 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!82 &209255244 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+  m_PrefabInstance: {fileID: 499542919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &239325927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,6 +3318,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 469111494}
     - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: enemyIdleSound
+      value: 
+      objectReference: {fileID: 209255244}
+    - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -3324,6 +3333,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1648058417}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3023286051848568362, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -3758,6 +3775,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b09639833ab4d8146a8fc53292d7a521, type: 3}
   - name: Enemy Attack
     clip: {fileID: 8300000, guid: 4348690cb64206d4f9125f93c4648659, type: 3}
+  - name: Player is Hurt
+    clip: {fileID: 8300000, guid: e226a660e06f7364f8364eb6dd4a1212, type: 3}
   sfxSoundsTheSequal:
   - name: Jump
     clip: {fileID: 8300000, guid: 0b8c56b78fd472e419d1c8fb4cafc5fa, type: 3}
@@ -4158,6 +4177,11 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!82 &536691541 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+  m_PrefabInstance: {fileID: 775166003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &537379516
 GameObject:
   m_ObjectHideFlags: 0
@@ -6242,6 +6266,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766855351}
   m_CullTransparentMesh: 1
+--- !u!1 &772070122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8645920848420852957, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+  m_PrefabInstance: {fileID: 1767378836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &772070126
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772070122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a89d1f6016400d7469d749d665fd8f71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &774988163
 GameObject:
   m_ObjectHideFlags: 0
@@ -6389,6 +6439,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 469111494}
     - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: enemyIdleSound
+      value: 
+      objectReference: {fileID: 536691541}
+    - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6400,6 +6454,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 167204424}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3023286051848568362, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -6478,6 +6540,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 469111494}
     - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: enemyIdleSound
+      value: 
+      objectReference: {fileID: 990245052}
+    - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6489,6 +6555,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 816319577}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3023286051848568362, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -7858,6 +7932,11 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!82 &990245052 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+  m_PrefabInstance: {fileID: 781549316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028034169
 GameObject:
   m_ObjectHideFlags: 0
@@ -15393,6 +15472,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 469111494}
     - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: enemyIdleSound
+      value: 
+      objectReference: {fileID: 1920174403}
+    - target: {fileID: 1386306358482941895, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -15404,6 +15487,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 268993247}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3023286051848568362, guid: a57142322eaf2944b854640fc7b77117, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -17298,6 +17389,17 @@ MonoBehaviour:
   settingsMenu: {fileID: 359683553}
   gameOverMenu: {fileID: 1628329202}
   winMenu: {fileID: 345348208}
+--- !u!114 &1759327087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2755034724914482597, guid: 7a99ae10245aa124eb34b3a598b0d5b4, type: 3}
+  m_PrefabInstance: {fileID: 1759327084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759327085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9321aa441740d469446806b018a988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1767378836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17306,10 +17408,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.46875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721987255079328978, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.46875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739647548157611249, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 772070126}
     - target: {fileID: 5739647548157611249, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
       propertyPath: duration
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5739647548157611249, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1759327087}
     - target: {fileID: 7193538937347692869, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.12
@@ -17354,6 +17492,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8808260747284442077, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808260747284442077, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.46875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808260747284442077, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1931190483, guid: 9c81a871a2e369a40a5cb95d10ab2b2c, type: 3}
+    - target: {fileID: 8808260747284442077, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9173944016665715840, guid: 830d576b3fffad742b54826d91d95a8f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -17361,7 +17515,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8645920848420852957, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 772070126}
   m_SourcePrefab: {fileID: 100100000, guid: 4b70ddcd6789bc74ea810f8ca9bf569c, type: 3}
 --- !u!1 &1773004585
 GameObject:
@@ -18581,6 +18738,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!82 &1920174403 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1926108008279305090, guid: a57142322eaf2944b854640fc7b77117, type: 3}
+  m_PrefabInstance: {fileID: 1597431491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1943978974
 MonoBehaviour:
   m_ObjectHideFlags: 0
