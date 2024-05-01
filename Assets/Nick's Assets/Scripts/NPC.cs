@@ -10,10 +10,11 @@ public class NPC : MonoBehaviour
     private GameObject dialogue;
     bool isPlayerInsideNPC;
     public KeyCode key;
+    public string WhichDialogueBox;
 
     void Start()
     {
-        dialogue = GameObject.Find("Dialogue Box");
+        dialogue = GameObject.Find(WhichDialogueBox);
         Debug.Log("NPC Script found Dialogue Box");
     }
 

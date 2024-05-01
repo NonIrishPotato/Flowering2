@@ -4,6 +4,9 @@ using UnityEngine;
 public class Enemy_Patrol : MonoBehaviour
 {
     public GameManager gameManager;
+
+    public bool outOfBounds = false;
+
     public float moveSpeed = 3f;
     public float PatrolSpeed = 3f;
     public float ChaseSpeed = 5f;
@@ -14,6 +17,10 @@ public class Enemy_Patrol : MonoBehaviour
     public float playerCrouchDetectionRadius = 1f;
     public float playerWalkDetectionRadius = 2f;
     public float playerRunDetectionRadius = 4f;
+
+    public float smallHazardRadius = 4f;
+    public float meduimHazardRadius = 6f;
+    public float largeHazardRadius = 8f;
 
     private float playerDetectionRadius = 0f;
     public LayerMask playerLayer;
@@ -41,7 +48,8 @@ public class Enemy_Patrol : MonoBehaviour
     {
         Patrolling,
         Chasing,
-        Recover
+        Recover,
+        Distracted
 
     }
 
@@ -49,6 +57,9 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void Start()
     {
+        playerRb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
         gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody2D>();
 
@@ -67,7 +78,11 @@ public class Enemy_Patrol : MonoBehaviour
 
         bool isPlayerNearby = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
 
-        if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
+        if (outOfBounds)
+        {
+            currentState = EnemyState.Patrolling;
+        }
+        else if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
         {
             wasPlayerDetected = true;
             
@@ -100,7 +115,8 @@ public class Enemy_Patrol : MonoBehaviour
                 break;
         }
 
-        if (gameManager.IsPlayerCrouching)
+
+        if (gameManager.IsPlayerCrouching || gameManager.smokeBombActive)
         {
             playerDetectionRadius = playerCrouchDetectionRadius;
         }
@@ -112,6 +128,24 @@ public class Enemy_Patrol : MonoBehaviour
         {
             playerDetectionRadius = playerRunDetectionRadius;
         }
+
+        if(gameManager.smallHazardHit)
+        {
+            playerDetectionRadius = smallHazardRadius;
+            Debug.Log("SmallHazardHit " + playerDetectionRadius);
+        }
+        else if(gameManager.mediumHazardHit)
+        {
+            playerDetectionRadius = meduimHazardRadius;
+            Debug.Log("MediumHazardHit " + playerDetectionRadius);
+        }
+        else if(gameManager.largeHazardHit)
+        {
+            playerDetectionRadius = largeHazardRadius;
+            Debug.Log("LargeHazardHit " + playerDetectionRadius);
+        }
+
+       
     }
 
     private void Patrol()
@@ -141,7 +175,7 @@ public class Enemy_Patrol : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
 
-            CheckForObstacles(moveDirection.x);
+            //CheckForObstacles(moveDirection.x);
         }
     }
 
@@ -151,7 +185,7 @@ public class Enemy_Patrol : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
         FlipDirection(moveDirection.x);
 
-        CheckForObstacles(moveDirection.x);
+        //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
         isSoundPlaying = true;
         if(isSoundPlaying)
@@ -183,12 +217,9 @@ public class Enemy_Patrol : MonoBehaviour
         }
     }
 
-    private void CheckForObstacles(float directionX)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Vector2 raycastOrigin = transform.position + new Vector3((isFacingRight ? 1 : -1) * obstacleDetectionDistance, 0, 0);
-        RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.down, 1f, LayerMask.GetMask("Obstacle"));
-
-        if (hit.collider != null)
+        if (other.CompareTag("Ground"))
         {
             Jump();
         }
@@ -197,6 +228,7 @@ public class Enemy_Patrol : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        Debug.Log("Jumping with force: " + jumpForce);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

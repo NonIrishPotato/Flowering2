@@ -21,7 +21,6 @@ public class CureBerryBush : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInSpot = true;
-            Debug.Log("True");
         }
     }
 

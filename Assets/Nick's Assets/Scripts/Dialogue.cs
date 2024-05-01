@@ -63,7 +63,14 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
+            ResetDialogue(); // Call reset when dialogue ends
             gameObject.SetActive(false);
         }
+    }
+
+    void ResetDialogue()
+    {
+        index = 0;
+        textComponent.text = string.Empty;
     }
 }
