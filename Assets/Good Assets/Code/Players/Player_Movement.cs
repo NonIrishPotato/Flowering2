@@ -33,9 +33,9 @@ public class Player_Movement : MonoBehaviour
     public float duration = 3f;
 
     //Animation States
-    public static Animator animator;
-    public static bool isFacingLeft, isFacingRight;
-    static string _currentState;
+    public Animator animator;
+    public bool isFacingLeft, isFacingRight;
+    string _currentState;
     const string PLAYER_IDLE_FR = "Player_Idle_FR";
     const string Id_FL = "Id_FL";
     const string WALK_FR = "WalK_FR";
@@ -59,7 +59,6 @@ public class Player_Movement : MonoBehaviour
     {
         if (!PauseMenuScript.isPaused) //Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
         {
-            //animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
 
         // Check if the character is grounded
         isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
@@ -314,7 +313,7 @@ public class Player_Movement : MonoBehaviour
     }
 
     // Change animation state
-    public static void ChangeAnimationState(string newState)
+    public void ChangeAnimationState(string newState)
     {
         if(newState == _currentState)
         {
