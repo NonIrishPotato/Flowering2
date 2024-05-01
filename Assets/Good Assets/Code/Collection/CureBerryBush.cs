@@ -70,10 +70,6 @@ public class CureBerryBush : MonoBehaviour
                 gameManager.tempBerrysForMySanity += 1;
                 berry.SetActive(false);
                 Debug.Log("Berry picked! Total Berries: " + gameManager.amountOfBerrys);
-                if (Player_Movement.isFacingLeft)
-                    Player_Movement.ChangeAnimationState(PICK_FL);
-                if (Player_Movement.isFacingRight)
-                    Player_Movement.ChangeAnimationState(PICK_FR);
                 // Add any additional actions for when the player picks the berry
             }
             else
