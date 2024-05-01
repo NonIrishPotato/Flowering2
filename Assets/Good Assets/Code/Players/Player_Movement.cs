@@ -34,10 +34,9 @@ public class Player_Movement : MonoBehaviour
     public float duration = 3f;
 
     //Animation States
-    public Animator animator;
-    bool _isFacingLeft;
-    bool _isFacingRight;
-    string _currentState;
+    public static Animator animator;
+    public static bool isFacingLeft, isFacingRight;
+    static string _currentState;
     const string PLAYER_IDLE_FR = "Player_Idle_FR";
     const string Id_FL = "Id_FL";
     const string WALK_FR = "WalK_FR";
@@ -65,6 +64,8 @@ public class Player_Movement : MonoBehaviour
 
         // Check if the character is grounded
         isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+            if (isGrounded)
+                isJumping = false;
 
         // Check for damage cooldown
         if (!canTakeDamage)
@@ -170,11 +171,11 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D)) //For the Right Side
         {
-            _isFacingRight = true;
-            _isFacingLeft = false;
-            if (!IsAnimationPlaying(animator, Jump_FR))
+            isFacingRight = true;
+            isFacingLeft = false;
+            if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
             {
-                if (isGrounded && localIsWalking && !_isFacingLeft)
+                if (isGrounded && localIsWalking && !isFacingLeft)
                 {
                     ChangeAnimationState(WALK_FR);
                 }
@@ -182,11 +183,11 @@ public class Player_Movement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A)) //For the Left Side
         {
-            _isFacingRight = false;
-            _isFacingLeft = true;
-            if (!IsAnimationPlaying(animator, Jump_FR))
+            isFacingRight = false;
+            isFacingLeft = true;
+            if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
             {
-                if (isGrounded && localIsWalking && !_isFacingRight)
+                if (isGrounded && localIsWalking && !isFacingRight)
                 {
                     ChangeAnimationState(WALK_LR);
                 }
@@ -210,12 +211,12 @@ public class Player_Movement : MonoBehaviour
         if (!isJumping && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-            if(_isFacingRight)
+            if(isFacingRight)
             {
                 ChangeAnimationState(Jump_FR);
                 StartCoroutine(AnimationTransistion());
             }
-            if (_isFacingLeft)
+            if (isFacingLeft)
             {
                 ChangeAnimationState(Jump_FL);
                 StartCoroutine(AnimationTransistion());
@@ -246,11 +247,11 @@ public class Player_Movement : MonoBehaviour
     IEnumerator AnimationTransistion()
     {
         yield return new WaitForSeconds(.4f);
-        if (_isFacingRight)
+        if (isFacingRight)
         {
             ChangeAnimationState(Mid_Air_Glide_FR);
         }
-        if(_isFacingLeft)
+        if(isFacingLeft)
         {
             ChangeAnimationState(Mid_Air_Glide_FL);
         }
@@ -315,7 +316,7 @@ public class Player_Movement : MonoBehaviour
     }
 
     // Change animation state
-    void ChangeAnimationState(string newState)
+    public static void ChangeAnimationState(string newState)
     {
         if(newState == _currentState)
         {
@@ -346,11 +347,11 @@ public class Player_Movement : MonoBehaviour
     {
         if (!IsAnimationPlaying(animator, Jump_FR))
         {
-            if (isGrounded && !localIsWalking && _isFacingRight)
+            if (isGrounded && !localIsWalking && isFacingRight)
             {
                 ChangeAnimationState(PLAYER_IDLE_FR);
             }
-            if (isGrounded && !localIsWalking && _isFacingLeft)
+            if (isGrounded && !localIsWalking && isFacingLeft)
             {
                 ChangeAnimationState(Id_FL);
             }
