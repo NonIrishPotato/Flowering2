@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Nick's Assets/Scenes/Nick's Scene.unity
+    path: Assets/Good Assets/Scenes/Important Scenes/Nick's Scene.unity
     guid: b3abb11842b3a4b49b52251201474e51
   - enabled: 1
-    path: Assets/Good Assets/Scenes/Dungeon 1.unity
+    path: Assets/Good Assets/Scenes/Important Scenes/Dungeon 1.unity
     guid: cbe94b836fece95418c959f89ca4d679
   - enabled: 1
     path: Assets/Nick's Assets/Scenes/Game_Over1.unity
