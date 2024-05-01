@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Good Assets/Scenes/Dungeon 1.unity
     guid: cbe94b836fece95418c959f89ca4d679
+  - enabled: 1
+    path: Assets/Nick's Assets/Scenes/Game_Over1.unity
+    guid: 44a61a5d7ea0d8a47b3a736ee2cf4b2f
   m_configObjects: {}
