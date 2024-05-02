@@ -62719,6 +62719,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7367596930712043552, guid: 0d2c325d7435c7c4d9d87726ae9dcd7e, type: 3}
+      propertyPath: berryStates.Array.size
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 8607586096595371228, guid: 0d2c325d7435c7c4d9d87726ae9dcd7e, type: 3}
       propertyPath: m_Name
       value: BerryController

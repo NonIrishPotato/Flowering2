@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public int healingHoney = 0;
     public int preventative = 0;
 
+    
+
     public int amountOfBerrysCollected;
 
 
