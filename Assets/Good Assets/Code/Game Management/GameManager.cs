@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Death");
+
             // Add any additional actions for when the player dies
         }
         if (amountOfBerrysCollected == 4)
