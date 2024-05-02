@@ -45,8 +45,12 @@ public class Player_Movement : MonoBehaviour
     const string Jump_FL = "Jump_FL";
     const string Mid_Air_Glide_FR = "Mid_Air_Glide_FR 0";
     const string Mid_Air_Glide_FL = "Mid_Air_Glide_FL 0";
-    const string PLAYER_LANDED_FR = "Player_Landed_FR";
-    const string PLAYER_LANDED_LR = "Player_Landed_FL";
+    //const string Crouch_Start_FR = "Crouch_Start_FR";
+    //const string Crouch_Start_FL = "Crouch_Start_FL";
+    const string Crouch_Idle_FR = "Crouch_Idle_FR";
+    const string Crouch_Idle_FL = "Crouch_Id_FL";
+    const string Crouch_Walk_FR = "Crouch_Walk_FR";
+    const string Crouch_Walk_FL = "Crouch_Walk_FL";
 
     private void Start()
     {
@@ -114,6 +118,23 @@ public class Player_Movement : MonoBehaviour
 
         isCrouching = true;
         moveSpeed = crouchSpeed;
+        if(isFacingLeft && isCrouching && !localIsWalking)
+        {
+            ChangeAnimationState(Crouch_Idle_FL);
+        }
+        if(isFacingRight && isCrouching && !localIsWalking)
+        {
+            ChangeAnimationState(Crouch_Idle_FR);
+        }
+
+        if (isFacingLeft && isCrouching && localIsWalking)
+        {
+            ChangeAnimationState(Crouch_Walk_FL);
+        }
+        if (isFacingRight && isCrouching && localIsWalking)
+        {
+            ChangeAnimationState(Crouch_Walk_FR);
+        }
     }
 
     private void StandUp()
@@ -174,7 +195,7 @@ public class Player_Movement : MonoBehaviour
             isFacingLeft = false;
             if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
             {
-                if (isGrounded && localIsWalking && !isFacingLeft)
+                if (isGrounded && localIsWalking && !isFacingLeft && !isCrouching)
                 {
                     ChangeAnimationState(WALK_FR);
                 }
@@ -186,7 +207,7 @@ public class Player_Movement : MonoBehaviour
             isFacingLeft = true;
             if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
             {
-                if (isGrounded && localIsWalking && !isFacingRight)
+                if (isGrounded && localIsWalking && !isFacingRight && !isCrouching)
                 {
                     ChangeAnimationState(WALK_LR);
                 }
@@ -253,6 +274,18 @@ public class Player_Movement : MonoBehaviour
         if(isFacingLeft)
         {
             ChangeAnimationState(Mid_Air_Glide_FL);
+        }
+    }
+    IEnumerator AnimationTransistionForCrouch()
+    {
+        yield return new WaitForSeconds(1f);
+        if (isFacingRight && localIsWalking)
+        {
+            ChangeAnimationState(Crouch_Walk_FR);
+        }
+        if (isFacingLeft && localIsWalking)
+        {
+            ChangeAnimationState(Crouch_Idle_FL);
         }
     }
 
@@ -346,11 +379,11 @@ public class Player_Movement : MonoBehaviour
     {
         if (!IsAnimationPlaying(animator, Jump_FR))
         {
-            if (isGrounded && !localIsWalking && isFacingRight)
+            if (isGrounded && !localIsWalking && isFacingRight && !isCrouching)
             {
                 ChangeAnimationState(PLAYER_IDLE_FR);
             }
-            if (isGrounded && !localIsWalking && isFacingLeft)
+            if (isGrounded && !localIsWalking && isFacingLeft && !isCrouching)
             {
                 ChangeAnimationState(Id_FL);
             }
