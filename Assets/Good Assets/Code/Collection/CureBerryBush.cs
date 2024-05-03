@@ -9,11 +9,9 @@ public class CureBerryBush : MonoBehaviour
     public int whichBerryBush = 0;
     public bool berryTaken = false;
 
-    private bool isPlayerInSpot = false;
+    public bool isPlayerInSpot = false;
     private BerryController berryController;
     public GameObject berry;
-    const string PICK_FR = "PIck_FR";
-    const string PICK_FL = "PIck_FL";
 
     private void OnTriggerEnter2D(Collider2D other)
     {

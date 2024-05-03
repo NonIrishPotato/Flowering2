@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -34,9 +35,9 @@ public class Player_Movement : MonoBehaviour
     public float duration = 3f;
 
     //Animation States
-    public Animator animator;
-    public bool isFacingLeft, isFacingRight;
-    string _currentState;
+    public static Animator animator;
+    public static bool isFacingLeft, isFacingRight;
+    [HideInInspector] public static string _currentState;
     const string PLAYER_IDLE_FR = "Player_Idle_FR";
     const string Id_FL = "Id_FL";
     const string WALK_FR = "WalK_FR";
@@ -45,12 +46,12 @@ public class Player_Movement : MonoBehaviour
     const string Jump_FL = "Jump_FL";
     const string Mid_Air_Glide_FR = "Mid_Air_Glide_FR 0";
     const string Mid_Air_Glide_FL = "Mid_Air_Glide_FL 0";
-    //const string Crouch_Start_FR = "Crouch_Start_FR";
-    //const string Crouch_Start_FL = "Crouch_Start_FL";
     const string Crouch_Idle_FR = "Crouch_Idle_FR";
     const string Crouch_Idle_FL = "Crouch_Id_FL";
     const string Crouch_Walk_FR = "Crouch_Walk_FR";
     const string Crouch_Walk_FL = "Crouch_Walk_FL";
+    const string PICK_FR = "Player_Pick_FR";
+    const string PICK_FL = "PIck_FL";
 
     private void Start()
     {
@@ -58,6 +59,7 @@ public class Player_Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
         groundCheck = transform.Find("GroundCheck");
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -274,18 +276,6 @@ public class Player_Movement : MonoBehaviour
         if(isFacingLeft)
         {
             ChangeAnimationState(Mid_Air_Glide_FL);
-        }
-    }
-    IEnumerator AnimationTransistionForCrouch()
-    {
-        yield return new WaitForSeconds(1f);
-        if (isFacingRight && localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Walk_FR);
-        }
-        if (isFacingLeft && localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Idle_FL);
         }
     }
 

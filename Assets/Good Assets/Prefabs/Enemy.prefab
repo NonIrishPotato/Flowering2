@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6385230099667632230}
   - component: {fileID: 1386306358482941895}
   - component: {fileID: 4975528230700165783}
+  - component: {fileID: 2208375787237742110}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -195,6 +196,7 @@ MonoBehaviour:
   timeBeforeReturningToPatrol: 2
   playerRb: {fileID: 0}
   enemyIdleSound: {fileID: 1926108008279305090}
+  animator: {fileID: 0}
 --- !u!70 &4975528230700165783
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -230,6 +232,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.039541073}
   m_Size: {x: 2.18, y: 0.72418326}
   m_Direction: 1
+--- !u!95 &2208375787237742110
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3023286051848568362}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f885e2186cfead84a812caf3962e894c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7065440433296393382
 GameObject:
   m_ObjectHideFlags: 0
