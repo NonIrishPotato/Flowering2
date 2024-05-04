@@ -44,6 +44,13 @@ public class Enemy_Patrol : MonoBehaviour
     public AudioSource enemyIdleSound;
     bool isSoundPlaying;
 
+    public Animator animator; //You might need to drag each GameObject to the Animator component in Inspector
+    string _currentState;
+    const string ENEMY_WALK = "EM_Walk";
+    const string ENEMY_FLY = "EM_Fly";
+    const string ENEMY_FLY_LUNGE = "EM_Fly_Lunge";
+    const string ENEMY_FLY_STOP = "EM_Fly_Stop";
+
     private enum EnemyState
     {
         Patrolling,
@@ -69,80 +76,84 @@ public class Enemy_Patrol : MonoBehaviour
         }
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (waypoints.Length == 0)
-            return;
+        if(!PauseMenuScript.isPaused)
+        {
+            if (waypoints.Length == 0)
+                return;
 
-        bool isPlayerNearby = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
+            bool isPlayerNearby = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
 
-        if (outOfBounds)
-        {
-            currentState = EnemyState.Patrolling;
-        }
-        else if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
-        {
-            wasPlayerDetected = true;
-            
-            currentState = EnemyState.Chasing;
-            timeSinceLastDetection = Time.time;
-        }
-        else if (wasPlayerDetected && Time.time - timeSinceLastDetection > timeBeforeReturningToPatrol && canHitPlayer == true)
-        {
-            wasPlayerDetected = false;
-            currentState = EnemyState.Patrolling;
-        }
-        else if (!canHitPlayer)
-        {
-            currentState = EnemyState.Recover;
-        }
+            if (outOfBounds)
+            {
+                currentState = EnemyState.Patrolling;
+            }
+            else if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
+            {
+                wasPlayerDetected = true;
 
-        switch (currentState)
-        {
-            case EnemyState.Patrolling:
-                moveSpeed = PatrolSpeed;
-                Patrol();
-                break;
-            case EnemyState.Chasing:
-                moveSpeed = ChaseSpeed;
-                ChasePlayer();
-                break;
-            case EnemyState.Recover:
-                moveSpeed = 0;
-                Recover();
-                break;
-        }
+                currentState = EnemyState.Chasing;
+                timeSinceLastDetection = Time.time;
+            }
+            else if (wasPlayerDetected && Time.time - timeSinceLastDetection > timeBeforeReturningToPatrol && canHitPlayer == true)
+            {
+                wasPlayerDetected = false;
+                currentState = EnemyState.Patrolling;
+            }
+            else if (!canHitPlayer)
+            {
+                currentState = EnemyState.Recover;
+            }
+
+            switch (currentState)
+            {
+                case EnemyState.Patrolling:
+                    moveSpeed = PatrolSpeed;
+                    Patrol();
+                    break;
+                case EnemyState.Chasing:
+                    moveSpeed = ChaseSpeed;
+                    ChasePlayer();
+                    break;
+                case EnemyState.Recover:
+                    moveSpeed = 0;
+                    Recover();
+                    break;
+            }
 
 
-        if (gameManager.IsPlayerCrouching || gameManager.smokeBombActive)
-        {
-            playerDetectionRadius = playerCrouchDetectionRadius;
-        }
-        else if (gameManager.IsPlayerWalking)
-        {
-            playerDetectionRadius = playerWalkDetectionRadius;
-        }
-        else if (gameManager.IsPlayerSprinting)
-        {
-            playerDetectionRadius = playerRunDetectionRadius;
-        }
+            if (gameManager.IsPlayerCrouching || gameManager.smokeBombActive)
+            {
+                playerDetectionRadius = playerCrouchDetectionRadius;
+            }
+            else if (gameManager.IsPlayerWalking)
+            {
+                playerDetectionRadius = playerWalkDetectionRadius;
+            }
+            else if (gameManager.IsPlayerSprinting)
+            {
+                playerDetectionRadius = playerRunDetectionRadius;
+            }
 
-        if(gameManager.smallHazardHit)
-        {
-            playerDetectionRadius = smallHazardRadius;
-            Debug.Log("SmallHazardHit " + playerDetectionRadius);
-        }
-        else if(gameManager.mediumHazardHit)
-        {
-            playerDetectionRadius = meduimHazardRadius;
-            Debug.Log("MediumHazardHit " + playerDetectionRadius);
-        }
-        else if(gameManager.largeHazardHit)
-        {
-            playerDetectionRadius = largeHazardRadius;
-            Debug.Log("LargeHazardHit " + playerDetectionRadius);
+            if (gameManager.smallHazardHit)
+            {
+                playerDetectionRadius = smallHazardRadius;
+                Debug.Log("SmallHazardHit " + playerDetectionRadius);
+            }
+            else if (gameManager.mediumHazardHit)
+            {
+                playerDetectionRadius = meduimHazardRadius;
+                Debug.Log("MediumHazardHit " + playerDetectionRadius);
+            }
+            else if (gameManager.largeHazardHit)
+            {
+                playerDetectionRadius = largeHazardRadius;
+                Debug.Log("LargeHazardHit " + playerDetectionRadius);
+            }
         }
 
        
@@ -164,6 +175,7 @@ public class Enemy_Patrol : MonoBehaviour
             Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
             float distance = Vector2.Distance(transform.position, targetPosition);
             enemyIdleSound.Play();
+            ChangeAnimationState(ENEMY_WALK);
 
             if (distance > waypointRadius)
             {
@@ -187,11 +199,12 @@ public class Enemy_Patrol : MonoBehaviour
 
         //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+        ChangeAnimationState(ENEMY_FLY);
         isSoundPlaying = true;
         if(isSoundPlaying)
         {
-            AudioManager.Instance.PlaySFX("Enemy Scream");
             isSoundPlaying = false;
+            AudioManager.Instance.PlaySFX("Enemy Scream");
             Debug.Log(isSoundPlaying);
         }
     }
@@ -241,6 +254,7 @@ public class Enemy_Patrol : MonoBehaviour
             canHitPlayer = false;
             moveSpeed = 0;
             AudioManager.Instance.PlaySFX("Enemy Attack");
+            ChangeAnimationState(ENEMY_FLY_LUNGE);
             StartCoroutine(PauseChase());
         }
     }
@@ -248,10 +262,23 @@ public class Enemy_Patrol : MonoBehaviour
     private IEnumerator PauseChase()
     {
         Debug.Log("Pause Start");
+        ChangeAnimationState(ENEMY_FLY_STOP);
 
         yield return new WaitForSeconds(3f); // Adjust this duration as needed
 
         Debug.Log("Pause End");
         canHitPlayer = true;
     }
+    public void ChangeAnimationState(string newState)
+    {
+        if (newState == _currentState)
+        {
+            return;
+        }
+
+        animator.Play(newState);
+
+        _currentState = newState;
+    }
+
 }

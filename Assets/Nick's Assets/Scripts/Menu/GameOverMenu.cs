@@ -7,10 +7,12 @@ public class GameOverMenu : MonoBehaviour
 {
     public void RestartGame(int i)
     {
-       SceneManager.LoadScene(i);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(i);
     }   
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
