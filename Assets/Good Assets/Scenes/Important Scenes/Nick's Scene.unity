@@ -1117,6 +1117,7 @@ GameObject:
   - component: {fileID: 636896413}
   - component: {fileID: 636896412}
   - component: {fileID: 636896415}
+  - component: {fileID: 636896416}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1210,7 +1211,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4eb102f7d2da04b8e55efbd9400f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songName: Place Holder Theme
+  songName: Main Menu Theme
+--- !u!114 &636896416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636896411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18649cff813d8ca43bacf57651143f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649878112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051074986}
+  - component: {fileID: 1051074987}
   - component: {fileID: 1051074985}
   m_Layer: 0
   m_Name: Level Loader
@@ -2217,6 +2231,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051074987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051074984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18649cff813d8ca43bacf57651143f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179253702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2660,7 @@ GameObject:
   - component: {fileID: 1310761720}
   - component: {fileID: 1310761724}
   - component: {fileID: 1310761725}
+  - component: {fileID: 1310761726}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2757,6 +2784,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSlider: {fileID: 466845312}
   _sfxSlider: {fileID: 1872181047}
+--- !u!114 &1310761726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310761719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18649cff813d8ca43bacf57651143f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1314470600
 GameObject:
   m_ObjectHideFlags: 0
@@ -3373,9 +3412,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1051074985}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 1310761726}
+        m_TargetAssemblyTypeName: GameOverMenu, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

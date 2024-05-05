@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public Sound[] musicSounds, sfxSounds, sfxSoundsTheSequal;
+    public AudioClip enemyScreamSound;
     public AudioSource musicSource, sfxSource, sfxSourceTheSequal;
 
     public bool isPlaying;

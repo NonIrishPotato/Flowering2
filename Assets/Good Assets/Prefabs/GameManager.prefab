@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7549427966223256526}
   - component: {fileID: 2755034724914482597}
+  - component: {fileID: 3377072388485152556}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,6 +49,35 @@ MonoBehaviour:
   IsPlayerCrouching: 0
   IsPlayerWalking: 1
   IsPlayerSprinting: 0
+  smallHazardHit: 0
+  mediumHazardHit: 0
+  largeHazardHit: 0
   currentHealth: 4
   maxHealth: 4
   amountOfBerrys: 0
+  tempBerrysForMySanity: 0
+  cureBerrys: 0
+  necterblooms: 0
+  bloatedFungus: 0
+  rootClippings: 0
+  rocks: 0
+  smokeBombs: 0
+  healingHoney: 0
+  preventative: 0
+  amountOfBerrysCollected: 0
+  canHide: 1
+  InfectionBar: 0
+  smokeBombActive: 0
+--- !u!114 &3377072388485152556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879363751494937007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4eb102f7d2da04b8e55efbd9400f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songName: Cave Ambience
