@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
+    private void Update()
+    {
+        Time.timeScale = 1f;
+    }
     public void RestartGame(int i)
     {
         Time.timeScale = 1f;
