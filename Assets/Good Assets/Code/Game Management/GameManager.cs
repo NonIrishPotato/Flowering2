@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public int healingHoney = 0;
     public int preventative = 0;
 
+    
+
     public int amountOfBerrysCollected;
 
 
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Death");
+
             // Add any additional actions for when the player dies
         }
         if (amountOfBerrysCollected == 4)
