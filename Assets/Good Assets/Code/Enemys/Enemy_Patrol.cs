@@ -241,7 +241,6 @@ public class Enemy_Patrol : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        Debug.Log("Jumping with force: " + jumpForce);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

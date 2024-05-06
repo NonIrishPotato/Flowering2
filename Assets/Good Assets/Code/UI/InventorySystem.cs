@@ -20,6 +20,8 @@ public class InventorySystem : MonoBehaviour
      * 10 = Preventative
      * ...
      */
+
+    public static InventorySystem Instance;
     private GameManager gameManager;
     public Image[] InventorySlots; //All image place holders for inventory and crafting slots
     public Image[] KeyItemSlots; //All image place holders for Key Items
@@ -57,6 +59,19 @@ public class InventorySystem : MonoBehaviour
 
     private RectTransform draggedItemTransform;
 
+    private void Awake()
+    {
+        // Singleton pattern to ensure only one instance of GameManager exists
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Don't destroy GameManager when loading new scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate GameManager instances
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -73,13 +88,15 @@ public class InventorySystem : MonoBehaviour
         UpdateToolSlots();
 
         //Count Berrys
-        countBerrys();      
+        countBerrys();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+
         //Checks Inventory Slots and fill items appropriately
         UpdateInventorySlots();
 
@@ -93,6 +110,9 @@ public class InventorySystem : MonoBehaviour
         UpdateCraftingPlaceholder();
 
         countBerrys();
+
+        Items = gameManager.intArray;
+        gameManager.intArray = Items;
     }
 
     public void countBerrys()
@@ -103,18 +123,19 @@ public class InventorySystem : MonoBehaviour
             bool placed = false;
             int amountOfCureBerrysFound = 0;
 
-            for (int z = 0; z < Items.Length - 10; z++)
+            for (int z = 0; z < KeyItems.Length; z++)
             {
-                if (Items[z] == 0 && placed == false)
+                if (KeyItems[z] == 0 && placed == false && gameManager.amountOfBerrys <= 7)
                 {
                     placed = true;
-                    Items[z] = 3;
-                    InventorySlots[z].sprite = CureBerry;
+                    KeyItems[z] = 3;
+                    KeyItemSlots[z].sprite = CureBerry;
                     gameManager.cureBerrys -= 1;
                 }
-                if (Items[z] == 3)
+                if (KeyItems[z] == 3)
                 {
                     amountOfCureBerrysFound += 1;
+                    gameManager.amountOfBerrys = amountOfCureBerrysFound;
                 }
 
             }

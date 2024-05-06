@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +31,9 @@ public class GameManager : MonoBehaviour
     public int healingHoney = 0;
     public int preventative = 0;
 
-    
+    public int[] intArray; // Array of integers to be saved
+
+
 
     public int amountOfBerrysCollected;
 
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadIntArray();
     }
 
     // Update is called once per frame
@@ -54,14 +57,21 @@ public class GameManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Death");
+            SceneManager.LoadScene("Game_Over2");
 
             // Add any additional actions for when the player dies
         }
-        if (amountOfBerrysCollected == 4)
+        if (amountOfBerrysCollected == 8)
         {
             Debug.Log("Win");
+            SceneManager.LoadScene("Win_Screen");
         }
 
+    }
+    void OnDestroy()
+    {
+        // Save the array to PlayerPrefs when the game object is destroyed
+        SaveIntArray();
     }
 
     private void Awake()
@@ -75,6 +85,46 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject); // Destroy duplicate GameManager instances
+        }
+    }
+
+    void UpdateIntArray()
+    {
+        // Example: Update the array every frame (you can replace this with your own logic)
+        // For demonstration, just increment each element of the array
+        for (int i = 0; i < intArray.Length; i++)
+        {
+            intArray[i]++;
+        }
+    }
+
+    void SaveIntArray()
+    {
+        // Convert the array to a string using JSON serialization
+        string jsonArray = JsonUtility.ToJson(intArray);
+
+        // Save the JSON string to PlayerPrefs
+        PlayerPrefs.SetString("IntArray", jsonArray);
+
+        // Save PlayerPrefs immediately to ensure the data is saved
+        PlayerPrefs.Save();
+    }
+
+    void LoadIntArray()
+    {
+        // Check if PlayerPrefs has the key "IntArray"
+        if (PlayerPrefs.HasKey("IntArray"))
+        {
+            // Retrieve the JSON string from PlayerPrefs
+            string jsonArray = PlayerPrefs.GetString("IntArray");
+
+            // Convert the JSON string back to an array of integers using JSON deserialization
+            intArray = JsonUtility.FromJson<int[]>(jsonArray);
+        }
+        else
+        {
+            // If PlayerPrefs does not have the key, initialize the array with default values
+            intArray = new int[10]; // Example: initialize with 10 elements
         }
     }
 }
