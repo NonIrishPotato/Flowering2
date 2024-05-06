@@ -432,8 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - name: Place Holder Theme
-    clip: {fileID: 8300000, guid: 8720ac12447d25a478a4dcccfd2a7b50, type: 3}
+  - name: Main Menu Theme
+    clip: {fileID: 8300000, guid: 3d1c274834808c74ea66918e528bdf8f, type: 3}
   - name: Cave Ambience
     clip: {fileID: 8300000, guid: 13b659ecbecfdab4dbf6dbe6f56958c8, type: 3}
   - name: Game Over Theme
@@ -448,6 +448,7 @@ MonoBehaviour:
   sfxSoundsTheSequal:
   - name: Jump
     clip: {fileID: 8300000, guid: 0b8c56b78fd472e419d1c8fb4cafc5fa, type: 3}
+  enemyScreamSound: {fileID: 8300000, guid: b09639833ab4d8146a8fc53292d7a521, type: 3}
   musicSource: {fileID: 8525006386594171972}
   sfxSource: {fileID: 4318993410182403230}
   sfxSourceTheSequal: {fileID: 2622789131933289586}

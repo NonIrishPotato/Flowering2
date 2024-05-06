@@ -176,6 +176,7 @@ public class Enemy_Patrol : MonoBehaviour
             float distance = Vector2.Distance(transform.position, targetPosition);
             enemyIdleSound.Play();
             ChangeAnimationState(ENEMY_WALK);
+            isSoundPlaying = false;
 
             if (distance > waypointRadius)
             {
@@ -200,12 +201,11 @@ public class Enemy_Patrol : MonoBehaviour
         //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
         ChangeAnimationState(ENEMY_FLY);
-        isSoundPlaying = true;
-        if(isSoundPlaying)
+        if(!isSoundPlaying)
         {
-            isSoundPlaying = false;
-            AudioManager.Instance.PlaySFX("Enemy Scream");
+            AudioManager.Instance.sfxSource.PlayOneShot(AudioManager.Instance.enemyScreamSound);
             Debug.Log(isSoundPlaying);
+            isSoundPlaying = true;
         }
     }
 
