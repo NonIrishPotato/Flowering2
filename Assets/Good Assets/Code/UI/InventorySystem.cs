@@ -47,11 +47,6 @@ public class InventorySystem : MonoBehaviour
 
     public Image[] SelectedItemSlots;
 
-    private Image draggedItem;
-    private int draggedItemIndex;
-    private Image targetSlot;
-    private int targetSlotIndex;
-
 
     private int amountOfBloatedFungus = 0;
     private int amountOfNectarBlooms = 0;
@@ -110,6 +105,9 @@ public class InventorySystem : MonoBehaviour
         UpdateCraftingPlaceholder();
 
         countBerrys();
+
+        KeyItems = gameManager.keyArray;
+        gameManager.keyArray = KeyItems;
 
         Items = gameManager.intArray;
         gameManager.intArray = Items;

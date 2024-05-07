@@ -63333,7 +63333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 47912638}
   Background: {fileID: 1877384808}
-  followSpeed: 700
+  followSpeed: 1000
 --- !u!212 &1877384807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63395,8 +63395,8 @@ Transform:
   m_GameObject: {fileID: 1877384805}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -4.11, z: 0}
-  m_LocalScale: {x: 2.8865309, y: 3.6086223, z: 2.5310524}
+  m_LocalPosition: {x: 6.35, y: -1.8, z: 0}
+  m_LocalScale: {x: 3.3902304, y: 4.348029, z: 2.5310524}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
