@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundFollow : MonoBehaviour
+public class BackgroundFolloww : MonoBehaviour
 {
     public Transform player; // Reference to the player's transform
     public Transform Background;
