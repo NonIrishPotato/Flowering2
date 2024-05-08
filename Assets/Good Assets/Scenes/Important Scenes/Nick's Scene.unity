@@ -357,6 +357,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61695746}
   m_CullTransparentMesh: 1
+--- !u!82 &86892306 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8525006386594171972, guid: 4f90b4852ab5672468798829ff69aa1e, type: 3}
+  m_PrefabInstance: {fileID: 1333073094566564230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &140198323
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,8 +3028,8 @@ RectTransform:
   m_Children:
   - {fileID: 333378819}
   - {fileID: 1314470601}
-  - {fileID: 1867495071}
   - {fileID: 1097760844}
+  - {fileID: 1867495071}
   - {fileID: 1017145818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4037,10 +4042,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7657541294803718433, guid: 4f90b4852ab5672468798829ff69aa1e, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 86892306}
+    - target: {fileID: 7657541294803718433, guid: 4f90b4852ab5672468798829ff69aa1e, type: 3}
+      propertyPath: musicSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8720ac12447d25a478a4dcccfd2a7b50, type: 3}
+    - target: {fileID: 7657541294803718433, guid: 4f90b4852ab5672468798829ff69aa1e, type: 3}
+      propertyPath: musicSounds.Array.data[0].name
+      value: Place Holder Theme
+      objectReference: {fileID: 0}
     - target: {fileID: 8001570867228849851, guid: 4f90b4852ab5672468798829ff69aa1e, type: 3}
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8525006386594171972, guid: 4f90b4852ab5672468798829ff69aa1e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d1c274834808c74ea66918e528bdf8f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

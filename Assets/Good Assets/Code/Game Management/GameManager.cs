@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public int preventative = 0;
 
     public int deathTic = 0;
+    public int winTic = 0;
 
     public int[] intArray; // Array of integers to be saved
     public int[] keyArray;
@@ -65,8 +66,9 @@ public class GameManager : MonoBehaviour
             currentHealth = maxHealth;
             // Add any additional actions for when the player dies
         }
-        if (amountOfBerrysCollected == 8)
+        if (amountOfBerrysCollected == 8 && winTic != 1)
         {
+            winTic = 1;
             SceneManager.LoadScene("Win_Screen");
         }
 

@@ -255,6 +255,8 @@ public class Enemy_Patrol : MonoBehaviour
             AudioManager.Instance.PlaySFX("Enemy Attack");
             ChangeAnimationState(ENEMY_FLY_LUNGE);
             StartCoroutine(PauseChase());
+            gameManager.winTic = 0;
+            gameManager.deathTic = 0;
         }
     }
 
