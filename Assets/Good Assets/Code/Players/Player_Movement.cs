@@ -77,7 +77,7 @@ public class Player_Movement : MonoBehaviour
             return;
 
         // Crouch
-        if (Input.GetKey(KeyCode.S) && !isSprinting)
+        if (Input.GetKey(KeyCode.LeftControl) && !isSprinting)
         {
             Crouch();
         }
@@ -87,7 +87,7 @@ public class Player_Movement : MonoBehaviour
         }
 
         // Sprint
-        if (Input.GetKey(KeyCode.W) && !isCrouching && canSprint)
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && canSprint)
         {
             Sprint();
         }

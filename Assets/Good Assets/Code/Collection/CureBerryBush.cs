@@ -58,7 +58,7 @@ public class CureBerryBush : MonoBehaviour
             berryTaken = true;
         }
 
-        if (isPlayerInSpot && Input.GetKeyDown(KeyCode.LeftShift))
+        if (isPlayerInSpot && Input.GetKeyDown(KeyCode.E))
         {
             if (!berryTaken)
             {

@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 758346179676468577}
   - component: {fileID: 3855981016793770303}
   - component: {fileID: 1818579834602939031}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Tool 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 6128921179040936909}
   - component: {fileID: 8075538614762037201}
   - component: {fileID: 2383774924365251933}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 1
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 6001403987752106475}
   - component: {fileID: 442634368369782071}
   - component: {fileID: 9076544193261530734}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 21
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2897290511137964614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 1852568361797097159}
   - component: {fileID: 6326782762630408937}
   - component: {fileID: 6129309502433732556}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 22
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -1065,16 +1065,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714312147800551080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.060915, y: 3.217885, z: 3.1394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -11.554947}
+  m_LocalScale: {x: 3.060915, y: 3.2178848, z: 3.1393998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3403568118627307356}
+  m_Father: {fileID: 5295507300003165213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: -156}
+  m_AnchoredPosition: {x: 2.5, y: -172.79999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4800101993656272129
@@ -1258,7 +1258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3799034963410388568}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 3059654194315621336}
   - component: {fileID: 34653183467261677}
   - component: {fileID: 1770418080773062820}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 13
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -1516,7 +1516,7 @@ GameObject:
   - component: {fileID: 1852625806217191297}
   - component: {fileID: 8005815942708975220}
   - component: {fileID: 6745193146333925704}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 14
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -1771,7 +1771,7 @@ GameObject:
   - component: {fileID: 1191627739082854039}
   - component: {fileID: 2685977127059209667}
   - component: {fileID: 719956997964072717}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 3
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -1911,7 +1911,7 @@ GameObject:
   - component: {fileID: 701028064348479695}
   - component: {fileID: 1916806344601492344}
   - component: {fileID: 2639920714992761316}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 2
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -2028,16 +2028,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701912644658520859}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.060915, y: 3.217885, z: 3.1394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -11.554947}
+  m_LocalScale: {x: 3.060915, y: 3.2178848, z: 3.1393998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3403568118627307356}
+  m_Father: {fileID: 5295507300003165213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: -156}
+  m_AnchoredPosition: {x: 2.5, y: -172.79999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1237336000896588428
@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 2962464693077014071}
   - component: {fileID: 6867107052200826703}
   - component: {fileID: 5629083781034348133}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 8
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -2432,8 +2432,7 @@ RectTransform:
   - {fileID: 2812321189628044624}
   - {fileID: 914700491685756395}
   - {fileID: 8898948985430203704}
-  - {fileID: 7185179876981749191}
-  - {fileID: 1853977782671186587}
+  - {fileID: 5295507300003165213}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2711,7 +2710,7 @@ GameObject:
   - component: {fileID: 4504550390487518563}
   - component: {fileID: 986773167577792296}
   - component: {fileID: 1909313645618043036}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2788,7 +2787,7 @@ GameObject:
   - component: {fileID: 3811708569668650131}
   - component: {fileID: 5072905550839092503}
   - component: {fileID: 244521093092079424}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 12
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -2908,8 +2907,8 @@ RectTransform:
   m_GameObject: {fileID: 2411484587024645253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9119117355358597315}
   - {fileID: 555322325691606209}
@@ -2927,7 +2926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1555, y: -183}
+  m_AnchoredPosition: {x: 895, y: -1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2423779058842154067
@@ -3001,7 +3000,7 @@ GameObject:
   - component: {fileID: 1592324379081792239}
   - component: {fileID: 3215933888873291492}
   - component: {fileID: 1566681739949724359}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3224,7 +3223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6810904433756847652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KeyObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3342,7 +3341,7 @@ GameObject:
   - component: {fileID: 4385389994963371321}
   - component: {fileID: 6208714722195511442}
   - component: {fileID: 6121714415620719801}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 4
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -3668,7 +3667,7 @@ GameObject:
   - component: {fileID: 6857832225412453361}
   - component: {fileID: 481535805126393478}
   - component: {fileID: 8343966700816550930}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3745,7 +3744,7 @@ GameObject:
   - component: {fileID: 2753388274516749881}
   - component: {fileID: 9170332559129149337}
   - component: {fileID: 6176442349170534206}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 17
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -3850,7 +3849,7 @@ GameObject:
   - component: {fileID: 7613795469647948545}
   - component: {fileID: 3518098779336460489}
   - component: {fileID: 2237666358472243569}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 11
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -3955,7 +3954,7 @@ GameObject:
   - component: {fileID: 5057946904911521949}
   - component: {fileID: 6400027135437146973}
   - component: {fileID: 1555124512295806702}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 6
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -4321,7 +4320,7 @@ GameObject:
   - component: {fileID: 623286031078190523}
   - component: {fileID: 5648002136492217436}
   - component: {fileID: 8539548787595748414}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftingSlot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4516,8 +4515,8 @@ RectTransform:
   m_GameObject: {fileID: 4208317148677323396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.79, y: 0.79, z: 0.79}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1043936381086687502}
   - {fileID: 6827443310798507282}
@@ -4527,7 +4526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1610.9379, y: 116.28708}
+  m_AnchoredPosition: {x: -996, y: -65}
   m_SizeDelta: {x: -133.8757, y: -163.5742}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4348169150723755354
@@ -4748,7 +4747,7 @@ GameObject:
   - component: {fileID: 1912126196945566325}
   - component: {fileID: 2667809159761748210}
   - component: {fileID: 224760276762688323}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftingSlot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,6 +4928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryImage: {fileID: 9110769495974953815}
+  healthUI: {fileID: 4208317148677323396}
+  bagUI: {fileID: 0}
+  selectionSlotsUI: {fileID: 2411484587024645253}
+  infectionUI: {fileID: 7769137936509667086}
 --- !u!1 &4443506545180401540
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,7 +5020,7 @@ GameObject:
   - component: {fileID: 7883472596883676660}
   - component: {fileID: 7943251661901382631}
   - component: {fileID: 8492289183631489014}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 5
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -5163,7 +5166,7 @@ GameObject:
   - component: {fileID: 3498430828878675937}
   - component: {fileID: 8777256423001749487}
   - component: {fileID: 3220516113922611607}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 10
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -5266,7 +5269,7 @@ GameObject:
   - component: {fileID: 7957879656204732527}
   - component: {fileID: 6405002695592011772}
   - component: {fileID: 6213730099507091266}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftedObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5343,7 +5346,7 @@ GameObject:
   - component: {fileID: 1608354198055094046}
   - component: {fileID: 4516706731346844933}
   - component: {fileID: 8247165099553199185}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftingSlot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5714,7 +5717,7 @@ GameObject:
   - component: {fileID: 6794379926163807612}
   - component: {fileID: 5757076925783828593}
   - component: {fileID: 4382817040290688059}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 18
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -5953,7 +5956,7 @@ GameObject:
   - component: {fileID: 3522501365866928329}
   - component: {fileID: 4272106016281938662}
   - component: {fileID: 2596583069801036563}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 20
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -6128,7 +6131,7 @@ GameObject:
   - component: {fileID: 2160966971909054177}
   - component: {fileID: 1304500459904603796}
   - component: {fileID: 5663347949636539728}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: InventoryHaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6337,7 +6340,7 @@ GameObject:
   - component: {fileID: 6767899447237899732}
   - component: {fileID: 3851087131867077275}
   - component: {fileID: 1194735946961046032}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6472,7 +6475,7 @@ GameObject:
   - component: {fileID: 6384428887306054755}
   - component: {fileID: 9183932904292206893}
   - component: {fileID: 7613558154798927407}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6604,7 +6607,7 @@ GameObject:
   - component: {fileID: 629469076457157744}
   - component: {fileID: 2775112102973510149}
   - component: {fileID: 5755528301062304257}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6892,7 +6895,7 @@ GameObject:
   - component: {fileID: 6461754797924430985}
   - component: {fileID: 3301228353335786655}
   - component: {fileID: 7245032844304819352}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 9
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -7181,7 +7184,7 @@ GameObject:
   - component: {fileID: 3719035000253317224}
   - component: {fileID: 1893542197162650168}
   - component: {fileID: 6559730972306360537}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7256,7 +7259,7 @@ GameObject:
   - component: {fileID: 8360225093441111604}
   - component: {fileID: 6280246436425700794}
   - component: {fileID: 5091571034637133542}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7333,7 +7336,7 @@ GameObject:
   - component: {fileID: 2254829677313865965}
   - component: {fileID: 3188252390944824366}
   - component: {fileID: 1842230020415304702}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 16
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -7509,7 +7512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8977782164089829612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7683,7 +7686,7 @@ GameObject:
   - component: {fileID: 5479917444662185296}
   - component: {fileID: 8024303188310905234}
   - component: {fileID: 2158736331867190626}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7985,7 +7988,7 @@ GameObject:
   - component: {fileID: 149256891107302123}
   - component: {fileID: 7160163666457781345}
   - component: {fileID: 3494587377370971602}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftingSlot 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8088,7 +8091,7 @@ GameObject:
   - component: {fileID: 4254874766130461217}
   - component: {fileID: 2915196983614322204}
   - component: {fileID: 5411851670958264987}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8165,7 +8168,7 @@ GameObject:
   - component: {fileID: 7829754661171155289}
   - component: {fileID: 242915967080673807}
   - component: {fileID: 6025093395014776758}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 19
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -8402,7 +8405,7 @@ GameObject:
   - component: {fileID: 1178185605681864586}
   - component: {fileID: 4697768102958799710}
   - component: {fileID: 8650864371244192459}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: KeyObject 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8740,7 +8743,7 @@ GameObject:
   - component: {fileID: 6051909233555224362}
   - component: {fileID: 3704159127995793138}
   - component: {fileID: 4748030705873540532}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 15
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -8832,6 +8835,39 @@ MonoBehaviour:
   inventorySystem: {fileID: 652620512783855467}
   newParent: {fileID: 3799034963410388568}
   oldParent: {fileID: 2897290511137964614}
+--- !u!1 &7769137936509667086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5295507300003165213}
+  m_Layer: 0
+  m_Name: Infection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5295507300003165213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769137936509667086}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 375, y: 291, z: 11.554947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1853977782671186587}
+  - {fileID: 7185179876981749191}
+  m_Father: {fileID: 3403568118627307356}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7780752253721817265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8845,7 +8881,7 @@ GameObject:
   - component: {fileID: 4728064114332699699}
   - component: {fileID: 4724060770790234274}
   - component: {fileID: 1344448454082989734}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Tool 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9468,7 +9504,7 @@ GameObject:
   - component: {fileID: 7660124229889477645}
   - component: {fileID: 3688737777185725297}
   - component: {fileID: 8484379048988751828}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftingSlot 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9644,7 +9680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8213779442665402780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9683,7 +9719,7 @@ GameObject:
   - component: {fileID: 6501159188088502443}
   - component: {fileID: 2011662030733789050}
   - component: {fileID: 8227246514387545747}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CraftingSlot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9788,7 +9824,7 @@ GameObject:
   - component: {fileID: 4354104090384556093}
   - component: {fileID: 3544965596614829301}
   - component: {fileID: 5482680237832570519}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slot 7
   m_TagString: InventorySlot
   m_Icon: {fileID: 0}
@@ -9893,7 +9929,7 @@ GameObject:
   - component: {fileID: 2984440886996806074}
   - component: {fileID: 6099608657492369855}
   - component: {fileID: 1424919614431428022}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Tool 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10206,7 +10242,7 @@ GameObject:
   - component: {fileID: 8377460977302782448}
   - component: {fileID: 2172471301917414977}
   - component: {fileID: 3045844036799106480}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Tool 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10308,7 +10344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8252531053810680871}
   - component: {fileID: 652620512783855467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InventoryWhole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10324,9 +10360,9 @@ Transform:
   m_GameObject: {fileID: 9110769495974953815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -171.35526, y: -98.99182, z: -1.9310704}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -142.53, y: -74, z: -1.9310704}
+  m_LocalScale: {x: 0.69, y: 0.69, z: 0.69}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2160966971909054177}
   - {fileID: 4504550390487518563}
@@ -10431,7 +10467,7 @@ GameObject:
   - component: {fileID: 7981981773738012635}
   - component: {fileID: 9088078501755082201}
   m_Layer: 5
-  m_Name: Infection
+  m_Name: Infection Progress bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

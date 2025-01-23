@@ -41,7 +41,7 @@ public class PickUpItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInSpot && Input.GetKeyDown(KeyCode.LeftShift) && !isPicked)
+        if (isPlayerInSpot && Input.GetKeyDown(KeyCode.E) && !isPicked)
         {
             berry.SetActive(false);
             if (isNecterbloom)
