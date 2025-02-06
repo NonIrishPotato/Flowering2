@@ -17,11 +17,9 @@ public class OpenCloseInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // Ensure the inventory image is initially closed
-        if (inventoryImage != null)
-        {
-            inventoryImage.SetActive(false);
-        }
+       
 
         // Ensure UI elements are enabled initially
         if (healthUI != null) healthUI.SetActive(true);
@@ -41,6 +39,8 @@ public class OpenCloseInventory : MonoBehaviour
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener((data) => { OnPointerClick(); });
         trigger.triggers.Add(entry);
+
+       
     }
 
     // Called when the GameObject is clicked

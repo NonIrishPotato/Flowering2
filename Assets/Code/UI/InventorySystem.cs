@@ -56,6 +56,8 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
+        
+
         // Singleton pattern to ensure only one instance of GameManager exists
         if (Instance == null)
         {
@@ -66,6 +68,8 @@ public class InventorySystem : MonoBehaviour
         {
             Destroy(gameObject); // Destroy duplicate GameManager instances
         }
+
+       
     }
 
     // Start is called before the first frame update
@@ -84,6 +88,9 @@ public class InventorySystem : MonoBehaviour
 
         //Count Berrys
         countBerrys();
+
+        Items = GameManager.Instance.intArray;  // Load items when the game starts
+        UpdateInventorySlots();  // Update UI slots based on loaded data
 
     }
 
@@ -106,16 +113,12 @@ public class InventorySystem : MonoBehaviour
 
         countBerrys();
 
-        KeyItems = gameManager.keyArray;
-        gameManager.keyArray = KeyItems;
-
-        Items = gameManager.intArray;
-        gameManager.intArray = Items;
+      
     }
-
+    
     public void countBerrys()
     {
-        
+
         for (int i = 0; i < gameManager.cureBerrys; i++)
         {
             bool placed = false;
@@ -135,7 +138,6 @@ public class InventorySystem : MonoBehaviour
                     amountOfCureBerrysFound += 1;
                     gameManager.amountOfBerrys = amountOfCureBerrysFound;
                 }
-
             }
         }
         for (int i = 0; i < gameManager.necterblooms; i++)
@@ -155,6 +157,7 @@ public class InventorySystem : MonoBehaviour
                 if (Items[z] == 4)
                 {
                     amountOfNecterbloomsFound += 1;
+                    gameManager.amountOfBerrys = amountOfNecterbloomsFound;
                 }
 
             }
@@ -176,6 +179,7 @@ public class InventorySystem : MonoBehaviour
                 if (Items[z] == 5)
                 {
                     amountOfBloatedFungusFound += 1;
+                    gameManager.amountOfBerrys = amountOfBloatedFungusFound;
                 }
 
             }

@@ -11,6 +11,7 @@ TagManager:
   - Hide
   - InventorySlot
   - HidingSpot
+  - Inventory UI
   layers:
   - Default
   - TransparentFX

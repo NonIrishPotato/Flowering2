@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private BerryController berryController;
+    public GameObject inventoryImage;
 
     public static GameManager Instance;
     public bool IsPlayerHiding = false;
@@ -51,8 +52,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         LoadIntArray();
         LoadKeyArray();
+        GameObject InventoryInilization = GameObject.FindWithTag("Inventory UI");
+       
+        InventoryInilization.SetActive(true);
+        Debug.Log("test");
+        
     }
 
     // Update is called once per frame
