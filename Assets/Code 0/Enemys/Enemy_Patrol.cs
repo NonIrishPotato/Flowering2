@@ -4,12 +4,25 @@ using UnityEngine;
 public class Enemy_Patrol : MonoBehaviour
 {
     public GameManager gameManager;
+
+    public bool outOfBounds = false;
+
     public float moveSpeed = 3f;
+    public float PatrolSpeed = 3f;
+    public float ChaseSpeed = 5f;
     public Transform[] waypoints;
     public float waypointRadius = 1f;
     public float waypointWaitTime = 1f;
 
-    public float playerDetectionRadius = 8f;
+    public float playerCrouchDetectionRadius = 1f;
+    public float playerWalkDetectionRadius = 2f;
+    public float playerRunDetectionRadius = 4f;
+
+    public float smallHazardRadius = 4f;
+    public float meduimHazardRadius = 6f;
+    public float largeHazardRadius = 8f;
+
+    private float playerDetectionRadius = 0f;
     public LayerMask playerLayer;
 
     public float jumpForce = 5f;
@@ -28,11 +41,22 @@ public class Enemy_Patrol : MonoBehaviour
     public Rigidbody2D playerRb;
     private bool canHitPlayer = true;
 
+    public AudioSource enemyIdleSound;
+    bool isSoundPlaying;
+
+    public Animator animator; //You might need to drag each GameObject to the Animator component in Inspector
+    string _currentState;
+    const string ENEMY_WALK = "EM_Walk";
+    const string ENEMY_FLY = "EM_Fly";
+    const string ENEMY_FLY_LUNGE = "EM_Fly_Lunge";
+    const string ENEMY_FLY_STOP = "EM_Fly_Stop";
+
     private enum EnemyState
     {
         Patrolling,
         Chasing,
-        Recover
+        Recover,
+        Distracted
 
     }
 
@@ -40,6 +64,9 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void Start()
     {
+        playerRb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreLayerCollision(rb.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
         gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody2D>();
 
@@ -49,60 +76,87 @@ public class Enemy_Patrol : MonoBehaviour
         }
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (waypoints.Length == 0)
-            return;
+        if (!PauseMenuScript.isPaused)
+        {
+            if (waypoints.Length == 0)
+                return;
 
-        bool isPlayerNearby = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
+            bool isPlayerNearby = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
 
-        if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
-        {
-            wasPlayerDetected = true;
-            
-            currentState = EnemyState.Chasing;
-            timeSinceLastDetection = Time.time;
-        }
-        else if (wasPlayerDetected && Time.time - timeSinceLastDetection > timeBeforeReturningToPatrol && canHitPlayer == true)
-        {
-            wasPlayerDetected = false;
-            currentState = EnemyState.Patrolling;
-        }
-        else if (!canHitPlayer)
-        {
-            currentState = EnemyState.Recover;
+            if (outOfBounds)
+            {
+                currentState = EnemyState.Patrolling;
+            }
+            else if (isPlayerNearby && gameManager.IsPlayerHiding == false && canHitPlayer == true)
+            {
+                wasPlayerDetected = true;
+
+                currentState = EnemyState.Chasing;
+                timeSinceLastDetection = Time.time;
+            }
+            else if (wasPlayerDetected && Time.time - timeSinceLastDetection > timeBeforeReturningToPatrol && canHitPlayer == true)
+            {
+                wasPlayerDetected = false;
+                currentState = EnemyState.Patrolling;
+            }
+            else if (!canHitPlayer)
+            {
+                currentState = EnemyState.Recover;
+            }
+
+            switch (currentState)
+            {
+                case EnemyState.Patrolling:
+                    moveSpeed = PatrolSpeed;
+                    Patrol();
+                    break;
+                case EnemyState.Chasing:
+                    moveSpeed = ChaseSpeed;
+                    ChasePlayer();
+                    break;
+                case EnemyState.Recover:
+                    moveSpeed = 0;
+                    Recover();
+                    break;
+            }
+
+
+            if (gameManager.IsPlayerCrouching || gameManager.smokeBombActive)
+            {
+                playerDetectionRadius = playerCrouchDetectionRadius;
+            }
+            else if (gameManager.IsPlayerWalking)
+            {
+                playerDetectionRadius = playerWalkDetectionRadius;
+            }
+            else if (gameManager.IsPlayerSprinting)
+            {
+                playerDetectionRadius = playerRunDetectionRadius;
+            }
+
+            if (gameManager.smallHazardHit)
+            {
+                playerDetectionRadius = smallHazardRadius;
+                Debug.Log("SmallHazardHit " + playerDetectionRadius);
+            }
+            else if (gameManager.mediumHazardHit)
+            {
+                playerDetectionRadius = meduimHazardRadius;
+                Debug.Log("MediumHazardHit " + playerDetectionRadius);
+            }
+            else if (gameManager.largeHazardHit)
+            {
+                playerDetectionRadius = largeHazardRadius;
+                Debug.Log("LargeHazardHit " + playerDetectionRadius);
+            }
         }
 
-        switch (currentState)
-        {
-            case EnemyState.Patrolling:
-                moveSpeed = 3;
-                Patrol();
-                break;
-            case EnemyState.Chasing:
-                moveSpeed = 5;
-                ChasePlayer();
-                break;
-            case EnemyState.Recover:
-                moveSpeed = 0;
-                Recover();
-                break;
-        }
 
-        if (gameManager.IsPlayerCrouching)
-        {
-            playerDetectionRadius = 0.5f;
-        }
-        else if (gameManager.IsPlayerWalking)
-        {
-            playerDetectionRadius = 3f;
-        }
-        else if (gameManager.IsPlayerSprinting)
-        {
-            playerDetectionRadius = 6f;
-        }
     }
 
     private void Patrol()
@@ -120,6 +174,9 @@ public class Enemy_Patrol : MonoBehaviour
             Vector2 targetPosition = waypoints[currentWaypointIndex].position;
             Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
             float distance = Vector2.Distance(transform.position, targetPosition);
+            enemyIdleSound.Play();
+            ChangeAnimationState(ENEMY_WALK);
+            isSoundPlaying = false;
 
             if (distance > waypointRadius)
             {
@@ -131,7 +188,7 @@ public class Enemy_Patrol : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
 
-            CheckForObstacles(moveDirection.x);
+            //CheckForObstacles(moveDirection.x);
         }
     }
 
@@ -141,8 +198,15 @@ public class Enemy_Patrol : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
         FlipDirection(moveDirection.x);
 
-        CheckForObstacles(moveDirection.x);
+        //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+        ChangeAnimationState(ENEMY_FLY);
+        if (!isSoundPlaying)
+        {
+            AudioManager.Instance.sfxSource.PlayOneShot(AudioManager.Instance.enemyScreamSound);
+            Debug.Log(isSoundPlaying);
+            isSoundPlaying = true;
+        }
     }
 
     private void Recover()
@@ -166,12 +230,9 @@ public class Enemy_Patrol : MonoBehaviour
         }
     }
 
-    private void CheckForObstacles(float directionX)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Vector2 raycastOrigin = transform.position + new Vector3((isFacingRight ? 1 : -1) * obstacleDetectionDistance, 0, 0);
-        RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.down, 1f, LayerMask.GetMask("Obstacle"));
-
-        if (hit.collider != null)
+        if (other.CompareTag("Ground"))
         {
             Jump();
         }
@@ -191,17 +252,34 @@ public class Enemy_Patrol : MonoBehaviour
             Debug.Log(gameManager.currentHealth);
             canHitPlayer = false;
             moveSpeed = 0;
+            AudioManager.Instance.PlaySFX("Enemy Attack");
+            ChangeAnimationState(ENEMY_FLY_LUNGE);
             StartCoroutine(PauseChase());
+            gameManager.winTic = 0;
+            gameManager.deathTic = 0;
         }
     }
 
     private IEnumerator PauseChase()
     {
         Debug.Log("Pause Start");
+        ChangeAnimationState(ENEMY_FLY_STOP);
 
         yield return new WaitForSeconds(3f); // Adjust this duration as needed
 
         Debug.Log("Pause End");
         canHitPlayer = true;
     }
+    public void ChangeAnimationState(string newState)
+    {
+        if (newState == _currentState)
+        {
+            return;
+        }
+
+        animator.Play(newState);
+
+        _currentState = newState;
+    }
+
 }
