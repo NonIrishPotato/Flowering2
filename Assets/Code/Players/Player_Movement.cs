@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
     public GameManager gameManager;
-    public float moveSpeed = 5f;
+
+    [Header("Movement Settings")]
     public float walkSpeed = 3f;
     public float crouchSpeed = 2f;
     public float sprintSpeed = 8f;
@@ -15,43 +14,27 @@ public class Player_Movement : MonoBehaviour
     public float jumpForce = 5f;
     public float slowfallGravity = 0.2f;
 
-    public float damageForce = 10f; // Adjust this value for the force applied to the player when damaged
-    public float damageCooldown = 2f; // Adjust this value for the cooldown after taking damage
+    [Header("Damage Settings")]
+    public float damageForce = 10f;
+    public float damageCooldown = 2f;
 
     private Rigidbody2D rb;
     private bool isGrounded;
     private Transform groundCheck;
     private Collider2D myCollider;
+    private float moveSpeed;
 
     private bool isCrouching = false;
     private bool isSprinting = false;
-    private float sprintTimer = 0f;
     private bool canSprint = true;
     private bool canTakeDamage = true;
-
-    private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
     private bool isJumping = false;
+    private bool localIsWalking = false;
 
-    public float duration = 3f;
-
-    //Animation States
-    public static Animator animator;
-    public static bool isFacingLeft, isFacingRight;
-    [HideInInspector] public static string _currentState;
-    const string PLAYER_IDLE_FR = "Player_Idle_FR";
-    const string Id_FL = "Id_FL";
-    const string WALK_FR = "WalK_FR";
-    const string WALK_LR = "WalK_FL";
-    const string Jump_FR = "Jump_FR 0";
-    const string Jump_FL = "Jump_FL";
-    const string Mid_Air_Glide_FR = "Mid_Air_Glide_FR 0";
-    const string Mid_Air_Glide_FL = "Mid_Air_Glide_FL 0";
-    const string Crouch_Idle_FR = "Crouch_Idle_FR";
-    const string Crouch_Idle_FL = "Crouch_Id_FL";
-    const string Crouch_Walk_FR = "Crouch_Walk_FR";
-    const string Crouch_Walk_FL = "Crouch_Walk_FL";
-    const string PICK_FR = "Player_Pick_FR";
-    const string PICK_FL = "PIck_FL";
+    [Header("Animation")]
+    private static Animator animator;
+    private static bool isFacingLeft, isFacingRight;
+    private static string _currentState;
 
     private void Start()
     {
@@ -60,163 +43,78 @@ public class Player_Movement : MonoBehaviour
         myCollider = GetComponent<Collider2D>();
         groundCheck = transform.Find("GroundCheck");
         animator = GetComponent<Animator>();
+        moveSpeed = walkSpeed;
     }
 
     private void Update()
     {
-        if (!PauseMenuScript.isPaused) //Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
-        {
+        if (PauseMenuScript.isPaused) return;
 
-        // Check if the character is grounded
         isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-            if (isGrounded)
-                isJumping = false;
+        if (isGrounded) isJumping = false;
 
-        // Check for damage cooldown
-        if (!canTakeDamage)
-            return;
+        if (!canTakeDamage) return;
 
-        // Crouch
+        HandleCrouch();
+        HandleSprint();
+        MoveCharacter();
+        Jump();
+        ApplySlowfall();
+        IdleState();
+    }
+
+    private void HandleCrouch()
+    {
         if (Input.GetKey(KeyCode.LeftControl) && !isSprinting)
         {
-            Crouch();
+            isCrouching = true;
+            moveSpeed = crouchSpeed;
+            ChangeAnimationState(isFacingRight ? "Crouch_Idle_FR" : "Crouch_Idle_FL");
         }
         else
         {
-            StandUp();
+            isCrouching = false;
+            moveSpeed = walkSpeed;
         }
+    }
 
-        // Sprint
+    private void HandleSprint()
+    {
         if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && canSprint)
         {
-            Sprint();
-        }
-        else if (!isCrouching)
-        {
-            StopSprinting();
-        }
-
-        // Move the character
-        MoveCharacter();
-
-        // Jump
-        Jump();
-
-        // Slowfall
-        ApplySlowfall();
-
-        // Check for damage
-        CheckForDamage();
-
-        //Idle State
-        IdleState();
-        }
-    }
-
-    private void Crouch()
-    {
-        gameManager.IsPlayerWalking = false;
-        gameManager.IsPlayerCrouching = true;
-
-        isCrouching = true;
-        moveSpeed = crouchSpeed;
-        if(isFacingLeft && isCrouching && !localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Idle_FL);
-        }
-        if(isFacingRight && isCrouching && !localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Idle_FR);
-        }
-
-        if (isFacingLeft && isCrouching && localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Walk_FL);
-        }
-        if (isFacingRight && isCrouching && localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Walk_FR);
-        }
-    }
-
-    private void StandUp()
-    {
-        gameManager.IsPlayerCrouching = false;
-        gameManager.IsPlayerWalking = true;
-
-        isCrouching = false;
-        moveSpeed = walkSpeed;
-    }
-
-    private void Sprint()
-    {
-        gameManager.IsPlayerWalking = false;
-        gameManager.IsPlayerSprinting = true;
-
-        isSprinting = true;
-        moveSpeed = sprintSpeed;
-        sprintTimer += Time.deltaTime;
-
-        // Check if sprint duration is reached
-        if (sprintTimer >= sprintDuration)
-        {
-            StopSprinting();
+            isSprinting = true;
+            moveSpeed = sprintSpeed;
             StartCoroutine(SprintCooldown());
         }
-
-        //animator.SetBool("isSprinting", true);
-    }
-
-    private void StopSprinting()
-    {
-        gameManager.IsPlayerWalking = true;
-        gameManager.IsPlayerSprinting = false;
-
-        isSprinting = false;
-        moveSpeed = walkSpeed;
+        else
+        {
+            isSprinting = false;
+            moveSpeed = walkSpeed;
+        }
     }
 
     private void MoveCharacter()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 moveDirection = new Vector2(horizontalInput, 0);
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        if (horizontalInput != 0)
         {
+            isFacingRight = horizontalInput > 0;
+            isFacingLeft = horizontalInput < 0;
             localIsWalking = true;
+
+            if (isGrounded && !isCrouching)
+            {
+                ChangeAnimationState(isFacingRight ? "WalK_FR" : "WalK_FL");
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        else
         {
             localIsWalking = false;
         }
 
-        if (Input.GetKey(KeyCode.D)) //For the Right Side
-        {
-            isFacingRight = true;
-            isFacingLeft = false;
-            if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
-            {
-                if (isGrounded && localIsWalking && !isFacingLeft && !isCrouching)
-                {
-                    ChangeAnimationState(WALK_FR);
-                }
-            }
-        }
-        else if (Input.GetKey(KeyCode.A)) //For the Left Side
-        {
-            isFacingRight = false;
-            isFacingLeft = true;
-            if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
-            {
-                if (isGrounded && localIsWalking && !isFacingRight && !isCrouching)
-                {
-                    ChangeAnimationState(WALK_LR);
-                }
-            }
-        }
-
-        if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
+        if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
         {
             AudioManager.Instance.PlaySFX("Walk");
         }
@@ -224,90 +122,56 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
-        //commented out grounded check just for the demo of sprint 2, need to fly around
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            if (isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                ChangeAnimationState(isFacingRight ? "Jump_FR" : "Jump_FL");
+                StartCoroutine(AnimationTransition());
+            }
+            else if (!isJumping)
+            {
+                isJumping = true;
+                ChangeAnimationState(isFacingRight ? "Mid_Air_Glide_FR" : "Mid_Air_Glide_FL");
+            }
+
+            AudioManager.Instance.PlaySFXtheSequal("Jump");
         }
 
-        if (!isJumping && Input.GetButtonDown("Jump"))
-        {
-            isJumping = true;
-            if(isFacingRight)
-            {
-                ChangeAnimationState(Jump_FR);
-                StartCoroutine(AnimationTransistion());
-            }
-            if (isFacingLeft)
-            {
-                ChangeAnimationState(Jump_FL);
-                StartCoroutine(AnimationTransistion());
-            }
-        }
-
-        else if (Input.GetButtonUp("Jump") || isGrounded)
+        if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
             AudioManager.Instance.sfxSourceTheSequal.Stop();
         }
-
-        if (Input.GetKeyDown(KeyCode.D) && !isGrounded)
-        {
-            ChangeAnimationState(Mid_Air_Glide_FR);
-        }
-        if (Input.GetKeyDown(KeyCode.A) && !isGrounded)
-        {
-            ChangeAnimationState(Mid_Air_Glide_FL);
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            AudioManager.Instance.PlaySFXtheSequal("Jump");
-        }
     }
 
-    IEnumerator AnimationTransistion()
+    private IEnumerator AnimationTransition()
     {
-        yield return new WaitForSeconds(.4f);
-        if (isFacingRight)
-        {
-            ChangeAnimationState(Mid_Air_Glide_FR);
-        }
-        if(isFacingLeft)
-        {
-            ChangeAnimationState(Mid_Air_Glide_FL);
-        }
+        yield return new WaitForSeconds(0.4f);
+        ChangeAnimationState(isFacingRight ? "Mid_Air_Glide_FR" : "Mid_Air_Glide_FL");
     }
 
     private void ApplySlowfall()
     {
-        if (Input.GetButton("Jump") && !isGrounded)
-        {
-            rb.gravityScale = slowfallGravity;
-        }
-        else
-        {
-            rb.gravityScale = 1f;
-        }
-       
+        rb.gravityScale = (Input.GetButton("Jump") && !isGrounded) ? slowfallGravity : 1f;
     }
 
-    private void CheckForDamage()
+    private void IdleState()
     {
-        if (canTakeDamage)
+        if (!isJumping && isGrounded && !localIsWalking)
         {
-            // Implement player damage detection here (e.g., using OnCollisionEnter2D)
+            ChangeAnimationState(isFacingRight ? "Player_Idle_FR" : "Id_FL");
         }
     }
 
-    IEnumerator SprintCooldown()
+    private IEnumerator SprintCooldown()
     {
         yield return new WaitForSeconds(sprintCooldown);
-        sprintTimer = 0;
         canSprint = true;
     }
 
-    IEnumerator DamageCooldown()
+    private IEnumerator DamageCooldown()
     {
         yield return new WaitForSeconds(damageCooldown);
         canTakeDamage = true;
@@ -324,59 +188,18 @@ public class Player_Movement : MonoBehaviour
     private void TakeDamage()
     {
         canTakeDamage = false;
-
-        // Halt the player briefly
         rb.velocity = Vector2.zero;
-
-        // Apply force to launch the player back
-        Vector2 launchDirection = (transform.position + myCollider.transform.position).normalized;
+        Vector2 launchDirection = (transform.position - myCollider.transform.position).normalized;
         rb.AddForce(launchDirection * damageForce, ForceMode2D.Impulse);
 
         AudioManager.Instance.PlaySFX("Player is Hurt");
-
         StartCoroutine(DamageCooldown());
     }
 
-    // Change animation state
-    public void ChangeAnimationState(string newState)
+    private void ChangeAnimationState(string newState)
     {
-        if(newState == _currentState)
-        {
-            return;
-        }
-
+        if (_currentState == newState) return;
         animator.Play(newState);
-
         _currentState = newState;
-    }
-
-    // Check if a specific animation is playing
-    // Parameter named "0" is the animation layer
-    bool IsAnimationPlaying(Animator animator, string stateName)
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    void IdleState()
-    {
-        if (!IsAnimationPlaying(animator, Jump_FR))
-        {
-            if (isGrounded && !localIsWalking && isFacingRight && !isCrouching)
-            {
-                ChangeAnimationState(PLAYER_IDLE_FR);
-            }
-            if (isGrounded && !localIsWalking && isFacingLeft && !isCrouching)
-            {
-                ChangeAnimationState(Id_FL);
-            }
-        }
     }
 }
