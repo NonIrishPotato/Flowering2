@@ -1,0 +1,46 @@
+{
+	"identifier": "Game_Start",
+	"uniqueIdentifer": "2c9b7ca0-b0a0-11ee-bc75-5154682231fb",
+	"x": -80,
+	"y": 0,
+	"width": 160,
+	"height": 160,
+	"bgColor": "#474B67",
+	"neighbourLevels": [
+		{
+			"levelIid": "a2a50ff0-66b0-11ec-9cd7-c721746049b9",
+			"dir": "e"
+		},
+		{
+			"levelIid": "2e812c90-b0a0-11ee-bc75-ff3c24653df4",
+			"dir": "n"
+		},
+		{
+			"levelIid": "2c053010-b0a0-11ee-bc75-31179fb5f4ed",
+			"dir": "s"
+		},
+		{
+			"levelIid": "2b5e41b0-b0a0-11ee-bc75-fbbe87cddc63",
+			"dir": "s"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"IntGrid_layer.png"
+	],
+	"entities": {
+		"Entity": [
+			{
+				"id": "Entity",
+				"iid": "ab7b3be0-b0a0-11ee-bc75-1b3a12299da3",
+				"layer": "Entities",
+				"x": 40,
+				"y": 88,
+				"width": 16,
+				"height": 16,
+				"color": 12470831,
+				"customFields" : {}
+			}
+		]
+	}
+}
