@@ -13,10 +13,18 @@ public class Player_Movement : MonoBehaviour
     public float sprintDuration = 3f;
     public float sprintCooldown = 5f;
     public float jumpForce = 5f;
-    public float slowfallGravity = 0.2f;
 
     public float damageForce = 10f; // Adjust this value for the force applied to the player when damaged
     public float damageCooldown = 2f; // Adjust this value for the cooldown after taking damage
+
+    public float jumpJetpackForce = 2f; // The force applied by the jump jetpack
+    public float jumpJetpackInitialFuelCost = 20f; // The initial fuel cost to start the jump jetpack
+    public float jumpJetpackFuelCostPerSecond = 5f; // The fuel cost per second while using the jump jetpack
+    public float maxFuel = 25f; // The maximum fuel capacity
+    public float fuelRechargeRate = 25f; // The rate at which fuel recharges per second
+
+    private float currentFuel;
+    private bool isUsingJetpack = false;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -31,8 +39,6 @@ public class Player_Movement : MonoBehaviour
 
     private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
     private bool isJumping = false;
-
-    public float duration = 3f;
 
     //Animation States
     public static Animator animator;
@@ -60,56 +66,56 @@ public class Player_Movement : MonoBehaviour
         myCollider = GetComponent<Collider2D>();
         groundCheck = transform.Find("GroundCheck");
         animator = GetComponent<Animator>();
+        currentFuel = maxFuel;
     }
 
     private void Update()
     {
         if (!PauseMenuScript.isPaused) //Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
         {
-
-        // Check if the character is grounded
-        isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+            // Check if the character is grounded
+            isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
             if (isGrounded)
                 isJumping = false;
 
-        // Check for damage cooldown
-        if (!canTakeDamage)
-            return;
+            // Check for damage cooldown
+            if (!canTakeDamage)
+                return;
 
-        // Crouch
-        if (Input.GetKey(KeyCode.LeftControl) && !isSprinting)
-        {
-            Crouch();
-        }
-        else
-        {
-            StandUp();
-        }
+            // Crouch
+            if (Input.GetKey(KeyCode.LeftControl) && !isSprinting)
+            {
+                Crouch();
+            }
+            else
+            {
+                StandUp();
+            }
 
-        // Sprint
-        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && canSprint)
-        {
-            Sprint();
-        }
-        else if (!isCrouching)
-        {
-            StopSprinting();
-        }
+            // Sprint
+            if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && canSprint)
+            {
+                Sprint();
+            }
+            else if (!isCrouching)
+            {
+                StopSprinting();
+            }
 
-        // Move the character
-        MoveCharacter();
+            // Move the character
+            MoveCharacter();
 
-        // Jump
-        Jump();
+            // Jump
+            Jump();
 
-        // Slowfall
-        ApplySlowfall();
+            // Recharge fuel
+            RechargeFuel();
 
-        // Check for damage
-        CheckForDamage();
+            // Check for damage
+            CheckForDamage();
 
-        //Idle State
-        IdleState();
+            //Idle State
+            IdleState();
         }
     }
 
@@ -120,11 +126,11 @@ public class Player_Movement : MonoBehaviour
 
         isCrouching = true;
         moveSpeed = crouchSpeed;
-        if(isFacingLeft && isCrouching && !localIsWalking)
+        if (isFacingLeft && isCrouching && !localIsWalking)
         {
             ChangeAnimationState(Crouch_Idle_FL);
         }
-        if(isFacingRight && isCrouching && !localIsWalking)
+        if (isFacingRight && isCrouching && !localIsWalking)
         {
             ChangeAnimationState(Crouch_Idle_FR);
         }
@@ -224,7 +230,6 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
-        //commented out grounded check just for the demo of sprint 2, need to fly around
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -233,7 +238,7 @@ public class Player_Movement : MonoBehaviour
         if (!isJumping && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-            if(isFacingRight)
+            if (isFacingRight)
             {
                 ChangeAnimationState(Jump_FR);
                 StartCoroutine(AnimationTransistion());
@@ -244,7 +249,6 @@ public class Player_Movement : MonoBehaviour
                 StartCoroutine(AnimationTransistion());
             }
         }
-
         else if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
@@ -264,6 +268,46 @@ public class Player_Movement : MonoBehaviour
         {
             AudioManager.Instance.PlaySFXtheSequal("Jump");
         }
+
+        // Use the jump jetpack
+        UseJumpJetpack();
+    }
+
+    //JETPACK is the naming convention for the flight mechanic for the player, it is not a jetpack.
+    private void UseJumpJetpack()
+    {
+        if (!isGrounded && Input.GetButtonDown("Jump") && currentFuel >= jumpJetpackInitialFuelCost)
+        {
+            // Initial activation of the jetpack
+            rb.velocity = new Vector2(rb.velocity.x, jumpJetpackForce);
+            currentFuel -= jumpJetpackInitialFuelCost;
+            isUsingJetpack = true;
+        }
+
+        if (!isGrounded && Input.GetButton("Jump") && isUsingJetpack && currentFuel > 0)
+        {
+            // Continuous usage of the jetpack
+            rb.velocity = new Vector2(rb.velocity.x, jumpJetpackForce);
+            currentFuel -= jumpJetpackFuelCostPerSecond * Time.deltaTime;
+        }
+
+        if (Input.GetButtonUp("Jump") || currentFuel <= 0)
+        {
+            // Stop using the jetpack
+            isUsingJetpack = false;
+        }
+    }
+
+    private void RechargeFuel()
+    {
+        if (!isUsingJetpack && currentFuel < maxFuel)
+        {
+            currentFuel += fuelRechargeRate * Time.deltaTime;
+            if (currentFuel > maxFuel)
+            {
+                currentFuel = maxFuel;
+            }
+        }
     }
 
     IEnumerator AnimationTransistion()
@@ -273,23 +317,10 @@ public class Player_Movement : MonoBehaviour
         {
             ChangeAnimationState(Mid_Air_Glide_FR);
         }
-        if(isFacingLeft)
+        if (isFacingLeft)
         {
             ChangeAnimationState(Mid_Air_Glide_FL);
         }
-    }
-
-    private void ApplySlowfall()
-    {
-        if (Input.GetButton("Jump") && !isGrounded)
-        {
-            rb.gravityScale = slowfallGravity;
-        }
-        else
-        {
-            rb.gravityScale = 1f;
-        }
-       
     }
 
     private void CheckForDamage()
@@ -340,7 +371,7 @@ public class Player_Movement : MonoBehaviour
     // Change animation state
     public void ChangeAnimationState(string newState)
     {
-        if(newState == _currentState)
+        if (newState == _currentState)
         {
             return;
         }
