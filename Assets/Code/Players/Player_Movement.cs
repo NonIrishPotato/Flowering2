@@ -230,6 +230,11 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
+        if (isCrouching)
+        {
+            return; // Do not allow jumping if the player is crouching
+        }
+
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -276,6 +281,11 @@ public class Player_Movement : MonoBehaviour
     //JETPACK is the naming convention for the flight mechanic for the player, it is not a jetpack.
     private void UseJumpJetpack()
     {
+        if (isCrouching)
+        {
+            return; // Do not allow using the jetpack if the player is crouching
+        }
+
         if (!isGrounded && Input.GetButtonDown("Jump") && currentFuel >= jumpJetpackInitialFuelCost)
         {
             // Initial activation of the jetpack
