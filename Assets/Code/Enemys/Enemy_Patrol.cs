@@ -44,6 +44,8 @@ public class Enemy_Patrol : MonoBehaviour
     public AudioSource enemyIdleSound;
     bool isSoundPlaying;
 
+    public AudioClip chaseClip;
+
     public Animator animator; //You might need to drag each GameObject to the Animator component in Inspector
     string _currentState;
     const string ENEMY_WALK = "EM_Walk";
@@ -187,8 +189,6 @@ public class Enemy_Patrol : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
             }
-
-            //CheckForObstacles(moveDirection.x);
         }
     }
 
@@ -201,12 +201,8 @@ public class Enemy_Patrol : MonoBehaviour
         //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
         ChangeAnimationState(ENEMY_FLY);
-        if(!isSoundPlaying)
-        {
-            AudioManager.Instance.sfxSource.PlayOneShot(AudioManager.Instance.enemyScreamSound);
-            Debug.Log(isSoundPlaying);
-            isSoundPlaying = true;
-        }
+        AudioManager.Instance.sfxSource.;
+
     }
 
     private void Recover()
