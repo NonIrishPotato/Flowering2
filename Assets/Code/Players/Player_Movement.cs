@@ -300,7 +300,7 @@ public class Player_Movement : MonoBehaviour
 
     private void RechargeFuel()
     {
-        if (!isUsingJetpack && currentFuel < maxFuel)
+        if (!isUsingJetpack && currentFuel < maxFuel && isGrounded)
         {
             currentFuel += fuelRechargeRate * Time.deltaTime;
             if (currentFuel > maxFuel)
