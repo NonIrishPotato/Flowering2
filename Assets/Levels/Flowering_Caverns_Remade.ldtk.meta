@@ -7,7 +7,7 @@ ScriptedImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-  script: {fileID: 11500000, guid: aaa16bfc62c086f4fb45da87b6acf9b1, type: 3}
+  script: {instanceID: 0}
   _reimportOnDependencyChange: 1
   _jsonFile: {instanceID: 0}
   _pixelsPerUnit: 16

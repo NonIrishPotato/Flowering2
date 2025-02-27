@@ -15,6 +15,7 @@ public class SceneTransition : MonoBehaviour
             DontDestroyOnLoad(GameManager.Instance.gameObject);
             // Perform scene transition
             SceneManager.LoadScene(sceneToLoad);
+            Debug.Log("Loaded");
         }
     }
 }
