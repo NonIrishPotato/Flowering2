@@ -196,6 +196,7 @@ MonoBehaviour:
   timeBeforeReturningToPatrol: 2
   playerRb: {fileID: 0}
   enemyIdleSound: {fileID: 1926108008279305090}
+  chaseClip: {fileID: 8300000, guid: cff30177377343b48b38518f21fc5031, type: 3}
   animator: {fileID: 0}
 --- !u!70 &4975528230700165783
 CapsuleCollider2D:
@@ -264,7 +265,7 @@ GameObject:
   - component: {fileID: 7135807044134332331}
   - component: {fileID: 1926108008279305090}
   m_Layer: 8
-  m_Name: Idle Sound
+  m_Name: Enemy Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +300,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -35,7 +35,6 @@ public class NPC : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isPlayerInsideNPC = true;
-            Debug.Log("Player is inside NPC");
             gameObject.GetComponentInChildren<TextMeshPro>().enabled = true;
         }
     }

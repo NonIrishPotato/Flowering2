@@ -224,7 +224,7 @@ public class Player_Movement : MonoBehaviour
 
         if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
         {
-            AudioManager.Instance.PlaySFX("Walk");
+            //AudioManager.Instance.sfxSource.Play();
         }
     }
 
@@ -252,7 +252,7 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
-            AudioManager.Instance.sfxSourceTheSequal.Stop();
+            //AudioManager.Instance.sfxSource.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.D) && !isGrounded)
@@ -266,7 +266,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            AudioManager.Instance.PlaySFXtheSequal("Jump");
+            AudioManager.Instance.sfxSource.Play();
         }
 
         // Use the jump jetpack
@@ -363,7 +363,7 @@ public class Player_Movement : MonoBehaviour
         Vector2 launchDirection = (transform.position + myCollider.transform.position).normalized;
         rb.AddForce(launchDirection * damageForce, ForceMode2D.Impulse);
 
-        AudioManager.Instance.PlaySFX("Player is Hurt");
+        AudioManager.Instance.sfxSource.Play();
 
         StartCoroutine(DamageCooldown());
     }
