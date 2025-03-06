@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HidingBar : MonoBehaviour
 {
-
     private GameManager gameManager;
     public Slider breath;
     public float drainspeed = .01f;
@@ -21,24 +20,18 @@ public class HidingBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (gameManager.IsPlayerHiding == true)
+        // Check if the player is hiding and is not in a crate
+        if (gameManager.IsPlayerHiding == true && Hide.currentHidingSpot != null && Hide.currentHidingSpot.isCrate == false)
         {
             breath.gameObject.SetActive(true);
-        }
-    
 
-
-
-
-
-        if (gameManager.IsPlayerHiding == true && breath.value >= 0)
-        {
-            breath.gameObject.SetActive(true);
-            breath.value -= drainspeed;
-            if(breath.value == 0)
+            if (breath.value >= 0)
             {
-                gameManager.canHide = false;
+                breath.value -= drainspeed;
+                if (breath.value == 0)
+                {
+                    gameManager.canHide = false;
+                }
             }
         }
         else if (gameManager.IsPlayerHiding == false)
@@ -59,9 +52,6 @@ public class HidingBar : MonoBehaviour
                     breath.gameObject.SetActive(false);
                 }
             }
-
         }
-
-
     }
 }
