@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -36,11 +37,13 @@ public class Player_Movement : MonoBehaviour
     private float sprintTimer = 0f;
     private bool canSprint = true;
     private bool canTakeDamage = true;
+  
 
     private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
     private bool isJumping = false;
 
     //Animation States
+    private bool hasChangedAnimation = false;
     public static Animator animator;
     public static bool isFacingLeft, isFacingRight;
     [HideInInspector] public static string _currentState;
@@ -71,8 +74,32 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
-        if (!PauseMenuScript.isPaused) //Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
+        if (!PauseMenuScript.isPaused) // Everything will work until the game is paused. This is also to prevent sounds from playing while in the pause menu
         {
+            if (gameManager.Frose == true || gameManager.PlayerFrozen)
+            {
+                rb.velocity = Vector2.zero;
+
+                // Change animation only once when Frose becomes true
+                if (!hasChangedAnimation)
+                {
+                    if (isFacingRight)
+                    {
+                        ChangeAnimationState(PLAYER_IDLE_FR);
+                    }
+                    else if (isFacingLeft)
+                    {
+                        ChangeAnimationState(Id_FL);
+                    }
+                    hasChangedAnimation = true; // Set the flag to true
+                }
+                return;
+            }
+            else
+            {
+                hasChangedAnimation = false; // Reset the flag when Frose becomes false
+            }
+
             // Check if the character is grounded
             isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
             if (isGrounded)
@@ -116,6 +143,9 @@ public class Player_Movement : MonoBehaviour
 
             //Idle State
             IdleState();
+
+            
+
         }
     }
 
@@ -319,6 +349,8 @@ public class Player_Movement : MonoBehaviour
             }
         }
     }
+
+
 
     IEnumerator AnimationTransistion()
     {
