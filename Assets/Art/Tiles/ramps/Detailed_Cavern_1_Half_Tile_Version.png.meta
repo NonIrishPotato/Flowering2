@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ee576c1b3ee8fa478ed5990618303d6
+guid: 0cc75fd6cac1ac948a6bf54502523b0a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,6 +82,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,37 +133,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: tvOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,10 +149,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ramps_0
+      name: Detailed_Cavern_1_Half_Tile_Version_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 112
         width: 16
         height: 16
@@ -163,17 +163,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fb29b0f8476f68439839e620b3e3307
-      internalID: -507294441
+      spriteID: c5bbfa5592cb7574b87a8b88f9f45499
+      internalID: 1641806557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_1
+      name: Detailed_Cavern_1_Half_Tile_Version_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 112
         width: 16
         height: 16
@@ -184,17 +184,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc886ea7814ae764a9feb1b3f221231c
-      internalID: -1360177324
+      spriteID: fc4f3a53ba4484741b18dfd7ed5e6486
+      internalID: -30478917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_2
+      name: Detailed_Cavern_1_Half_Tile_Version_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 40
         y: 112
         width: 16
         height: 16
@@ -205,17 +205,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a25d7f8ac45455b419e47f680f5873e3
-      internalID: -1958368213
+      spriteID: 3451ab7f2031df9498bc21fccc77775a
+      internalID: -1231880200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_3
+      name: Detailed_Cavern_1_Half_Tile_Version_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 112
         width: 16
         height: 16
@@ -226,17 +226,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11b586cec81f46c4786e9ab92890605a
-      internalID: -104203952
+      spriteID: c9e8e8eb4428cea4bbb20e154224d288
+      internalID: -1144565898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_4
+      name: Detailed_Cavern_1_Half_Tile_Version_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 112
         width: 16
         height: 16
@@ -247,17 +247,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20328c9d442c75c4fb41770a2784ed5b
-      internalID: -1207792425
+      spriteID: 414f88b6caad2c64f90ef513f3ae5d3d
+      internalID: -638316118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_5
+      name: Detailed_Cavern_1_Half_Tile_Version_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 88
         y: 112
         width: 16
         height: 16
@@ -268,17 +268,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3122a03fac2878e45a13fb8fe40c1b73
-      internalID: -1427472702
+      spriteID: a68f7aa5de9be3d4bb53b095a65efb3f
+      internalID: 1658227724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_6
+      name: Detailed_Cavern_1_Half_Tile_Version_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 112
         width: 16
         height: 16
@@ -289,17 +289,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e58c9918b38b514f9ca67d2a7098577
-      internalID: -660739943
+      spriteID: 7e8040cf7a5313046b481e9e6a42aad4
+      internalID: -1923032264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_7
+      name: Detailed_Cavern_1_Half_Tile_Version_7
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 112
         width: 16
         height: 16
@@ -310,17 +310,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7579be086ece29148bff028005d3a196
-      internalID: 1344133005
+      spriteID: e0638f11921294044abb17795b4d7d14
+      internalID: 642159082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_8
+      name: Detailed_Cavern_1_Half_Tile_Version_8
       rect:
         serializedVersion: 2
-        x: 128
+        x: 152
         y: 112
         width: 16
         height: 16
@@ -331,17 +331,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25c9fa41c7ee0b94a9fa05ca0d8ba151
-      internalID: -1915896796
+      spriteID: fd0af6936849b9a43aef5594819ad9c3
+      internalID: 13070844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_9
+      name: Detailed_Cavern_1_Half_Tile_Version_9
       rect:
         serializedVersion: 2
-        x: 144
+        x: 168
         y: 112
         width: 16
         height: 16
@@ -352,17 +352,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0ca1dfa50679ca41ab29244f861dc04
-      internalID: -1432592276
+      spriteID: c8098e2531a4a7d4f8a7d9d36a1ce5ef
+      internalID: -1531901954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_10
+      name: Detailed_Cavern_1_Half_Tile_Version_10
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 112
         width: 16
         height: 16
@@ -373,17 +373,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 166db2f290ca5f449b4749580d1ebcfc
-      internalID: -1450203495
+      spriteID: 3f7c06fc4225de641a5fbb4f4a478ff1
+      internalID: -271621136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_11
+      name: Detailed_Cavern_1_Half_Tile_Version_11
       rect:
         serializedVersion: 2
-        x: 176
+        x: 200
         y: 112
         width: 16
         height: 16
@@ -394,17 +394,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51daf3c78cdcc1f47a54bfd9ed90d166
-      internalID: -1979034652
+      spriteID: f805c41ad774f5444a6a44debebd48d0
+      internalID: 91681109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_12
+      name: Detailed_Cavern_1_Half_Tile_Version_12
       rect:
         serializedVersion: 2
-        x: 192
+        x: 216
         y: 112
         width: 16
         height: 16
@@ -415,17 +415,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88417ca39e5d7d8439cada17a97fd73a
-      internalID: 1297847580
+      spriteID: a27eb2d7e61b79143bb87fea09068e9f
+      internalID: -2033125534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_13
+      name: Detailed_Cavern_1_Half_Tile_Version_13
       rect:
         serializedVersion: 2
-        x: 208
+        x: 232
         y: 112
         width: 16
         height: 16
@@ -436,59 +436,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b12b4107764425e4e8c6966ec8945e2d
-      internalID: 1660843602
+      spriteID: e32254603bedcf14bbd4b8a59df18e84
+      internalID: 1187561051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_14
+      name: Detailed_Cavern_1_Half_Tile_Version_14
       rect:
         serializedVersion: 2
-        x: 224
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d990d4b347306b4c812655aece3aad4
-      internalID: -267138919
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_15
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5502ee3bdb68e624c9651af486857019
-      internalID: 349960456
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_16
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 8
         y: 96
         width: 16
         height: 16
@@ -499,17 +457,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f897ab5cd90dc4aa4ac5f3db02fa1c
-      internalID: 1049377445
+      spriteID: 03fdcbc195e648142b5309add2f9a095
+      internalID: -1232371389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_17
+      name: Detailed_Cavern_1_Half_Tile_Version_15
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 96
         width: 16
         height: 16
@@ -520,17 +478,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 718877a6deeb2b043a5f7e87958b34ff
-      internalID: 166835600
+      spriteID: 349685d70514fb34e81b46b0c520b60f
+      internalID: -1208759282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_18
+      name: Detailed_Cavern_1_Half_Tile_Version_16
       rect:
         serializedVersion: 2
-        x: 32
+        x: 40
         y: 96
         width: 16
         height: 16
@@ -541,17 +499,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 799cf9a6ce538f54b8c264b88093955c
-      internalID: 332526552
+      spriteID: 97c4e49d9fca17143abb95acecb8ec83
+      internalID: -599248186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_19
+      name: Detailed_Cavern_1_Half_Tile_Version_17
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 96
         width: 16
         height: 16
@@ -562,17 +520,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e31dee1e39377848a0715633cd8cbc2
-      internalID: 1606454744
+      spriteID: 9a5d68a5966bdc94881a4ae3d672fece
+      internalID: 536104707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_20
+      name: Detailed_Cavern_1_Half_Tile_Version_18
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 96
         width: 16
         height: 16
@@ -583,17 +541,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01017274d8a19474bba0da4d0f5199dc
-      internalID: -1987163030
+      spriteID: 234983f6cae6db74aac2ee7f9ae1f406
+      internalID: -445887596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_21
+      name: Detailed_Cavern_1_Half_Tile_Version_19
       rect:
         serializedVersion: 2
-        x: 80
+        x: 88
         y: 96
         width: 16
         height: 16
@@ -604,17 +562,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e314e48b1e2550645b4e843d77526bc1
-      internalID: -611022047
+      spriteID: d1c51b9212ea6a44e800035a3a1fcc83
+      internalID: -591145120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_22
+      name: Detailed_Cavern_1_Half_Tile_Version_20
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 96
         width: 16
         height: 16
@@ -625,17 +583,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc0d2267d6184447b062ebf63229111
-      internalID: 2125795759
+      spriteID: 265d0def50aa58141a6d54dbb0609ca9
+      internalID: 1009014292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_23
+      name: Detailed_Cavern_1_Half_Tile_Version_21
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 96
         width: 16
         height: 16
@@ -646,17 +604,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c6c84d40843334fac2fed118adea05
-      internalID: -825267443
+      spriteID: c756107850ef35044b6b11a5a7a42cd0
+      internalID: -1555094694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_24
+      name: Detailed_Cavern_1_Half_Tile_Version_22
       rect:
         serializedVersion: 2
-        x: 128
+        x: 152
         y: 96
         width: 16
         height: 16
@@ -667,17 +625,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59d699f63b8552a4bbfbc162e9df6983
-      internalID: -1659688557
+      spriteID: 8d1a987f80a97014dab8d75866ebb047
+      internalID: -780905257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_25
+      name: Detailed_Cavern_1_Half_Tile_Version_23
       rect:
         serializedVersion: 2
-        x: 144
+        x: 168
         y: 96
         width: 16
         height: 16
@@ -688,17 +646,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54429eb03aca3d24c841dd6840a4244a
-      internalID: 2008187450
+      spriteID: 9b585b8c0dd82c44e99715ecb789ba70
+      internalID: 165379511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_26
+      name: Detailed_Cavern_1_Half_Tile_Version_24
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 96
         width: 16
         height: 16
@@ -709,17 +667,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e995fb9762929f546a78ae5d8b64afd3
-      internalID: -403313930
+      spriteID: 6fafa070f5505654d98014c5d98a4999
+      internalID: 371583078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_27
+      name: Detailed_Cavern_1_Half_Tile_Version_25
       rect:
         serializedVersion: 2
-        x: 176
+        x: 200
         y: 96
         width: 16
         height: 16
@@ -730,17 +688,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a4023d04763b104b99e38ffcdccf77b
-      internalID: 2220196
+      spriteID: b477fab4be0841045904ce93ec1dfe9e
+      internalID: 1626898578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_28
+      name: Detailed_Cavern_1_Half_Tile_Version_26
       rect:
         serializedVersion: 2
-        x: 192
+        x: 216
         y: 96
         width: 16
         height: 16
@@ -751,17 +709,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e9958585ddab2b4d9aa09f01374744e
-      internalID: -882108396
+      spriteID: 451718d195e322b4fbf219218048e203
+      internalID: -1215970304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_29
+      name: Detailed_Cavern_1_Half_Tile_Version_27
       rect:
         serializedVersion: 2
-        x: 208
+        x: 232
         y: 96
         width: 16
         height: 16
@@ -772,59 +730,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5187844c31da8e14e901240a42d7794b
-      internalID: -2113981168
+      spriteID: 6f548505ee4b59a49b123f022a5f3dc0
+      internalID: -96719782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_30
+      name: Detailed_Cavern_1_Half_Tile_Version_28
       rect:
         serializedVersion: 2
-        x: 224
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ddec7be1835587478f4f17b10e82522
-      internalID: -706905147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_31
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b490609cbe6de724186e784161bf30b9
-      internalID: -1235136953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_32
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 8
         y: 80
         width: 16
         height: 16
@@ -835,17 +751,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 612e51615863d584883b9de6ce7c5696
-      internalID: -664355449
+      spriteID: 522e5d97841c60d49ac5ac57fad13cf4
+      internalID: -945425995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_33
+      name: Detailed_Cavern_1_Half_Tile_Version_29
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 80
         width: 16
         height: 16
@@ -856,17 +772,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 598be2c8363d0a84c926cdd44e9a0567
-      internalID: 923095738
+      spriteID: 171064205f845f444800dd67a730edf6
+      internalID: -1597692341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_34
+      name: Detailed_Cavern_1_Half_Tile_Version_30
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 80
         width: 16
         height: 16
@@ -877,17 +793,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bc43bb235c28da46944f7712f6f642e
-      internalID: -189015291
+      spriteID: d5559c6a867f1e14f92d0c821ac2ee14
+      internalID: 328812998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_35
+      name: Detailed_Cavern_1_Half_Tile_Version_31
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 80
         width: 16
         height: 16
@@ -898,17 +814,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66f3ccece6a48f0499edd869a2cf83a3
-      internalID: -920862545
+      spriteID: a269851cba7039742a673780dbe68d27
+      internalID: 223582977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_36
+      name: Detailed_Cavern_1_Half_Tile_Version_32
       rect:
         serializedVersion: 2
-        x: 128
+        x: 152
         y: 80
         width: 16
         height: 16
@@ -919,17 +835,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f42015c94b8c7bb41af1b22cb032176e
-      internalID: 1627247593
+      spriteID: 7f8b99e2148752947a2f09b5ec080920
+      internalID: -1151391055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_37
+      name: Detailed_Cavern_1_Half_Tile_Version_33
       rect:
         serializedVersion: 2
-        x: 144
+        x: 168
         y: 80
         width: 16
         height: 16
@@ -940,17 +856,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 431f27e21761d8c448a74f1425d4054c
-      internalID: -156087293
+      spriteID: f060a546220d9f247a4b14ddc1f4bebb
+      internalID: -539999984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_38
+      name: Detailed_Cavern_1_Half_Tile_Version_34
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 80
         width: 16
         height: 16
@@ -961,17 +877,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b91fbbf84c080c49bf0a0f16d6d440d
-      internalID: -531022131
+      spriteID: a874c51acdbd7e644bc3ad3c64226768
+      internalID: -1593062609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_39
+      name: Detailed_Cavern_1_Half_Tile_Version_35
       rect:
         serializedVersion: 2
-        x: 176
+        x: 200
         y: 80
         width: 16
         height: 16
@@ -982,59 +898,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bba6742380471df42a356e3a44995e0c
-      internalID: -1657466287
+      spriteID: 6c221a21dab8f1d43b1f7a188b5dcd79
+      internalID: 1348374856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_40
+      name: Detailed_Cavern_1_Half_Tile_Version_36
       rect:
         serializedVersion: 2
-        x: 192
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e71d66333605d194a9af56da4bc30c5f
-      internalID: -609056085
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_41
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cafd9ee11294ef94ca3c7eaeeec4964d
-      internalID: -985324865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_42
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 8
         y: 64
         width: 16
         height: 16
@@ -1045,17 +919,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19d4b4a07bcbb0f4786e45cc1384d006
-      internalID: -1883049456
+      spriteID: d543e2e25ea3a4f45b84e3fcfd93fe53
+      internalID: -354194317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_43
+      name: Detailed_Cavern_1_Half_Tile_Version_37
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 64
         width: 16
         height: 16
@@ -1066,17 +940,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4c84c6d712b6b74e9478d1fcac9626d
-      internalID: -1259015631
+      spriteID: 2245cd5f97bc0a141aff9e4b4b53e2b4
+      internalID: 738760668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_44
+      name: Detailed_Cavern_1_Half_Tile_Version_38
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 64
         width: 16
         height: 16
@@ -1087,17 +961,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11eb0393660f2fd4c9e67a63c8eed30e
-      internalID: -1122259061
+      spriteID: f682c5b457282e747a7335323b3eee75
+      internalID: -700709157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_45
+      name: Detailed_Cavern_1_Half_Tile_Version_39
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 64
         width: 16
         height: 16
@@ -1108,17 +982,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8129261e8619fa94b8b80e97e264ef9e
-      internalID: -1006820495
+      spriteID: 270a56cbbf4ea5642b517722d7e7f3eb
+      internalID: -78787969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_46
+      name: Detailed_Cavern_1_Half_Tile_Version_40
       rect:
         serializedVersion: 2
-        x: 128
+        x: 152
         y: 64
         width: 16
         height: 16
@@ -1129,17 +1003,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fa712ae54da96747a00481349b71909
-      internalID: -719714161
+      spriteID: c6bda51e0f9f46b4fbbb5be4739fe78a
+      internalID: 69203733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_47
+      name: Detailed_Cavern_1_Half_Tile_Version_41
       rect:
         serializedVersion: 2
-        x: 144
+        x: 168
         y: 64
         width: 16
         height: 16
@@ -1150,17 +1024,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c18d2cf3bfc4b043b18a4da697e0fd4
-      internalID: 1686657026
+      spriteID: 7769d9e003c881d4d87ba570cf478680
+      internalID: 1598357755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_48
+      name: Detailed_Cavern_1_Half_Tile_Version_42
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 64
         width: 16
         height: 16
@@ -1171,17 +1045,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c7e4c11842e7b4e8f9b0e2ac03e967
-      internalID: 152206386
+      spriteID: 7c26c8e6a03fb8f4d91c4090dfa19b0b
+      internalID: 325368716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_49
+      name: Detailed_Cavern_1_Half_Tile_Version_43
       rect:
         serializedVersion: 2
-        x: 176
+        x: 200
         y: 64
         width: 16
         height: 16
@@ -1192,59 +1066,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3455206434835f046a95fc4af21b95e1
-      internalID: 2130559845
+      spriteID: 0edb2c14c3a5fb9498c17aa770c9e236
+      internalID: -455858855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_50
+      name: Detailed_Cavern_1_Half_Tile_Version_44
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c26f4664d5432044dbdc27c7cde46d1e
-      internalID: 117082444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_51
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e579973a590af50408ff22b4bc36a6cf
-      internalID: -1693929600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramps_52
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 8
         y: 48
         width: 16
         height: 16
@@ -1255,17 +1087,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dde1c050c0f7d3a498f9f72cba43a800
-      internalID: -1826774413
+      spriteID: 6052cb5d46479e94ca054032111ed185
+      internalID: 627399013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_53
+      name: Detailed_Cavern_1_Half_Tile_Version_45
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 48
         width: 16
         height: 16
@@ -1276,17 +1108,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a33471e0f622145b7c8190116e0062
-      internalID: 1862185114
+      spriteID: 99ea8dcb2a43e8349ad5676a91a91fea
+      internalID: -1074338121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_54
+      name: Detailed_Cavern_1_Half_Tile_Version_46
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 48
         width: 16
         height: 16
@@ -1297,17 +1129,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4d9a3fdc8a857d49b1ab5c00be5adaf
-      internalID: 625069631
+      spriteID: 728bb6141c221ec409d7d0c5cd2cda8c
+      internalID: -545908304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_55
+      name: Detailed_Cavern_1_Half_Tile_Version_47
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 48
         width: 16
         height: 16
@@ -1318,17 +1150,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc81ab378a92174c8b590561ffaf414
-      internalID: -1323229937
+      spriteID: e1883c24f4d8a3444a5343f0cf88dc7c
+      internalID: 1819244532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_56
+      name: Detailed_Cavern_1_Half_Tile_Version_48
       rect:
         serializedVersion: 2
-        x: 128
+        x: 184
         y: 48
         width: 16
         height: 16
@@ -1339,17 +1171,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9dd714ec4226e14caed23c3278b342c
-      internalID: -1230771957
+      spriteID: c2e07050a113dd1488ee78d8669eff8d
+      internalID: 2142889870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_57
+      name: Detailed_Cavern_1_Half_Tile_Version_49
       rect:
         serializedVersion: 2
-        x: 144
+        x: 200
         y: 48
         width: 16
         height: 16
@@ -1360,17 +1192,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfd53d238c720b443a20576ae4cbd1b3
-      internalID: 781627078
+      spriteID: 3ee873e496ec8eb4398f7dbfda064c43
+      internalID: -1977027924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_58
+      name: Detailed_Cavern_1_Half_Tile_Version_50
       rect:
         serializedVersion: 2
-        x: 160
+        x: 216
         y: 48
         width: 16
         height: 16
@@ -1381,17 +1213,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4764bff0837406a4e8107ef6712c5377
-      internalID: -650315987
+      spriteID: eee528c713961e446a348337cd0da21d
+      internalID: -1518508194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_59
+      name: Detailed_Cavern_1_Half_Tile_Version_51
       rect:
         serializedVersion: 2
-        x: 176
+        x: 232
         y: 48
         width: 16
         height: 16
@@ -1402,17 +1234,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6590e47cea4ab7742892c35c4e4c315c
-      internalID: -1014575122
+      spriteID: 3c1507e32914b6e448f7e2cc898267ec
+      internalID: 1536363607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_60
+      name: Detailed_Cavern_1_Half_Tile_Version_52
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 32
         width: 16
         height: 16
@@ -1423,17 +1255,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e74255c451ce63a4da9c54561733de7f
-      internalID: -1266358077
+      spriteID: 439e95b7700f4f54797f0587eb934e90
+      internalID: 107488868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_61
+      name: Detailed_Cavern_1_Half_Tile_Version_53
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 32
         width: 16
         height: 16
@@ -1444,17 +1276,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56c18fbe5ba135a489e312caf3b2048a
-      internalID: -238807085
+      spriteID: f4c100a34695e274cbfc212c5f96461b
+      internalID: -703111428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_62
+      name: Detailed_Cavern_1_Half_Tile_Version_54
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 32
         width: 16
         height: 16
@@ -1465,17 +1297,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 629f9a6da27a88c4eb9f5f820b694c08
-      internalID: -1408692622
+      spriteID: 4954515a8cabfce4a9e9df9c5533c752
+      internalID: 1812631030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_63
+      name: Detailed_Cavern_1_Half_Tile_Version_55
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 32
         width: 16
         height: 16
@@ -1486,17 +1318,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db184fa3fc26e004f9ea7813c2f17333
-      internalID: -330020127
+      spriteID: d4654e54aa4e75547ac751a34cf83e80
+      internalID: 1174701151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_64
+      name: Detailed_Cavern_1_Half_Tile_Version_56
       rect:
         serializedVersion: 2
-        x: 128
+        x: 184
         y: 32
         width: 16
         height: 16
@@ -1507,17 +1339,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a54bb1522651ad84e9c9400a7b48dae2
-      internalID: 141474657
+      spriteID: 7c27248bb2a39e64a87b72509b8f727a
+      internalID: -779733503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_65
+      name: Detailed_Cavern_1_Half_Tile_Version_57
       rect:
         serializedVersion: 2
-        x: 144
+        x: 200
         y: 32
         width: 16
         height: 16
@@ -1528,17 +1360,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64ac487875be22f43a708e643c392506
-      internalID: 598870829
+      spriteID: 54d00ec33abbeb54cbdb6a9b49efa6d1
+      internalID: -1456604294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_66
+      name: Detailed_Cavern_1_Half_Tile_Version_58
       rect:
         serializedVersion: 2
-        x: 160
+        x: 216
         y: 32
         width: 16
         height: 16
@@ -1549,17 +1381,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f61a122da7a0a884bb08bff0154c16e7
-      internalID: 1346942967
+      spriteID: e2049bf862d67c348aa1a497ba22be03
+      internalID: -192362785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_67
+      name: Detailed_Cavern_1_Half_Tile_Version_59
       rect:
         serializedVersion: 2
-        x: 176
+        x: 232
         y: 32
         width: 16
         height: 16
@@ -1570,17 +1402,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f4ee3afc02218b4eb41f75fc9dc96f5
-      internalID: 745766963
+      spriteID: b0973cea85fb1be40a9e1c25f8ff57c4
+      internalID: -724766562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_68
+      name: Detailed_Cavern_1_Half_Tile_Version_60
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 16
         width: 16
         height: 16
@@ -1591,17 +1423,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4bf2743e217c744c8afa408507fa1b1
-      internalID: 1872090849
+      spriteID: c4ac2021319c42d448f886e0dd756d3d
+      internalID: -369504662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_69
+      name: Detailed_Cavern_1_Half_Tile_Version_61
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 16
         width: 16
         height: 16
@@ -1612,17 +1444,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daf88b0f998837c4cb423c18fc42f046
-      internalID: 777899507
+      spriteID: b649a5cb26e859043bec941653de275a
+      internalID: -1480048692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_70
+      name: Detailed_Cavern_1_Half_Tile_Version_62
       rect:
         serializedVersion: 2
-        x: 32
+        x: 40
         y: 16
         width: 16
         height: 16
@@ -1633,17 +1465,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 231afe0b2de884245b87ffbddfdc6ca1
-      internalID: 12422164
+      spriteID: 816e9d416f6a86145a8327d2137c6aaa
+      internalID: 1375303852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_71
+      name: Detailed_Cavern_1_Half_Tile_Version_63
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 16
         width: 16
         height: 16
@@ -1654,17 +1486,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3a08b37160310d40b677acf0b473dfa
-      internalID: 1519859371
+      spriteID: 75d325b103e3ae747b4a1a36057e9dbf
+      internalID: 74064638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_72
+      name: Detailed_Cavern_1_Half_Tile_Version_64
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 16
         width: 16
         height: 16
@@ -1675,17 +1507,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47bd572e0497d44fa0ffe9bdd18ad4e
-      internalID: 1054848406
+      spriteID: fec44c53550a5c643b5a6f114470edb5
+      internalID: -573612958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_73
+      name: Detailed_Cavern_1_Half_Tile_Version_65
       rect:
         serializedVersion: 2
-        x: 80
+        x: 88
         y: 16
         width: 16
         height: 16
@@ -1696,17 +1528,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e51604a7522268d4bbbde2f7be7d73fd
-      internalID: 755489127
+      spriteID: 30cf828138929a349a1a08db39695921
+      internalID: 1784343205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_74
+      name: Detailed_Cavern_1_Half_Tile_Version_66
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 16
         width: 16
         height: 16
@@ -1717,17 +1549,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cde0098037f826646bad12d639059582
-      internalID: -2146530126
+      spriteID: 8c008214cdfd19e43af6f6be6314f152
+      internalID: -52158753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_75
+      name: Detailed_Cavern_1_Half_Tile_Version_67
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 16
         width: 16
         height: 16
@@ -1738,17 +1570,101 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 124f15dede635e54d8d25b7c83ccd80f
-      internalID: -1781564847
+      spriteID: 69faca824d56a104ab1f506a4faeafc3
+      internalID: -195133372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_76
+      name: Detailed_Cavern_1_Half_Tile_Version_68
       rect:
         serializedVersion: 2
-        x: 0
+        x: 184
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07a93882c8561c4fb82c7664421a833
+      internalID: 698591235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_69
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b888a3c18b4f474d9cdd5f099329ad9
+      internalID: 96929906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_70
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bad8b5f300eb8245b1e6f84ef533f63
+      internalID: -480607403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_71
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11712266ff9b0f344950a2fe996a28af
+      internalID: 1367015603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_72
+      rect:
+        serializedVersion: 2
+        x: 8
         y: 0
         width: 16
         height: 16
@@ -1759,17 +1675,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ec6c94ae021c74587df4b1b90b284f
-      internalID: -910035325
+      spriteID: 6a5c92772708e7f419da5dd34291a8c4
+      internalID: -858101875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_77
+      name: Detailed_Cavern_1_Half_Tile_Version_73
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 0
         width: 16
         height: 16
@@ -1780,17 +1696,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699e8249c13836743a02159e0cfb6379
-      internalID: -1342348123
+      spriteID: 26cbb77311445c14684f790bf72fb471
+      internalID: -1368477585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_78
+      name: Detailed_Cavern_1_Half_Tile_Version_74
       rect:
         serializedVersion: 2
-        x: 32
+        x: 40
         y: 0
         width: 16
         height: 16
@@ -1801,17 +1717,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 119aa9da1f5a01d458be6777acccafdc
-      internalID: -1474207825
+      spriteID: 6c7be86837c7f1b42a9a5170acaa4564
+      internalID: 1562168278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_79
+      name: Detailed_Cavern_1_Half_Tile_Version_75
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 0
         width: 16
         height: 16
@@ -1822,17 +1738,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f7233bba62d83a49b82ff3c14393fc3
-      internalID: -1884112543
+      spriteID: 6b72d8d7d1a184a47855107dcba482dc
+      internalID: 857283727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_80
+      name: Detailed_Cavern_1_Half_Tile_Version_76
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 0
         width: 16
         height: 16
@@ -1843,17 +1759,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1af1961febc2d9946b55b5fbc05c2078
-      internalID: -1456130495
+      spriteID: c079eb96624e0a94b9fdb0f526202fd3
+      internalID: -1032290080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_81
+      name: Detailed_Cavern_1_Half_Tile_Version_77
       rect:
         serializedVersion: 2
-        x: 80
+        x: 88
         y: 0
         width: 16
         height: 16
@@ -1864,17 +1780,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8811a67171842434bb65eb438528f30d
-      internalID: 2093188208
+      spriteID: 99319998e8c68c14ea0b978b8b2b9a6d
+      internalID: -51229882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_82
+      name: Detailed_Cavern_1_Half_Tile_Version_78
       rect:
         serializedVersion: 2
-        x: 96
+        x: 104
         y: 0
         width: 16
         height: 16
@@ -1885,17 +1801,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6c980708f215bb43ab17928f72d0790
-      internalID: -1094438919
+      spriteID: 34c1cae6e3156be44bdd7537ab2c9bb9
+      internalID: 983326034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramps_83
+      name: Detailed_Cavern_1_Half_Tile_Version_79
       rect:
         serializedVersion: 2
-        x: 112
+        x: 120
         y: 0
         width: 16
         height: 16
@@ -1906,8 +1822,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94e081f329889734ba6f40b6fa0e631b
-      internalID: 1795265471
+      spriteID: e9c2350fe31e1404f906ada18489bb4b
+      internalID: -1026070086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_80
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e5e570f26bff142a756cd2f95f8206
+      internalID: 832056404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_81
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb62c0615bbe6f4bafbff1a5bdfd934
+      internalID: -1723153414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_82
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea4265f935eef046aa701e372d32031
+      internalID: 384164155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detailed_Cavern_1_Half_Tile_Version_83
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60e2841652f8cb4b846527200a036e3
+      internalID: -308588909
       vertices: []
       indices: 
       edges: []
@@ -1923,90 +1923,90 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ramps_0: -507294441
-      ramps_1: -1360177324
-      ramps_10: -1450203495
-      ramps_11: -1979034652
-      ramps_12: 1297847580
-      ramps_13: 1660843602
-      ramps_14: -267138919
-      ramps_15: 349960456
-      ramps_16: 1049377445
-      ramps_17: 166835600
-      ramps_18: 332526552
-      ramps_19: 1606454744
-      ramps_2: -1958368213
-      ramps_20: -1987163030
-      ramps_21: -611022047
-      ramps_22: 2125795759
-      ramps_23: -825267443
-      ramps_24: -1659688557
-      ramps_25: 2008187450
-      ramps_26: -403313930
-      ramps_27: 2220196
-      ramps_28: -882108396
-      ramps_29: -2113981168
-      ramps_3: -104203952
-      ramps_30: -706905147
-      ramps_31: -1235136953
-      ramps_32: -664355449
-      ramps_33: 923095738
-      ramps_34: -189015291
-      ramps_35: -920862545
-      ramps_36: 1627247593
-      ramps_37: -156087293
-      ramps_38: -531022131
-      ramps_39: -1657466287
-      ramps_4: -1207792425
-      ramps_40: -609056085
-      ramps_41: -985324865
-      ramps_42: -1883049456
-      ramps_43: -1259015631
-      ramps_44: -1122259061
-      ramps_45: -1006820495
-      ramps_46: -719714161
-      ramps_47: 1686657026
-      ramps_48: 152206386
-      ramps_49: 2130559845
-      ramps_5: -1427472702
-      ramps_50: 117082444
-      ramps_51: -1693929600
-      ramps_52: -1826774413
-      ramps_53: 1862185114
-      ramps_54: 625069631
-      ramps_55: -1323229937
-      ramps_56: -1230771957
-      ramps_57: 781627078
-      ramps_58: -650315987
-      ramps_59: -1014575122
-      ramps_6: -660739943
-      ramps_60: -1266358077
-      ramps_61: -238807085
-      ramps_62: -1408692622
-      ramps_63: -330020127
-      ramps_64: 141474657
-      ramps_65: 598870829
-      ramps_66: 1346942967
-      ramps_67: 745766963
-      ramps_68: 1872090849
-      ramps_69: 777899507
-      ramps_7: 1344133005
-      ramps_70: 12422164
-      ramps_71: 1519859371
-      ramps_72: 1054848406
-      ramps_73: 755489127
-      ramps_74: -2146530126
-      ramps_75: -1781564847
-      ramps_76: -910035325
-      ramps_77: -1342348123
-      ramps_78: -1474207825
-      ramps_79: -1884112543
-      ramps_8: -1915896796
-      ramps_80: -1456130495
-      ramps_81: 2093188208
-      ramps_82: -1094438919
-      ramps_83: 1795265471
-      ramps_9: -1432592276
+      Detailed_Cavern_1_Half_Tile_Version_0: 1641806557
+      Detailed_Cavern_1_Half_Tile_Version_1: -30478917
+      Detailed_Cavern_1_Half_Tile_Version_10: -271621136
+      Detailed_Cavern_1_Half_Tile_Version_11: 91681109
+      Detailed_Cavern_1_Half_Tile_Version_12: -2033125534
+      Detailed_Cavern_1_Half_Tile_Version_13: 1187561051
+      Detailed_Cavern_1_Half_Tile_Version_14: -1232371389
+      Detailed_Cavern_1_Half_Tile_Version_15: -1208759282
+      Detailed_Cavern_1_Half_Tile_Version_16: -599248186
+      Detailed_Cavern_1_Half_Tile_Version_17: 536104707
+      Detailed_Cavern_1_Half_Tile_Version_18: -445887596
+      Detailed_Cavern_1_Half_Tile_Version_19: -591145120
+      Detailed_Cavern_1_Half_Tile_Version_2: -1231880200
+      Detailed_Cavern_1_Half_Tile_Version_20: 1009014292
+      Detailed_Cavern_1_Half_Tile_Version_21: -1555094694
+      Detailed_Cavern_1_Half_Tile_Version_22: -780905257
+      Detailed_Cavern_1_Half_Tile_Version_23: 165379511
+      Detailed_Cavern_1_Half_Tile_Version_24: 371583078
+      Detailed_Cavern_1_Half_Tile_Version_25: 1626898578
+      Detailed_Cavern_1_Half_Tile_Version_26: -1215970304
+      Detailed_Cavern_1_Half_Tile_Version_27: -96719782
+      Detailed_Cavern_1_Half_Tile_Version_28: -945425995
+      Detailed_Cavern_1_Half_Tile_Version_29: -1597692341
+      Detailed_Cavern_1_Half_Tile_Version_3: -1144565898
+      Detailed_Cavern_1_Half_Tile_Version_30: 328812998
+      Detailed_Cavern_1_Half_Tile_Version_31: 223582977
+      Detailed_Cavern_1_Half_Tile_Version_32: -1151391055
+      Detailed_Cavern_1_Half_Tile_Version_33: -539999984
+      Detailed_Cavern_1_Half_Tile_Version_34: -1593062609
+      Detailed_Cavern_1_Half_Tile_Version_35: 1348374856
+      Detailed_Cavern_1_Half_Tile_Version_36: -354194317
+      Detailed_Cavern_1_Half_Tile_Version_37: 738760668
+      Detailed_Cavern_1_Half_Tile_Version_38: -700709157
+      Detailed_Cavern_1_Half_Tile_Version_39: -78787969
+      Detailed_Cavern_1_Half_Tile_Version_4: -638316118
+      Detailed_Cavern_1_Half_Tile_Version_40: 69203733
+      Detailed_Cavern_1_Half_Tile_Version_41: 1598357755
+      Detailed_Cavern_1_Half_Tile_Version_42: 325368716
+      Detailed_Cavern_1_Half_Tile_Version_43: -455858855
+      Detailed_Cavern_1_Half_Tile_Version_44: 627399013
+      Detailed_Cavern_1_Half_Tile_Version_45: -1074338121
+      Detailed_Cavern_1_Half_Tile_Version_46: -545908304
+      Detailed_Cavern_1_Half_Tile_Version_47: 1819244532
+      Detailed_Cavern_1_Half_Tile_Version_48: 2142889870
+      Detailed_Cavern_1_Half_Tile_Version_49: -1977027924
+      Detailed_Cavern_1_Half_Tile_Version_5: 1658227724
+      Detailed_Cavern_1_Half_Tile_Version_50: -1518508194
+      Detailed_Cavern_1_Half_Tile_Version_51: 1536363607
+      Detailed_Cavern_1_Half_Tile_Version_52: 107488868
+      Detailed_Cavern_1_Half_Tile_Version_53: -703111428
+      Detailed_Cavern_1_Half_Tile_Version_54: 1812631030
+      Detailed_Cavern_1_Half_Tile_Version_55: 1174701151
+      Detailed_Cavern_1_Half_Tile_Version_56: -779733503
+      Detailed_Cavern_1_Half_Tile_Version_57: -1456604294
+      Detailed_Cavern_1_Half_Tile_Version_58: -192362785
+      Detailed_Cavern_1_Half_Tile_Version_59: -724766562
+      Detailed_Cavern_1_Half_Tile_Version_6: -1923032264
+      Detailed_Cavern_1_Half_Tile_Version_60: -369504662
+      Detailed_Cavern_1_Half_Tile_Version_61: -1480048692
+      Detailed_Cavern_1_Half_Tile_Version_62: 1375303852
+      Detailed_Cavern_1_Half_Tile_Version_63: 74064638
+      Detailed_Cavern_1_Half_Tile_Version_64: -573612958
+      Detailed_Cavern_1_Half_Tile_Version_65: 1784343205
+      Detailed_Cavern_1_Half_Tile_Version_66: -52158753
+      Detailed_Cavern_1_Half_Tile_Version_67: -195133372
+      Detailed_Cavern_1_Half_Tile_Version_68: 698591235
+      Detailed_Cavern_1_Half_Tile_Version_69: 96929906
+      Detailed_Cavern_1_Half_Tile_Version_7: 642159082
+      Detailed_Cavern_1_Half_Tile_Version_70: -480607403
+      Detailed_Cavern_1_Half_Tile_Version_71: 1367015603
+      Detailed_Cavern_1_Half_Tile_Version_72: -858101875
+      Detailed_Cavern_1_Half_Tile_Version_73: -1368477585
+      Detailed_Cavern_1_Half_Tile_Version_74: 1562168278
+      Detailed_Cavern_1_Half_Tile_Version_75: 857283727
+      Detailed_Cavern_1_Half_Tile_Version_76: -1032290080
+      Detailed_Cavern_1_Half_Tile_Version_77: -51229882
+      Detailed_Cavern_1_Half_Tile_Version_78: 983326034
+      Detailed_Cavern_1_Half_Tile_Version_79: -1026070086
+      Detailed_Cavern_1_Half_Tile_Version_8: 13070844
+      Detailed_Cavern_1_Half_Tile_Version_80: 832056404
+      Detailed_Cavern_1_Half_Tile_Version_81: -1723153414
+      Detailed_Cavern_1_Half_Tile_Version_82: 384164155
+      Detailed_Cavern_1_Half_Tile_Version_83: -308588909
+      Detailed_Cavern_1_Half_Tile_Version_9: -1531901954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

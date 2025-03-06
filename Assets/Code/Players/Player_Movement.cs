@@ -29,7 +29,7 @@ public class Player_Movement : MonoBehaviour
     private bool canSprint = true;
     private bool canTakeDamage = true;
 
-    private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
+    [SerializeField] private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
     private bool isJumping = false;
 
     public float duration = 3f;
