@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1823962541302738814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3385630694889265043}
+  m_Layer: 0
+  m_Name: Sling Starting Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3385630694889265043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823962541302738814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.52, y: 0.46, z: 0}
+  m_LocalScale: {x: 2.4044263, y: 2.0433915, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7193538937347692869}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6784996639547390433
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +129,7 @@ GameObject:
   - component: {fileID: 2721987255079328978}
   - component: {fileID: 5739647548157611249}
   - component: {fileID: 4595123397177399776}
+  - component: {fileID: 998368511861462099}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -119,6 +151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5811666912372700361}
+  - {fileID: 3385630694889265043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8808260747284442077
@@ -265,10 +298,13 @@ MonoBehaviour:
   sprintDuration: 3
   sprintCooldown: 5
   jumpForce: 5
-  slowfallGravity: 0.2
   damageForce: 10
   damageCooldown: 2
-  duration: 3
+  jumpJetpackForce: 2
+  jumpJetpackInitialFuelCost: 20
+  jumpJetpackFuelCostPerSecond: 5
+  maxFuel: 25
+  fuelRechargeRate: 25
 --- !u!95 &4595123397177399776
 Animator:
   serializedVersion: 5
@@ -290,3 +326,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &998368511861462099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645920848420852957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d17087ed08c2234781979b1a61379cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infiniteAmmoPrefab: {fileID: 0}
+  smokeBombPrefab: {fileID: 0}
+  launchPoint: {fileID: 3385630694889265043}
+  launchForce: 10
+  animator: {fileID: 0}
