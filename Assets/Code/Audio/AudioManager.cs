@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance = null;
 
     // Initialize the singleton instance.
-    private void Awake()
+     private void Awake()
     {
         // If there is not already an instance of AudioManager, set it to this.
         if (Instance == null)

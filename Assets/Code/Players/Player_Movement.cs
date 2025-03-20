@@ -37,30 +37,16 @@ public class Player_Movement : MonoBehaviour
     private float sprintTimer = 0f;
     private bool canSprint = true;
     private bool canTakeDamage = true;
-  
 
-    private bool localIsWalking = false;//Created this since the Gamemanager "isWalking" will always play the walking sound
+    public Animator playerAnim;
+
+    private bool localIsWalking = false; // Created this since the Gamemanager "isWalking" will always play the walking sound
     private bool isJumping = false;
 
-    //Animation States
+    // Animation States
     private bool hasChangedAnimation = false;
     public static Animator animator;
     public static bool isFacingLeft, isFacingRight;
-    [HideInInspector] public static string _currentState;
-    const string PLAYER_IDLE_FR = "Player_Idle_FR";
-    const string Id_FL = "Id_FL";
-    const string WALK_FR = "WalK_FR";
-    const string WALK_LR = "WalK_FL";
-    const string Jump_FR = "Jump_FR 0";
-    const string Jump_FL = "Jump_FL";
-    const string Mid_Air_Glide_FR = "Mid_Air_Glide_FR 0";
-    const string Mid_Air_Glide_FL = "Mid_Air_Glide_FL 0";
-    const string Crouch_Idle_FR = "Crouch_Idle_FR";
-    const string Crouch_Idle_FL = "Crouch_Id_FL";
-    const string Crouch_Walk_FR = "Crouch_Walk_FR";
-    const string Crouch_Walk_FL = "Crouch_Walk_FL";
-    const string PICK_FR = "Player_Pick_FR";
-    const string PICK_FL = "PIck_FL";
 
     private void Start()
     {
@@ -83,14 +69,7 @@ public class Player_Movement : MonoBehaviour
                 // Change animation only once when Frose becomes true
                 if (!hasChangedAnimation)
                 {
-                    if (isFacingRight)
-                    {
-                        ChangeAnimationState(PLAYER_IDLE_FR);
-                    }
-                    else if (isFacingLeft)
-                    {
-                        ChangeAnimationState(Id_FL);
-                    }
+                    animator.SetBool("isIdle", true);
                     hasChangedAnimation = true; // Set the flag to true
                 }
                 return;
@@ -141,11 +120,8 @@ public class Player_Movement : MonoBehaviour
             // Check for damage
             CheckForDamage();
 
-            //Idle State
+            // Idle State
             IdleState();
-
-            
-
         }
     }
 
@@ -156,23 +132,8 @@ public class Player_Movement : MonoBehaviour
 
         isCrouching = true;
         moveSpeed = crouchSpeed;
-        if (isFacingLeft && isCrouching && !localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Idle_FL);
-        }
-        if (isFacingRight && isCrouching && !localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Idle_FR);
-        }
-
-        if (isFacingLeft && isCrouching && localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Walk_FL);
-        }
-        if (isFacingRight && isCrouching && localIsWalking)
-        {
-            ChangeAnimationState(Crouch_Walk_FR);
-        }
+        animator.SetBool("isCrouching", true);
+        animator.SetBool("isWalking", localIsWalking);
     }
 
     private void StandUp()
@@ -182,6 +143,7 @@ public class Player_Movement : MonoBehaviour
 
         isCrouching = false;
         moveSpeed = walkSpeed;
+        animator.SetBool("isCrouching", false);
     }
 
     private void Sprint()
@@ -200,7 +162,7 @@ public class Player_Movement : MonoBehaviour
             StartCoroutine(SprintCooldown());
         }
 
-        //animator.SetBool("isSprinting", true);
+        animator.SetBool("isSprinting", true);
     }
 
     private void StopSprinting()
@@ -210,6 +172,7 @@ public class Player_Movement : MonoBehaviour
 
         isSprinting = false;
         moveSpeed = walkSpeed;
+        animator.SetBool("isSprinting", false);
     }
 
     private void MoveCharacter()
@@ -227,34 +190,26 @@ public class Player_Movement : MonoBehaviour
             localIsWalking = false;
         }
 
-        if (Input.GetKey(KeyCode.D)) //For the Right Side
+        if (Input.GetKey(KeyCode.D)) // For the Right Side
         {
             isFacingRight = true;
             isFacingLeft = false;
-            if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
-            {
-                if (isGrounded && localIsWalking && !isFacingLeft && !isCrouching)
-                {
-                    ChangeAnimationState(WALK_FR);
-                }
-            }
+            animator.SetBool("isFacingRight", true);
+            animator.SetBool("isFacingLeft", false);
         }
-        else if (Input.GetKey(KeyCode.A)) //For the Left Side
+        else if (Input.GetKey(KeyCode.A)) // For the Left Side
         {
             isFacingRight = false;
             isFacingLeft = true;
-            if (!IsAnimationPlaying(animator, Jump_FR) || !IsAnimationPlaying(animator, Jump_FL))
-            {
-                if (isGrounded && localIsWalking && !isFacingRight && !isCrouching)
-                {
-                    ChangeAnimationState(WALK_LR);
-                }
-            }
+            animator.SetBool("isFacingRight", false);
+            animator.SetBool("isFacingLeft", true);
         }
+
+        animator.SetBool("isWalking", localIsWalking);
 
         if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
         {
-            //AudioManager.Instance.sfxSource.Play();
+            AudioManager.Instance.sfxSource.Play();
         }
     }
 
@@ -273,30 +228,21 @@ public class Player_Movement : MonoBehaviour
         if (!isJumping && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-            if (isFacingRight)
-            {
-                ChangeAnimationState(Jump_FR);
-                StartCoroutine(AnimationTransistion());
-            }
-            if (isFacingLeft)
-            {
-                ChangeAnimationState(Jump_FL);
-                StartCoroutine(AnimationTransistion());
-            }
+            animator.SetTrigger("Jump");
         }
         else if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
-            //AudioManager.Instance.sfxSource.Play();
+            AudioManager.Instance.sfxSource.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.D) && !isGrounded)
         {
-            ChangeAnimationState(Mid_Air_Glide_FR);
+            animator.SetBool("isGliding", true);
         }
         if (Input.GetKeyDown(KeyCode.A) && !isGrounded)
         {
-            ChangeAnimationState(Mid_Air_Glide_FL);
+            animator.SetBool("isGliding", true);
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -308,7 +254,7 @@ public class Player_Movement : MonoBehaviour
         UseJumpJetpack();
     }
 
-    //JETPACK is the naming convention for the flight mechanic for the player, it is not a jetpack.
+    // JETPACK is the naming convention for the flight mechanic for the player, it is not a jetpack.
     private void UseJumpJetpack()
     {
         if (isCrouching)
@@ -347,21 +293,6 @@ public class Player_Movement : MonoBehaviour
             {
                 currentFuel = maxFuel;
             }
-        }
-    }
-
-
-
-    IEnumerator AnimationTransistion()
-    {
-        yield return new WaitForSeconds(.4f);
-        if (isFacingRight)
-        {
-            ChangeAnimationState(Mid_Air_Glide_FR);
-        }
-        if (isFacingLeft)
-        {
-            ChangeAnimationState(Mid_Air_Glide_FL);
         }
     }
 
@@ -410,46 +341,15 @@ public class Player_Movement : MonoBehaviour
         StartCoroutine(DamageCooldown());
     }
 
-    // Change animation state
-    public void ChangeAnimationState(string newState)
+    void IdleState()
     {
-        if (newState == _currentState)
+        if (isGrounded && !localIsWalking && !isCrouching)
         {
-            return;
-        }
-
-        animator.Play(newState);
-
-        _currentState = newState;
-    }
-
-    // Check if a specific animation is playing
-    // Parameter named "0" is the animation layer
-    bool IsAnimationPlaying(Animator animator, string stateName)
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-        {
-            return true;
+            animator.SetBool("isIdle", true);
         }
         else
         {
-            return false;
-        }
-    }
-
-    void IdleState()
-    {
-        if (!IsAnimationPlaying(animator, Jump_FR))
-        {
-            if (isGrounded && !localIsWalking && isFacingRight && !isCrouching)
-            {
-                ChangeAnimationState(PLAYER_IDLE_FR);
-            }
-            if (isGrounded && !localIsWalking && isFacingLeft && !isCrouching)
-            {
-                ChangeAnimationState(Id_FL);
-            }
+            animator.SetBool("isIdle", false);
         }
     }
 }
