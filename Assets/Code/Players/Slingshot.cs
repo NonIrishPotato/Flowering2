@@ -12,6 +12,7 @@ public class Slingshot : MonoBehaviour
     public Animator animator;
     public LineRenderer lineRenderer;
     public int lineSegmentCount = 20;
+    public float lineLength = 5f; // New variable to control the length of the line renderer
 
     private GameObject currentAmmoPrefab;
     private int currentAmmoType = 0; // 0 for infinite ammo, 1 for smoke bomb
@@ -102,6 +103,9 @@ public class Slingshot : MonoBehaviour
 
     void LaunchAmmo()
     {
+        Debug.Log("Attempting to launch ammo. Current ammo type: " + currentAmmoType);
+        Debug.Log("Current smoke bombs in inventory: " + gameManager.smokeBombs);
+
         if (currentAmmoType == 1 && gameManager.smokeBombs <= 0)
         {
             Debug.Log("No smoke bombs left!");
@@ -122,6 +126,7 @@ public class Slingshot : MonoBehaviour
         if (currentAmmoType == 1)
         {
             gameManager.smokeBombs--;
+            Debug.Log("Smoke bomb launched. Remaining smoke bombs: " + gameManager.smokeBombs);
         }
     }
 
@@ -146,7 +151,7 @@ public class Slingshot : MonoBehaviour
 
         for (int i = 1; i < segmentCount; i++)
         {
-            float time = i / (float)segmentCount;
+            float time = (i / (float)segmentCount) * lineLength; // Use lineLength to control the length of the trajectory
             segments[i] = segments[0] + velocity * time + 0.5f * Physics2D.gravity * time * time;
         }
 
