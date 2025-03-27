@@ -25,7 +25,7 @@ public class Player_Movement : MonoBehaviour
     public float fuelRechargeRate = 25f; // The rate at which fuel recharges per second
 
     private float currentFuel;
-    private bool isUsingJetpack = false;
+    private bool isJumping = false;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -41,7 +41,6 @@ public class Player_Movement : MonoBehaviour
     public Animator playerAnim;
 
     private bool localIsWalking = false; // Created this since the Gamemanager "isWalking" will always play the walking sound
-    private bool isJumping = false;
 
     // Animation States
     private bool hasChangedAnimation = false;
@@ -66,7 +65,7 @@ public class Player_Movement : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
 
-                // Change animation only once when Frose becomes true
+                // ANIMATION: IDLE WHEN FROZEN
                 if (!hasChangedAnimation)
                 {
                     animator.SetBool("isIdle", true);
@@ -82,7 +81,20 @@ public class Player_Movement : MonoBehaviour
             // Check if the character is grounded
             isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
             if (isGrounded)
+            {
                 isJumping = false;
+
+            }
+
+            if(!isGrounded && !isJumping)
+            {
+                animator.setBool(isFalling, true);
+            }
+
+            if(!isGrounded&&isJumping&&currentFuel<=0)
+            {
+                animator.setBool(isFalling, true);
+            }
 
             // Check for damage cooldown
             if (!canTakeDamage)
@@ -132,6 +144,8 @@ public class Player_Movement : MonoBehaviour
 
         isCrouching = true;
         moveSpeed = crouchSpeed;
+
+        // ANIMATION: CROUCHING
         animator.SetBool("isCrouching", true);
         animator.SetBool("isWalking", localIsWalking);
     }
@@ -143,6 +157,8 @@ public class Player_Movement : MonoBehaviour
 
         isCrouching = false;
         moveSpeed = walkSpeed;
+
+        // ANIMATION: STAND UP FROM CROUCH
         animator.SetBool("isCrouching", false);
     }
 
@@ -162,6 +178,7 @@ public class Player_Movement : MonoBehaviour
             StartCoroutine(SprintCooldown());
         }
 
+        // ANIMATION: SPRINTING
         animator.SetBool("isSprinting", true);
     }
 
@@ -172,6 +189,8 @@ public class Player_Movement : MonoBehaviour
 
         isSprinting = false;
         moveSpeed = walkSpeed;
+
+        // ANIMATION: STOP SPRINTING
         animator.SetBool("isSprinting", false);
     }
 
@@ -194,6 +213,8 @@ public class Player_Movement : MonoBehaviour
         {
             isFacingRight = true;
             isFacingLeft = false;
+
+            // ANIMATION: FACING RIGHT
             animator.SetBool("isFacingRight", true);
             animator.SetBool("isFacingLeft", false);
         }
@@ -201,10 +222,13 @@ public class Player_Movement : MonoBehaviour
         {
             isFacingRight = false;
             isFacingLeft = true;
+
+            // ANIMATION: FACING LEFT
             animator.SetBool("isFacingRight", false);
             animator.SetBool("isFacingLeft", true);
         }
 
+        // ANIMATION: WALKING
         animator.SetBool("isWalking", localIsWalking);
 
         if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
@@ -223,11 +247,12 @@ public class Player_Movement : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            isJumping = true;
         }
 
         if (!isJumping && Input.GetButtonDown("Jump"))
         {
-            isJumping = true;
+            // ANIMATION: JUMPING
             animator.SetTrigger("Jump");
         }
         else if (Input.GetButtonUp("Jump") || isGrounded)
@@ -238,10 +263,12 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D) && !isGrounded)
         {
+            // ANIMATION: GLIDING RIGHT
             animator.SetBool("isGliding", true);
         }
         if (Input.GetKeyDown(KeyCode.A) && !isGrounded)
         {
+            // ANIMATION: GLIDING LEFT
             animator.SetBool("isGliding", true);
         }
 
@@ -267,26 +294,35 @@ public class Player_Movement : MonoBehaviour
             // Initial activation of the jetpack
             rb.velocity = new Vector2(rb.velocity.x, jumpJetpackForce);
             currentFuel -= jumpJetpackInitialFuelCost;
-            isUsingJetpack = true;
+            isJumping = true;
+
+            // ANIMATION: JETPACK ACTIVATION
+            animator.SetBool("isJumping", true);
         }
 
-        if (!isGrounded && Input.GetButton("Jump") && isUsingJetpack && currentFuel > 0)
+        if (!isGrounded && Input.GetButton("Jump") && isJumping && currentFuel > 0)
         {
             // Continuous usage of the jetpack
             rb.velocity = new Vector2(rb.velocity.x, jumpJetpackForce);
             currentFuel -= jumpJetpackFuelCostPerSecond * Time.deltaTime;
+
+            // ANIMATION: JETPACK IN USE
+            animator.SetBool("isJumping", true);
         }
 
         if (Input.GetButtonUp("Jump") || currentFuel <= 0)
         {
             // Stop using the jetpack
-            isUsingJetpack = false;
+            isJumping = false;
+
+            // ANIMATION: JETPACK STOP
+            animator.SetBool("isJumping", false);
         }
     }
 
     private void RechargeFuel()
     {
-        if (!isUsingJetpack && currentFuel < maxFuel && isGrounded)
+        if (!isJumping && currentFuel < maxFuel && isGrounded)
         {
             currentFuel += fuelRechargeRate * Time.deltaTime;
             if (currentFuel > maxFuel)
@@ -336,6 +372,9 @@ public class Player_Movement : MonoBehaviour
         Vector2 launchDirection = (transform.position + myCollider.transform.position).normalized;
         rb.AddForce(launchDirection * damageForce, ForceMode2D.Impulse);
 
+        // ANIMATION: TAKING DAMAGE
+        animator.SetTrigger("TakeDamage");
+
         AudioManager.Instance.sfxSource.Play();
 
         StartCoroutine(DamageCooldown());
@@ -345,6 +384,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (isGrounded && !localIsWalking && !isCrouching)
         {
+            // ANIMATION: IDLE
             animator.SetBool("isIdle", true);
         }
         else
