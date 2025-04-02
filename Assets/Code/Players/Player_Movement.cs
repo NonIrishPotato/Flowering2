@@ -45,7 +45,7 @@ public class Player_Movement : MonoBehaviour
     // Animation States
     private bool hasChangedAnimation = false;
     public static Animator animator;
-    public static bool isFacingLeft, isFacingRight;
+    public static bool isFacingLeft;
 
     private void Start()
     {
@@ -88,12 +88,12 @@ public class Player_Movement : MonoBehaviour
 
             if(!isGrounded && !isJumping)
             {
-                animator.setBool(isFalling, true);
+                animator.SetBool("isFalling", true);
             }
 
             if(!isGrounded&&isJumping&&currentFuel<=0)
             {
-                animator.setBool(isFalling, true);
+                animator.SetBool("isFalling", true);
             }
 
             // Check for damage cooldown
@@ -197,41 +197,28 @@ public class Player_Movement : MonoBehaviour
     private void MoveCharacter()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 moveDirection = new Vector2(horizontalInput, 0);
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
+        Vector2 moveDirection = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        rb.velocity = moveDirection;
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            localIsWalking = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            localIsWalking = false;
-        }
+        bool isMovingLeft = Input.GetKey(KeyCode.A);
+        bool isMovingRight = Input.GetKey(KeyCode.D);
 
-        if (Input.GetKey(KeyCode.D)) // For the Right Side
+        localIsWalking = isMovingLeft || isMovingRight;
+
+        if (isMovingRight)
         {
-            isFacingRight = true;
             isFacingLeft = false;
-
-            // ANIMATION: FACING RIGHT
-            animator.SetBool("isFacingRight", true);
             animator.SetBool("isFacingLeft", false);
         }
-        else if (Input.GetKey(KeyCode.A)) // For the Left Side
+        else if (isMovingLeft)
         {
-            isFacingRight = false;
             isFacingLeft = true;
-
-            // ANIMATION: FACING LEFT
-            animator.SetBool("isFacingRight", false);
             animator.SetBool("isFacingLeft", true);
         }
 
-        // ANIMATION: WALKING
         animator.SetBool("isWalking", localIsWalking);
 
-        if (localIsWalking && !AudioManager.Instance.sfxSource.isPlaying && isGrounded)
+        if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
         {
             AudioManager.Instance.sfxSource.Play();
         }
