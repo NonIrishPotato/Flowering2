@@ -197,30 +197,39 @@ public class Player_Movement : MonoBehaviour
     private void MoveCharacter()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 moveDirection = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-        rb.velocity = moveDirection;
 
-        bool isMovingLeft = Input.GetKey(KeyCode.A);
-        bool isMovingRight = Input.GetKey(KeyCode.D);
-
-        localIsWalking = isMovingLeft || isMovingRight;
-
-        if (isMovingRight)
+        if (Mathf.Abs(horizontalInput) > 0.1f)
         {
-            isFacingLeft = false;
-            animator.SetBool("isFacingLeft", false);
+            animator.SetBool("isWalking", true); // plays the walking animation if in motion
+            animator.SetBool("isIdle", false);
+
+            Vector2 moveDirection = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+            rb.velocity = moveDirection;
+
+            if (horizontalInput < 0)
+            {
+                // Moving left
+                isFacingLeft = true;
+                transform.localScale = new Vector3(-1, 1, 1); // Flip the character to face left
+            }
+            else if (horizontalInput > 0)
+            {
+                // Moving right
+                isFacingLeft = false;
+                transform.localScale = new Vector3(1, 1, 1); // Flip the character to face right
+            }
+
+            localIsWalking = true;
+
+            if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
+            {
+                AudioManager.Instance.sfxSource.Play();
+            }
         }
-        else if (isMovingLeft)
+        else
         {
-            isFacingLeft = true;
-            animator.SetBool("isFacingLeft", true);
-        }
-
-        animator.SetBool("isWalking", localIsWalking);
-
-        if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
-        {
-            AudioManager.Instance.sfxSource.Play();
+            localIsWalking = false;
+            IdleState();
         }
     }
 
@@ -369,14 +378,11 @@ public class Player_Movement : MonoBehaviour
 
     void IdleState()
     {
-        if (isGrounded && !localIsWalking && !isCrouching)
-        {
-            // ANIMATION: IDLE
-            animator.SetBool("isIdle", true);
-        }
+        bool isIdle;
+        if (isGrounded && !localIsWalking && !isCrouching)1
+            isIdle = true;
         else
-        {
-            animator.SetBool("isIdle", false);
-        }
+            isIdle = false;
+        animator.SetBool("isIdle", isIdle);
     }
 }
