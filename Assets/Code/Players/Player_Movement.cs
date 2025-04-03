@@ -206,20 +206,20 @@ public class Player_Movement : MonoBehaviour
             Vector2 moveDirection = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
             rb.velocity = moveDirection;
 
-            if (horizontalInput < 0)
-            {
-                // Moving left
-                isFacingLeft = true;
-                transform.localScale = new Vector3(-1, 1, 1); // Flip the character to face left
-            }
-            else if (horizontalInput > 0)
-            {
-                // Moving right
-                isFacingLeft = false;
-                transform.localScale = new Vector3(1, 1, 1); // Flip the character to face right
-            }
+            bool isMovingLeft = horizontalInput < 0;
 
             localIsWalking = true;
+
+            if (isMovingLeft)
+            {
+                isFacingLeft = true;
+                animator.SetBool("isFacingLeft", true);
+            }
+            else
+            {
+                isFacingLeft = false;
+                animator.SetBool("isFacingLeft", false);
+            }
 
             if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
             {
@@ -228,6 +228,7 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isWalking", false); // stops the walking animation if not in motion
             localIsWalking = false;
             IdleState();
         }
@@ -379,7 +380,7 @@ public class Player_Movement : MonoBehaviour
     void IdleState()
     {
         bool isIdle;
-        if (isGrounded && !localIsWalking && !isCrouching)1
+        if (isGrounded && !localIsWalking && !isCrouching)
             isIdle = true;
         else
             isIdle = false;
