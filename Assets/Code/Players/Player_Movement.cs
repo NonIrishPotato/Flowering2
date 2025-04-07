@@ -148,6 +148,7 @@ public class Player_Movement : MonoBehaviour
         // ANIMATION: CROUCHING
         animator.SetBool("isCrouching", true);
         animator.SetBool("isWalking", localIsWalking);
+        Debug.Log("Crouching: " + isCrouching); // Debug to check if crouching is being set correctly
     }
 
     private void StandUp()
@@ -213,13 +214,15 @@ public class Player_Movement : MonoBehaviour
             if (isMovingLeft)
             {
                 isFacingLeft = true;
-                animator.SetBool("isFacingLeft", true);
+                Debug.Log("Facing Left: " + isFacingLeft); // Debug to check if facing left
             }
             else
             {
                 isFacingLeft = false;
-                animator.SetBool("isFacingLeft", false);
+                Debug.Log("Facing Right: " + isFacingLeft); // Debug to check if facing right
             }
+
+            animator.SetBool("isFacingLeft", isFacingLeft);
 
             if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
             {
