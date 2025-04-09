@@ -20,16 +20,25 @@ public class Slingshot : MonoBehaviour
     private bool isHolding = false;
     private float holdTime = 0f;
     public const float requiredHoldTime = .5f; // Required hold time in seconds
+    public GameObject inventoryWhole; // Reference to the InventoryWhole game object
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         SwitchAmmoType();
         lineRenderer.positionCount = lineSegmentCount;
+        gameManager = GameManager.Instance;
+
     }
 
     void Update()
     {
+        // Check if InventoryWhole is active
+        if (inventoryWhole.activeSelf || gameManager.Frose || gameManager.PlayerFrozen)
+        {
+            return; // Exit the Update method if InventoryWhole is active
+        }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             currentAmmoType = (currentAmmoType + 1) % 2; // Switch between 0 and 1, allows for more ammo types in the future
