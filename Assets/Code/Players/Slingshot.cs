@@ -16,19 +16,24 @@ public class Slingshot : MonoBehaviour
 
     private GameObject currentAmmoPrefab;
     private int currentAmmoType = 0; // 0 for infinite ammo, 1 for smoke bomb
+    private InventorySystem inventorySystem;
     private GameManager gameManager;
     private bool isHolding = false;
     private float holdTime = 0f;
     public const float requiredHoldTime = .5f; // Required hold time in seconds
     public GameObject inventoryWhole; // Reference to the InventoryWhole game object
 
+    // Add references to the Canvas UI objects
+    public GameObject smokeBombUI;
+    public GameObject rockUI;
+
     void Start()
     {
+        inventorySystem = InventorySystem.Instance;
         gameManager = FindObjectOfType<GameManager>();
         SwitchAmmoType();
         lineRenderer.positionCount = lineSegmentCount;
         gameManager = GameManager.Instance;
-
     }
 
     void Update()
@@ -103,19 +108,22 @@ public class Slingshot : MonoBehaviour
         if (currentAmmoType == 0)
         {
             currentAmmoPrefab = infiniteAmmoPrefab;
+            rockUI.SetActive(true);
+            smokeBombUI.SetActive(false);
         }
         else if (currentAmmoType == 1)
         {
             currentAmmoPrefab = smokeBombPrefab;
+            rockUI.SetActive(false);
+            smokeBombUI.SetActive(true);
         }
     }
 
     void LaunchAmmo()
     {
         Debug.Log("Attempting to launch ammo. Current ammo type: " + currentAmmoType);
-        Debug.Log("Current smoke bombs in inventory: " + gameManager.smokeBombs);
 
-        if (currentAmmoType == 1 && gameManager.smokeBombs <= 0)
+        if (currentAmmoType == 1 && !HasSmokeBomb())
         {
             Debug.Log("No smoke bombs left!");
             return;
@@ -134,8 +142,33 @@ public class Slingshot : MonoBehaviour
 
         if (currentAmmoType == 1)
         {
-            gameManager.smokeBombs--;
-            Debug.Log("Smoke bomb launched. Remaining smoke bombs: " + gameManager.smokeBombs);
+            UseSmokeBomb();
+            Debug.Log("Smoke bomb launched.");
+        }
+    }
+
+    bool HasSmokeBomb()
+    {
+        for (int i = 0; i < inventorySystem.Items.Length; i++)
+        {
+            if (inventorySystem.Items[i] == 8) // 8 represents a smoke bomb
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void UseSmokeBomb()
+    {
+        for (int i = 0; i < inventorySystem.Items.Length; i++)
+        {
+            if (inventorySystem.Items[i] == 8) // 8 represents a smoke bomb
+            {
+                inventorySystem.Items[i] = 0; // Remove the smoke bomb from the inventory
+                inventorySystem.UpdateInventorySlots(); // Update the inventory UI
+                break;
+            }
         }
     }
 
