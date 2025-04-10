@@ -27,10 +27,14 @@ public class Slingshot : MonoBehaviour
     public GameObject smokeBombUI;
     public GameObject rockUI;
 
+    // Add a reference to the Player_Movement script
+    private Player_Movement playerMovement;
+
     void Start()
     {
         inventorySystem = InventorySystem.Instance;
         gameManager = FindObjectOfType<GameManager>();
+        playerMovement = FindObjectOfType<Player_Movement>(); // Find the Player_Movement script
         SwitchAmmoType();
         lineRenderer.positionCount = lineSegmentCount;
         gameManager = GameManager.Instance;
@@ -39,10 +43,11 @@ public class Slingshot : MonoBehaviour
     void Update()
     {
         // Check if InventoryWhole is active
-        if (inventoryWhole.activeSelf || gameManager.Frose || gameManager.PlayerFrozen)
+        if (inventoryWhole.activeSelf || gameManager.Frose || !playerMovement.isGrounded)
         {
             return; // Exit the Update method if InventoryWhole is active
         }
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -72,7 +77,9 @@ public class Slingshot : MonoBehaviour
         isHolding = true;
         holdTime = 0f;
         animator.SetTrigger("StartHolding");
+        gameManager.PlayerFrozen = true; // Freeze the player
         yield return new WaitForSeconds(0.5f); // Wait for 0.5 seconds
+        
 
         if (Input.GetMouseButton(0)) // Check if the mouse button is still held down
         {
@@ -90,6 +97,7 @@ public class Slingshot : MonoBehaviour
         isHolding = false;
         animator.SetBool("IsHolding", false);
         animator.SetTrigger("Release");
+        gameManager.PlayerFrozen = false; // Unfreeze the player
 
         if (holdTime >= requiredHoldTime)
         {
