@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public int smokeBombs = 0;
     public int healingHoney = 0;
     public int preventative = 0;
+    public bool Frose = false; //Bool used to stop all character movement in the event of cutscenes, check update of characters for more info
+    public bool PlayerFrozen = false; //Used to stop player movement only
 
     public int deathTic = 0;
     public int winTic = 0;

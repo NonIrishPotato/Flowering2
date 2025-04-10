@@ -393,7 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5796096773146111396}
-  - component: {fileID: 7657541294803718433}
+  - component: {fileID: 6549388412553365531}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -410,7 +410,7 @@ Transform:
   m_GameObject: {fileID: 8001570867228849851}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -47.98463, y: -17.26044, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -419,7 +419,7 @@ Transform:
   - {fileID: 8854830933705821751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7657541294803718433
+--- !u!114 &6549388412553365531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,29 +428,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8001570867228849851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83a5fca1f125da041ba3211114167328, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e332669851177d4c9beb46adcc5fcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds:
-  - name: Main Menu Theme
-    clip: {fileID: 8300000, guid: 3d1c274834808c74ea66918e528bdf8f, type: 3}
-  - name: Cave Ambience
-    clip: {fileID: 8300000, guid: 13b659ecbecfdab4dbf6dbe6f56958c8, type: 3}
-  - name: Game Over Theme
-    clip: {fileID: 8300000, guid: e8bc5e5ae86b7af4094e966195811e46, type: 3}
-  - name: Game Music
-    clip: {fileID: 8300000, guid: 506bb41ff10306e4e87b08cda00d895f, type: 3}
-  sfxSounds:
-  - name: Walk
-    clip: {fileID: 8300000, guid: cd110a201e661714495900e01c9ec3f5, type: 3}
-  - name: Slingshot Fire
-    clip: {fileID: 8300000, guid: 44120da5ccadce14180619ba9d19fe04, type: 3}
-  sfxSoundsTheSequal:
-  - name: Jump
-    clip: {fileID: 8300000, guid: 0b8c56b78fd472e419d1c8fb4cafc5fa, type: 3}
-  enemyScreamSound: {fileID: 8300000, guid: b09639833ab4d8146a8fc53292d7a521, type: 3}
-  musicSource: {fileID: 8525006386594171972}
   sfxSource: {fileID: 4318993410182403230}
-  sfxSourceTheSequal: {fileID: 2622789131933289586}
-  isPlaying: 0
-  iHateMyself: 0
+  MusicSource: {fileID: 8525006386594171972}
+  LowPitchRange: 0.95
+  HighPitchRange: 1.05

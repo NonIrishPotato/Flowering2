@@ -22,13 +22,13 @@ public class TestingPlayerSounds : MonoBehaviour
 
             if (isWalking && !AudioManager.Instance.sfxSource.isPlaying)
             {
-                AudioManager.Instance.PlaySFX("Walk");
+                AudioManager.Instance.sfxSource.Play();
                 Debug.Log("Player is walking");
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                AudioManager.Instance.PlaySFX("Slingshot Fire");
+                AudioManager.Instance.sfxSource.Play();
             }
         }
     }
