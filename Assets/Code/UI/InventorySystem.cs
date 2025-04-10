@@ -292,7 +292,7 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-    private void UpdateInventorySlots()
+    public void UpdateInventorySlots()
     {
 
         for (int i = 0; i < 22; i++)
