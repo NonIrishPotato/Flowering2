@@ -80,18 +80,19 @@ public class Player_Movement : MonoBehaviour
 
             // Check if the character is grounded
             isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
             if (isGrounded)
             {
                 isJumping = false;
-
+                animator.SetTrigger("isLanded");
             }
 
-            if(!isGrounded && !isJumping)
+            if (!isGrounded && !isJumping)
             {
                 animator.SetBool("isFalling", true);
             }
 
-            if(!isGrounded&&isJumping&&currentFuel<=0)
+            if (!isGrounded&&isJumping&&currentFuel<=0)
             {
                 animator.SetBool("isFalling", true);
             }
