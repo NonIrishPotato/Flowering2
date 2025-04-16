@@ -28,7 +28,7 @@ public class Player_Movement : MonoBehaviour
     private bool isJumping = false;
 
     private Rigidbody2D rb;
-    private bool isGrounded;
+    public bool isGrounded;
     private Transform groundCheck;
     private Collider2D myCollider;
 
