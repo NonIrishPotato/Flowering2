@@ -203,7 +203,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &421208578957171191
@@ -276,7 +276,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.575, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &5739647548157611249
 MonoBehaviour:
@@ -305,6 +305,8 @@ MonoBehaviour:
   jumpJetpackFuelCostPerSecond: 5
   maxFuel: 25
   fuelRechargeRate: 25
+  isGrounded: 0
+  playerAnim: {fileID: 0}
 --- !u!95 &4595123397177399776
 Animator:
   serializedVersion: 5
@@ -342,4 +344,11 @@ MonoBehaviour:
   smokeBombPrefab: {fileID: 0}
   launchPoint: {fileID: 3385630694889265043}
   launchForce: 10
+  spinForce: 100
   animator: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  lineSegmentCount: 20
+  lineLength: 5
+  inventoryWhole: {fileID: 0}
+  smokeBombUI: {fileID: 0}
+  rockUI: {fileID: 0}
