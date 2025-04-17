@@ -1,18 +1,56 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CaveIn : MonoBehaviour
+public class DynamicCaveIn : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject rockPrefab;
+    public Transform[] spawnPoints; // Places rocks fall from
+    public float fallInterval = 1.5f;
+    public float startDelay = 1f;
+    public AudioClip caveInSound;
+
+    private bool caveInActive = false;
+    private bool playerSafe = false;
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        if (caveInSound != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = caveInSound;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (!caveInActive && other.CompareTag("Player"))
+        {
+            caveInActive = true;
+            if (audioSource) audioSource.Play();
+            StartCoroutine(SpawnFallingRocks());
+        }
+    }
+
+    IEnumerator SpawnFallingRocks()
+    {
+        yield return new WaitForSeconds(startDelay);
+
+        while (!playerSafe)
+        {
+            SpawnRock();
+            yield return new WaitForSeconds(fallInterval);
+        }
+    }
+
+    void SpawnRock()
+    {
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(rockPrefab, spawnPoint.position, Quaternion.identity);
+    }
+
+    public void StopCaveIn()
+    {
+        playerSafe = true;
     }
 }
