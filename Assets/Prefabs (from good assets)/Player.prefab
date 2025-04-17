@@ -300,11 +300,11 @@ MonoBehaviour:
   jumpForce: 5
   damageForce: 10
   damageCooldown: 2
-  jumpJetpackForce: 2
+  jumpJetpackForce: 3
   jumpJetpackInitialFuelCost: 20
-  jumpJetpackFuelCostPerSecond: 5
+  jumpJetpackFuelCostPerSecond: 4
   maxFuel: 25
-  fuelRechargeRate: 25
+  fuelRechargeRate: 1000
   isGrounded: 0
   playerAnim: {fileID: 0}
 --- !u!95 &4595123397177399776
