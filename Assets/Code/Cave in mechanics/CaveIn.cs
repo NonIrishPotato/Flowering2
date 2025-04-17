@@ -8,6 +8,7 @@ public class DynamicCaveIn : MonoBehaviour
     public float fallInterval = 1.5f;
     public float startDelay = 1f;
     public AudioClip caveInSound;
+    public float lifetime;
 
     private bool caveInActive = false;
     private bool playerSafe = false;
@@ -29,6 +30,7 @@ public class DynamicCaveIn : MonoBehaviour
             caveInActive = true;
             if (audioSource) audioSource.Play();
             StartCoroutine(SpawnFallingRocks());
+            Debug.Log("Cave In Started");
         }
     }
 
@@ -47,10 +49,13 @@ public class DynamicCaveIn : MonoBehaviour
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(rockPrefab, spawnPoint.position, Quaternion.identity);
+
+        Destroy(rockPrefab, lifetime);
     }
 
     public void StopCaveIn()
     {
         playerSafe = true;
+        Debug.Log("Cave In Stopped");
     }
 }

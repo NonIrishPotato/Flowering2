@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
@@ -46,6 +47,21 @@ public class Player_Movement : MonoBehaviour
     private bool hasChangedAnimation = false;
     public static Animator animator;
     public static bool isFacingLeft;
+
+    public static Player_Movement Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -333,10 +349,11 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    private void CheckForDamage()
+    public void CheckForDamage()
     {
         if (canTakeDamage)
         {
+            TakeDamage();
             // Implement player damage detection here (e.g., using OnCollisionEnter2D)
         }
     }
@@ -359,7 +376,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && canTakeDamage)
         {
-            TakeDamage();
+            CheckForDamage();
         }
     }
 
@@ -392,3 +409,4 @@ public class Player_Movement : MonoBehaviour
         animator.SetBool("isIdle", isIdle);
     }
 }
+
