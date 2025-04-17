@@ -47,19 +47,36 @@ public class PickUpItem : MonoBehaviour
             if (isNecterbloom)
             {
                 Manager.necterblooms += 1;
-                isPicked = true;
+                UpdateInventoryArray(4);  // Necterbloom
             }
             if (isBloatedFungus)
             {
                 Manager.bloatedFungus += 1;
-                isPicked = true;
+                UpdateInventoryArray(5);  // Bloated Fungus
             }
             if (isRootClippings)
             {
                 Manager.rootClippings += 1;
-                isPicked = true;
+                UpdateInventoryArray(6);  // Root Clippings
+            }
+            isPicked = true;
+        }
+    }
 
+    void UpdateInventoryArray(int itemType)
+    {
+        for (int i = 0; i < Manager.intArray.Length; i++)
+        {
+            if (Manager.intArray[i] == 0)  // Find an empty slot
+            {
+                Manager.intArray[i] = itemType;
+                break;
             }
         }
+
+        // Clear the picked item count in GameManager to avoid duplication
+        if (itemType == 4) Manager.necterblooms = 0;
+        if (itemType == 5) Manager.bloatedFungus = 0;
+        if (itemType == 6) Manager.rootClippings = 0;
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Hide
   - InventorySlot
   - HidingSpot
+  - Inventory UI
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Hide
   - Background
   - Inventroy
-  - 
+  - Line
   - 
   - 
   - 

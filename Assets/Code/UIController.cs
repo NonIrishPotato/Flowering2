@@ -6,24 +6,31 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public Slider _musicSlider, _sfxSlider;
+    public GameObject UI;
+    public void Awake()
+    {
+        
+        
 
+
+    }
     public void ToggleMusic()
     {
-        AudioManager.Instance.ToggleMusic();
+        //AudioManager.Instance.ToggleMusic();
     }
 
     public void ToggleSFX()
     {
-        AudioManager.Instance.ToggleSFX();
+        //AudioManager.Instance.ToggleSFX();
     }
 
     public void MusicVolume()
     {
-        AudioManager.Instance.MusicVolume(_musicSlider.value);
+        //AudioManager.Instance.MusicVolume(_musicSlider.value);
     }
 
     public void SFXVolume()
     {
-        AudioManager.Instance.SFXVolume(_sfxSlider.value);
+        //AudioManager.Instance.SFXVolume(_sfxSlider.value);
     }
 }

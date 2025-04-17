@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1823962541302738814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3385630694889265043}
+  m_Layer: 0
+  m_Name: Sling Starting Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3385630694889265043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823962541302738814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.52, y: 0.46, z: 0}
+  m_LocalScale: {x: 2.4044263, y: 2.0433915, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7193538937347692869}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6784996639547390433
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +129,7 @@ GameObject:
   - component: {fileID: 2721987255079328978}
   - component: {fileID: 5739647548157611249}
   - component: {fileID: 4595123397177399776}
+  - component: {fileID: 998368511861462099}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -119,6 +151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5811666912372700361}
+  - {fileID: 3385630694889265043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8808260747284442077
@@ -162,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 1196266577, guid: 988075951c8517f428571c7985764b5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,7 +203,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &421208578957171191
@@ -235,8 +268,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.35}
+    oldSize: {x: 0.8125, y: 1.375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -265,11 +298,15 @@ MonoBehaviour:
   sprintDuration: 3
   sprintCooldown: 5
   jumpForce: 5
-  slowfallGravity: 0.2
   damageForce: 10
   damageCooldown: 2
-  localIsWalking: 0
-  duration: 3
+  jumpJetpackForce: 3
+  jumpJetpackInitialFuelCost: 20
+  jumpJetpackFuelCostPerSecond: 4
+  maxFuel: 25
+  fuelRechargeRate: 1000
+  isGrounded: 0
+  playerAnim: {fileID: 0}
 --- !u!95 &4595123397177399776
 Animator:
   serializedVersion: 5
@@ -291,3 +328,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &998368511861462099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645920848420852957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d17087ed08c2234781979b1a61379cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infiniteAmmoPrefab: {fileID: 0}
+  smokeBombPrefab: {fileID: 0}
+  launchPoint: {fileID: 3385630694889265043}
+  launchForce: 10
+  spinForce: 100
+  animator: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  lineSegmentCount: 20
+  lineLength: 5
+  inventoryWhole: {fileID: 0}
+  smokeBombUI: {fileID: 0}
+  rockUI: {fileID: 0}

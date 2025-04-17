@@ -44,6 +44,8 @@ public class Enemy_Patrol : MonoBehaviour
     public AudioSource enemyIdleSound;
     bool isSoundPlaying;
 
+    public AudioClip chaseClip;
+
     public Animator animator; //You might need to drag each GameObject to the Animator component in Inspector
     string _currentState;
     const string ENEMY_WALK = "EM_Walk";
@@ -57,7 +59,6 @@ public class Enemy_Patrol : MonoBehaviour
         Chasing,
         Recover,
         Distracted
-
     }
 
     private EnemyState currentState = EnemyState.Patrolling;
@@ -81,7 +82,7 @@ public class Enemy_Patrol : MonoBehaviour
 
     private void Update()
     {
-        if(!PauseMenuScript.isPaused)
+        if (!PauseMenuScript.isPaused)
         {
             if (waypoints.Length == 0)
                 return;
@@ -125,7 +126,6 @@ public class Enemy_Patrol : MonoBehaviour
                     break;
             }
 
-
             if (gameManager.IsPlayerCrouching || gameManager.smokeBombActive)
             {
                 playerDetectionRadius = playerCrouchDetectionRadius;
@@ -155,8 +155,6 @@ public class Enemy_Patrol : MonoBehaviour
                 Debug.Log("LargeHazardHit " + playerDetectionRadius);
             }
         }
-
-       
     }
 
     private void Patrol()
@@ -174,9 +172,7 @@ public class Enemy_Patrol : MonoBehaviour
             Vector2 targetPosition = waypoints[currentWaypointIndex].position;
             Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
             float distance = Vector2.Distance(transform.position, targetPosition);
-            enemyIdleSound.Play();
             ChangeAnimationState(ENEMY_WALK);
-            isSoundPlaying = false;
 
             if (distance > waypointRadius)
             {
@@ -188,7 +184,11 @@ public class Enemy_Patrol : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
 
-            //CheckForObstacles(moveDirection.x);
+            if (isSoundPlaying)
+            {
+                enemyIdleSound.Stop();
+                isSoundPlaying = false;
+            }
         }
     }
 
@@ -198,13 +198,14 @@ public class Enemy_Patrol : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
         FlipDirection(moveDirection.x);
 
-        //CheckForObstacles(moveDirection.x);
         Physics2D.IgnoreLayerCollision(playerRb.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
         ChangeAnimationState(ENEMY_FLY);
-        if(!isSoundPlaying)
+
+        if (!isSoundPlaying)
         {
-            AudioManager.Instance.sfxSource.PlayOneShot(AudioManager.Instance.enemyScreamSound);
-            Debug.Log(isSoundPlaying);
+            enemyIdleSound.Stop();
+            enemyIdleSound.clip = chaseClip;
+            enemyIdleSound.Play();
             isSoundPlaying = true;
         }
     }
@@ -252,7 +253,6 @@ public class Enemy_Patrol : MonoBehaviour
             Debug.Log(gameManager.currentHealth);
             canHitPlayer = false;
             moveSpeed = 0;
-            AudioManager.Instance.PlaySFX("Enemy Attack");
             ChangeAnimationState(ENEMY_FLY_LUNGE);
             StartCoroutine(PauseChase());
             gameManager.winTic = 0;
@@ -270,6 +270,7 @@ public class Enemy_Patrol : MonoBehaviour
         Debug.Log("Pause End");
         canHitPlayer = true;
     }
+
     public void ChangeAnimationState(string newState)
     {
         if (newState == _currentState)
@@ -281,5 +282,4 @@ public class Enemy_Patrol : MonoBehaviour
 
         _currentState = newState;
     }
-
 }

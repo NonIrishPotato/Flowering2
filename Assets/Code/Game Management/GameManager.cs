@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private BerryController berryController;
+    public GameObject inventoryImage;
 
     public static GameManager Instance;
     public bool IsPlayerHiding = false;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     public int smokeBombs = 0;
     public int healingHoney = 0;
     public int preventative = 0;
+    public bool Frose = false; //Bool used to stop all character movement in the event of cutscenes, check update of characters for more info
+    public bool PlayerFrozen = false; //Used to stop player movement only
 
     public int deathTic = 0;
     public int winTic = 0;
@@ -51,8 +54,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         LoadIntArray();
         LoadKeyArray();
+        GameObject InventoryInilization = GameObject.FindWithTag("Inventory UI");
+       
+        InventoryInilization.SetActive(true);
+        Debug.Log("test");
+        
     }
 
     // Update is called once per frame
