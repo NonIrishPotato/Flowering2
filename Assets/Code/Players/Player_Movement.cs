@@ -19,10 +19,10 @@ public class Player_Movement : MonoBehaviour
     public float damageCooldown = 2f; // Adjust this value for the cooldown after taking damage
 
     public float jumpJetpackForce = 2f; // The force applied by the jump jetpack
-    public float jumpJetpackInitialFuelCost = 20f; // The initial fuel cost to start the jump jetpack
-    public float jumpJetpackFuelCostPerSecond = 5f; // The fuel cost per second while using the jump jetpack
+    public float jumpJetpackInitialFuelCost = 11f; // The initial fuel cost to start the jump jetpack
+    public float jumpJetpackFuelCostPerSecond = 10f; // The fuel cost per second while using the jump jetpack
     public float maxFuel = 25f; // The maximum fuel capacity
-    public float fuelRechargeRate = 25f; // The rate at which fuel recharges per second
+    public float fuelRechargeRate = 100000000f; // The rate at which fuel recharges per second
 
     private float currentFuel;
     private bool isJumping = false;
