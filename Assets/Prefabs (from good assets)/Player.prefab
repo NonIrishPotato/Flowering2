@@ -152,6 +152,7 @@ Transform:
   m_Children:
   - {fileID: 5811666912372700361}
   - {fileID: 3385630694889265043}
+  - {fileID: 1490468483823144272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8808260747284442077
@@ -203,7 +204,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &421208578957171191
@@ -276,7 +277,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.575, y: 1.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5739647548157611249
 MonoBehaviour:
@@ -300,13 +301,12 @@ MonoBehaviour:
   jumpForce: 5
   damageForce: 10
   damageCooldown: 2
-  jumpJetpackForce: 3
+  jumpJetpackForce: 2
   jumpJetpackInitialFuelCost: 20
-  jumpJetpackFuelCostPerSecond: 4
+  jumpJetpackFuelCostPerSecond: 5
   maxFuel: 25
-  fuelRechargeRate: 1000
+  fuelRechargeRate: 25000
   isGrounded: 0
-  playerAnim: {fileID: 0}
 --- !u!95 &4595123397177399776
 Animator:
   serializedVersion: 5
@@ -352,3 +352,65 @@ MonoBehaviour:
   inventoryWhole: {fileID: 0}
   smokeBombUI: {fileID: 0}
   rockUI: {fileID: 0}
+--- !u!1001 &3729136958213817998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7193538937347692869}
+    m_Modifications:
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470990204712010733, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+      propertyPath: m_Name
+      value: Line render starting point
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+--- !u!4 &1490468483823144272 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2841696040508984286, guid: 1aa0ac15832af3249b63d84b4c84abf8, type: 3}
+  m_PrefabInstance: {fileID: 3729136958213817998}
+  m_PrefabAsset: {fileID: 0}
