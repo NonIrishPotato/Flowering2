@@ -305,7 +305,7 @@ MonoBehaviour:
   jumpJetpackInitialFuelCost: 20
   jumpJetpackFuelCostPerSecond: 5
   maxFuel: 25
-  fuelRechargeRate: 25
+  fuelRechargeRate: 25000
   isGrounded: 0
 --- !u!95 &4595123397177399776
 Animator:
