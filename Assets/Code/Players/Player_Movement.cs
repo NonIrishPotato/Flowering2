@@ -369,6 +369,7 @@ public class Player_Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(damageCooldown);
         animator.ResetTrigger("TakeDamage");
+        Debug.Log("reset Trigger");
         canTakeDamage = true;
     }
 
