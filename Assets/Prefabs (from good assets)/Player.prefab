@@ -146,9 +146,9 @@ Transform:
   m_GameObject: {fileID: 8645920848420852957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: -1.71, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 10.5, y: -0.49, z: -0.02106}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5811666912372700361}
   - {fileID: 3385630694889265043}
@@ -204,7 +204,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &421208578957171191
@@ -297,7 +297,7 @@ MonoBehaviour:
   crouchSpeed: 2
   sprintSpeed: 10
   sprintDuration: 3
-  sprintCooldown: 5
+  sprintCooldown: 1
   jumpForce: 5
   damageForce: 10
   damageCooldown: 2
@@ -307,6 +307,7 @@ MonoBehaviour:
   maxFuel: 25
   fuelRechargeRate: 25000
   isGrounded: 0
+  playerAnim: {fileID: 0}
 --- !u!95 &4595123397177399776
 Animator:
   serializedVersion: 5
