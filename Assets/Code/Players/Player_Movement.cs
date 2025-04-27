@@ -192,6 +192,7 @@ public class Player_Movement : MonoBehaviour
         if (sprintTimer >= sprintDuration)
         {
             StopSprinting();
+            canSprint = false;
             StartCoroutine(SprintCooldown());
         }
 
@@ -209,6 +210,7 @@ public class Player_Movement : MonoBehaviour
 
         // ANIMATION: STOP SPRINTING
         animator.SetBool("isSprinting", false);
+        animator.SetBool("isWalking", localIsWalking); // Ensure walking animation is set correctly when not sprinting
     }
 
     private void MoveCharacter()
