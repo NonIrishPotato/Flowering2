@@ -26,7 +26,7 @@ public class Player_Movement : MonoBehaviour
     public float fuelRechargeRate = 100000000f; // The rate at which fuel recharges per second
 
     private float currentFuel;
-    private bool isJumping = false;
+    [SerializeField] private bool isJumping = false;
 
     private Rigidbody2D rb;
     public bool isGrounded;
@@ -229,20 +229,18 @@ public class Player_Movement : MonoBehaviour
             if (isMovingLeft)
             {
                 isFacingLeft = true;
-                Debug.Log("Facing Left: " + isFacingLeft); // Debug to check if facing left
             }
             else
             {
                 isFacingLeft = false;
-                Debug.Log("Facing Right: " + isFacingLeft); // Debug to check if facing right
             }
 
             animator.SetBool("isFacingLeft", isFacingLeft);
 
-            if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
+            /*if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
             {
                 AudioManager.Instance.sfxSource.Play();
-            }
+            }*/
         }
         else
         {
@@ -273,23 +271,12 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetButtonUp("Jump") || isGrounded)
         {
             isJumping = false;
-            AudioManager.Instance.sfxSource.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D) && !isGrounded)
-        {
-            // ANIMATION: GLIDING RIGHT
-            animator.SetBool("isGliding", true);
-        }
-        if (Input.GetKeyDown(KeyCode.A) && !isGrounded)
-        {
-            // ANIMATION: GLIDING LEFT
-            animator.SetBool("isGliding", true);
+            //AudioManager.Instance.sfxSource.Play();
         }
 
         if (Input.GetButtonDown("Jump"))
         {
-            AudioManager.Instance.sfxSource.Play();
+            //AudioManager.Instance.sfxSource.Play();
         }
 
         // Use the jump jetpack
@@ -307,6 +294,7 @@ public class Player_Movement : MonoBehaviour
         if (!isGrounded && Input.GetButtonDown("Jump") && currentFuel >= jumpJetpackInitialFuelCost)
         {
             // Initial activation of the jetpack
+            Debug.Log("attempting jetpack");
             rb.velocity = new Vector2(rb.velocity.x, jumpJetpackForce);
             currentFuel -= jumpJetpackInitialFuelCost;
             isJumping = true;
@@ -391,7 +379,7 @@ public class Player_Movement : MonoBehaviour
         // ANIMATION: TAKING DAMAGE
         animator.SetTrigger("TakeDamage");
 
-        AudioManager.Instance.sfxSource.Play();
+        //AudioManager.Instance.sfxSource.Play();
 
         StartCoroutine(DamageCooldown());
     }
