@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Deprecated/Important Scenes/Dungeon 1.unity
     guid: cbe94b836fece95418c959f89ca4d679
   - enabled: 1
-    path: Assets/Deprecated/Important Scenes/Dryburrow Demo.unity
+    path: Assets/Scenes/DryBurrow/Dryburrow Demo.unity
     guid: c0f64faa0021a1b4a9fd0333e8cace1b
   - enabled: 1
     path: Assets/Deprecated/Important Scenes/Game_Over1.unity
