@@ -237,10 +237,10 @@ public class Player_Movement : MonoBehaviour
 
             animator.SetBool("isFacingLeft", isFacingLeft);
 
-            /*if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
+            if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
             {
                 AudioManager.Instance.sfxSource.Play();
-            }*/
+            }
         }
         else
         {
