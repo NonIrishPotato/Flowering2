@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Deprecated/Important Scenes/Nick's Scene.unity
+    path: Assets/Deprecated/Important Scenes/Main_Menu.unity
     guid: b3abb11842b3a4b49b52251201474e51
   - enabled: 1
     path: Assets/Tutorial Scene.unity
