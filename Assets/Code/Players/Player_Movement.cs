@@ -146,7 +146,7 @@ public class Player_Movement : MonoBehaviour
             // Recharge fuel
             RechargeFuel();
 
-            // Check for damage
+           
 
             // Idle State
             IdleState();
