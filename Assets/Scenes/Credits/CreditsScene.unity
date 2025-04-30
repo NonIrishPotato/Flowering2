@@ -321,21 +321,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CREDITS\n\nEmmy Stevens - Bringer of Plague\r\nCreative Director, Graphical
-    Artist\r\n\r\nMJ Antenor - Dread\u2019s Heartbeat\r\nProject Manager, UI Artist\r\n\r\nAlex
-    Basi - The One Who Shakes Earth\u2019s Harmony\r\nCoder, Composer\r\n\r\nNoah
-    Grassle - Weapon\u2019s Smith\r\nCoder\r\n\r\nVixen Beals - Burrower of the Deep\r\nLevel
-    Designer, Coder\r\n\r\nJaden Painter - Harbinger of Life and Hardship\r\nCoder,
-    Level Designer\r\n\r\nNick Granada - Bard of Harmony and Cacophony\r\nSound Designer,
-    Music Maker, Coder\r\n\r\nReed Parkhill - Plead of the Afflicted\r\nSFX Artist,
-    Level Designer\r\n\r\nOrion Allman - Carver of the Caverns\r\nLevel Designer,
-    Trailer Editor\r\n\r\nNoah Green - Professional Tunneler\r\nLevel Designer\r\n\r\nMolly
-    O\u2019Kane - Architect for the Molded\r\nEnvironmental Pixel Artist\r\n\r\nGavin
-    Dudenhoeffer - Savior of Item Aesthetics\r\nItem Artist\r\n\r\nIsaac Jones -
-    Head Stone Smith\r\nEnvironmental Pixel Artist, Animator\r\n\r\nMichael Capriel
-    - High Craftsman of Flesh\r\nCharacter Pixel Artist, Animator\r\n\r\nFatema Salem
-    - Shrew Keeper\r\nPixel Animator\r\n\r\nZ.D.Prince - Feudal Lord\r\nNarrative
-    Work and Level Design\r\n\r\nKirbizoid - Voice of the Damned\r\nVoice Actor"
+  m_text: "CREDITS\nDEV TEAM\n\nEmmy Stevens - Bringer of Plague\r\nCreative Director,
+    Graphical Artist\r\n\r\nMJ Antenor - Dread\u2019s Heartbeat\r\nProject Manager,
+    UI Artist\r\n\r\nAlex Basi - The One Who Shakes Earth\u2019s Harmony\r\nCoder,
+    Composer\r\n\r\nNoah Grassle - Weapon\u2019s Smith\r\nCoder\r\n\r\nVixen Beals
+    - Burrower of the Deep\r\nLevel Designer, Coder\r\n\r\nJaden Painter - Harbinger
+    of Life and Hardship\r\nCoder, Level Designer\r\n\r\nNick Granada - Bard of Harmony
+    and Cacophony\r\nSound Designer, Music Maker, Coder\r\n\r\nReed Parkhill - Plead
+    of the Afflicted\r\nSFX Artist, Level Designer\r\n\r\nOrion Allman - Carver of
+    the Caverns\r\nLevel Designer, Trailer Editor\r\n\r\nNoah Green - Professional
+    Tunneler\r\nLevel Designer\r\n\r\nMolly O\u2019Kane - Architect for the Molded\r\nEnvironmental
+    Pixel Artist\r\n\r\nGavin Dudenhoeffer - Savior of Item Aesthetics\r\nItem Artist\r\n\r\nIsaac
+    Jones - Head Stone Smith\r\nEnvironmental Pixel Artist, Animator\r\n\r\nMichael
+    Capriel - High Craftsman of Flesh\r\nCharacter Pixel Artist, Animator\r\n\r\nFatema
+    Salem - Shrew Keeper\r\nPixel Animator\r\n\r\nZ.D.Prince - Feudal Lord\r\nNarrative
+    Work and Level Design\r\n\r\nKirbizoid - Voice of the Damned\r\nVoice Actor\n\nSOUNDS
+    USED\n\nrocks1.wav by mystiscool -- https://freesound.org/s/7135/ -- License:
+    Attribution 4.0\r\n\nSlowly Stabbing Dirt by andersmmg -- https://freesound.org/s/516317/
+    -- License: Attribution 4.0\r\n\nSerpent Chomp (S).wav by Z_er0 -- https://freesound.org/s/413044/
+    -- License: Attribution 3.0 \r\n\nrubber band plucking with tension by jerry.berumen
+    -- https://freesound.org/s/772721/ -- License: Attribution 4.0 \r\n\nRBH Glass_Break
+    05.wav by RHumphries -- https://freesound.org/s/981/ -- License: Attribution
+    4.0 \r\nbush1.wav by schademans -- https://freesound.org/s/2588/ -- License:
+    Attribution 3.0 \r\n\nWhoosh+Sword_Hit Flesh.wav by marb7e -- https://freesound.org/s/620354/
+    -- License: Attribution 4.0 \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
