@@ -15,6 +15,7 @@ public class Player_Movement : MonoBehaviour
     public float sprintDuration = 3f;
     public float sprintCooldown = 5f;
     public float jumpForce = 5f;
+    public float mudSpeedReduction = 1f;
 
     public float damageForce = 10f; // Adjust this value for the force applied to the player when damaged
     public float damageCooldown = 2f; // Adjust this value for the cooldown after taking damage
@@ -30,6 +31,7 @@ public class Player_Movement : MonoBehaviour
 
     private Rigidbody2D rb;
     public bool isGrounded;
+    public bool isMuddy;
     private Transform groundCheck;
     private Collider2D myCollider;
 
@@ -97,6 +99,9 @@ public class Player_Movement : MonoBehaviour
             // Check if the character is grounded
             isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
+            // Check if the character is touching mud
+            isMuddy = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Mud"));
+
             if (isGrounded)
             {
                 isJumping = false;
@@ -111,6 +116,15 @@ public class Player_Movement : MonoBehaviour
             if (!isGrounded&&isJumping&&currentFuel<=0)
             {
                 animator.SetBool("isFalling", true);
+            }
+
+            if (isMuddy)
+            {
+                mudSpeedReduction = 2f;
+            }
+            else
+            {
+                mudSpeedReduction = 1f;
             }
 
             // Check for damage cooldown
@@ -222,7 +236,7 @@ public class Player_Movement : MonoBehaviour
             animator.SetBool("isWalking", true); // plays the walking animation if in motion
             animator.SetBool("isIdle", false);
 
-            Vector2 moveDirection = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+            Vector2 moveDirection = new Vector2(horizontalInput * (moveSpeed / mudSpeedReduction), rb.velocity.y);
             rb.velocity = moveDirection;
 
             bool isMovingLeft = horizontalInput < 0;
