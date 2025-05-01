@@ -20,15 +20,15 @@ public class TestingPlayerSounds : MonoBehaviour
                 isWalking = false;
             }
 
-            if (isWalking && !AudioManager.Instance.sfxSource.isPlaying)
+            if (isWalking /*&& !AudioManager.Instance.sfxSource.isPlaying*/)
             {
-                AudioManager.Instance.sfxSource.Play();
+                //AudioManager.Instance.sfxSource.Play();
                 Debug.Log("Player is walking");
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                AudioManager.Instance.sfxSource.Play();
+                //AudioManager.Instance.sfxSource.Play();
             }
         }
     }

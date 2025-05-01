@@ -13,7 +13,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevel (int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
-        AudioManager.Instance.musicSource.Stop();
+        //AudioManager.Instance.musicSource.Stop();
     }
 
     IEnumerator LoadAsynchronously (int sceneIndex)

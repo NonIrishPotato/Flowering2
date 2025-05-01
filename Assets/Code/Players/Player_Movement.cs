@@ -48,6 +48,9 @@ public class Player_Movement : MonoBehaviour
     private bool hasChangedAnimation = false;
     public static Animator animator;
     public static bool isFacingLeft;
+    public static bool isFacingRight;
+
+    [SerializeField] private AudioClip walkingSound;
 
     private void Start()
     {
@@ -89,7 +92,7 @@ public class Player_Movement : MonoBehaviour
             if (isGrounded)
             {
                 isJumping = false;
-                animator.SetTrigger("isLanded");
+                //animator.SetTrigger("isLanded");
             }
 
             if (!isGrounded && !isJumping)
@@ -236,11 +239,6 @@ public class Player_Movement : MonoBehaviour
             }
 
             animator.SetBool("isFacingLeft", isFacingLeft);
-
-            if (localIsWalking && isGrounded && !AudioManager.Instance.sfxSource.isPlaying)
-            {
-                AudioManager.Instance.sfxSource.Play();
-            }
         }
         else
         {

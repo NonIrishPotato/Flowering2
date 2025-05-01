@@ -63,7 +63,7 @@ public class PauseMenuScript : MonoBehaviour
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         gameOverMenu.SetActive(true);
-        AudioManager.Instance.sfxSource.Play();
+        //AudioManager.Instance.sfxSource.Play();
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -83,7 +83,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
-        AudioManager.Instance.sfxSource.Play();
+        //AudioManager.Instance.sfxSource.Play();
     }
 
     public void RestartGame()

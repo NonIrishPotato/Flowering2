@@ -298,15 +298,19 @@ MonoBehaviour:
   sprintDuration: 3
   sprintCooldown: 5
   jumpForce: 5
+  mudSpeedReduction: 1
   damageForce: 10
   damageCooldown: 2
-  jumpJetpackForce: 3
+  jumpJetpackForce: 3.8
   jumpJetpackInitialFuelCost: 20
   jumpJetpackFuelCostPerSecond: 4
   maxFuel: 25
   fuelRechargeRate: 1000
+  isJumping: 0
   isGrounded: 0
+  isMuddy: 0
   playerAnim: {fileID: 0}
+  walkingSound: {fileID: 0}
 --- !u!95 &4595123397177399776
 Animator:
   serializedVersion: 5
