@@ -75,7 +75,8 @@ public class MoleBoss : MonoBehaviour
             return;
         }
 
-        if (attacksSinceLastRoar >= Random.Range(roarAfterMinAttacks, roarAfterMaxAttacks + 1))
+        // Prevent roaring while underground
+        if (!isUnderground && attacksSinceLastRoar >= Random.Range(roarAfterMinAttacks, roarAfterMaxAttacks + 1))
         {
             Debug.Log("Boss is roaring.");
             StartCoroutine(Roar());
