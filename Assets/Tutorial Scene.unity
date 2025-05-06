@@ -3181,6 +3181,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1139695584154209719, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500084133339999264, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2087133301846106879, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_Name
       value: Canvas - HUD
@@ -3199,15 +3207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3283329975492225202, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3283329975492225202, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3283329975492225202, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3403568118627307356, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_Pivot.x
@@ -3291,28 +3299,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3544459084101263681, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3544459084101263681, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4097965384732372925, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4097965384732372925, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4097965384732372925, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4191143893708547984, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: rb
       value: 
       objectReference: {fileID: 306636253}
+    - target: {fileID: 4663152897867725216, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4714827446651487064, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3331,11 +3343,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944351229858006203, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8944351229858006203, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9110769495974953815, guid: ef3688ab736b9e0449efa75c8b22a810, type: 3}
       propertyPath: m_IsActive
@@ -61872,7 +61884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4797522980661839325, guid: 7d4e2e6dbf8e70f469df65dd6c3fa279, type: 3}
       propertyPath: sceneToLoad
-      value: Safty Copy
+      value: Transiction Scene
       objectReference: {fileID: 0}
     - target: {fileID: 4894959142198302041, guid: 7d4e2e6dbf8e70f469df65dd6c3fa279, type: 3}
       propertyPath: m_Name
